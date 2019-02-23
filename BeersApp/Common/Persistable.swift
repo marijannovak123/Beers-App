@@ -12,7 +12,8 @@ import RealmSwift
 
 protocol Persistable: Object {
     
+    associatedtype DomainType
     
-
+    func asDomain() -> DomainType
 }
 
