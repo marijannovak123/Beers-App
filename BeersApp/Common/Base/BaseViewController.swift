@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import MBProgressHUD
 
-class BaseViewController<V: BaseViewModel<M>, M: Persistable>: UIViewController {
+class BaseViewController<V>: UIViewController where V: ViewModelType, V: BaseViewModel {
     
     let viewModel: V
     
@@ -26,36 +26,15 @@ class BaseViewController<V: BaseViewModel<M>, M: Persistable>: UIViewController 
     
     //override if additional binds needed
     func bindToViewModel() {
-        viewModel.stateRelay
-            .subscribe { [unowned self] in
-                self.handleState($0.element!)
-            }.disposed(by: disposeBag)
+       
     }
     
     func handleState(_ state: ViewState) {
         handleLoading(state)
     
-        switch state {
-        case .error(let message):
-            showMessage(message)
-        case .info(let message):
-            showMessage(message, isError: false)
-        case .content:
-            onDataRefreshed(data: viewModel.data)
-        case .navigate(let screen):
-            self.navigate(to: screen)
-        case .customEvent(let event):
-            handleEvent(event)
-        default: break
-        }
     }
     
-    //override to work with data
-    func onDataRefreshed(data: M?) {
-        print("Data refreshed: \(data)")
-    }
-    
-    //override for special VC related cases
+
     func handleEvent(_ event: Event) {
         
     }
