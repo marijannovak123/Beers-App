@@ -27,7 +27,7 @@ struct NetworkError: Error {
     init(error: MoyaError?) {
         if let response = error?.response {
             let decodedStatus = ResponseStatus.getByCode(code: response.statusCode)
-            if decodedStatus == .parseError { // If response was succesful, but JSON parsing failed
+            if decodedStatus == .parseError {
                 status = .parseError
             } else {
                 status = decodedStatus
@@ -112,8 +112,9 @@ class Network<ApiTarget: TargetType> {
         self.provider = provider
     }
     
-    func request<T: Decodable>(target: ApiTarget, responseType: T.Type) -> Single<T> {
+    func request<T: Decodable>(target: ApiTarget, responseType: T.Type) -> Observable<T> {
         return provider.rx.request(target)
+            .asObservable()
             .filterSuccessfulStatusCodes()
             .map(responseType)
     }

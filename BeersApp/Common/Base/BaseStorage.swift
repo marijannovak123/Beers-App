@@ -17,5 +17,4 @@ class BaseStorage {
         self.databaseManager = dbManager
     }
     
-   
 }

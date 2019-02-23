@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum ApiEndpoint {
-  
+    case beers(pageNo: Int)
 }
 
 extension ApiEndpoint: TargetType {
@@ -18,15 +18,18 @@ extension ApiEndpoint: TargetType {
     var baseURL: URL { return URL(string: Config.baseUrl)! }
     
     var path: String {
-       return ""
+        switch self {
+        case .beers:
+            return "beers"
+        }
     }
     
     var method: Moya.Method {
         switch self {
-        default: return .get
+        default:
+            return .get
         }
     }
-    
     
     var sampleData: Data {
         return Data()
@@ -34,6 +37,15 @@ extension ApiEndpoint: TargetType {
     
     var task: Task {
         return .requestPlain
+    }
+    
+    var parameters: [String : Any]? {
+        switch self {
+        case .beers(let pageNo):
+            return ["p": pageNo, "key": Config.apiKey]
+        default:
+            return ["key": Config.apiKey]
+        }
     }
     
     var headers: [String: String]? {

@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol Persistable where Self: Object {
     
-    associatedtype DomainType
+    associatedtype DomainType: DomainData
     
     func asDomain() -> DomainType
 }
