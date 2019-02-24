@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import MBProgressHUD
 
-class BaseViewController<V>: UIViewController where V: ViewModelType, V: BaseViewModel {
+class BaseViewController<V>: UIViewController where V: ViewModelType {
     
     let viewModel: V
     
@@ -24,14 +24,13 @@ class BaseViewController<V>: UIViewController where V: ViewModelType, V: BaseVie
         bindToViewModel()
     }
     
-    //override if additional binds needed
+    //have to override!
     func bindToViewModel() {
-       
+       fatalError("didn't bind viewmodel")
     }
     
     func handleState(_ state: ViewState) {
         handleLoading(state)
-    
     }
     
 

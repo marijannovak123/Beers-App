@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum ApiEndpoint {
-    case beers(pageNo: Int)
+    case beers(nameQuery: String)
 }
 
 extension ApiEndpoint: TargetType {
@@ -36,13 +36,20 @@ extension ApiEndpoint: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .beers:
+            return .requestParameters(
+                parameters: self.parameters,
+                encoding: URLEncoding.default)
+        default:
+            return .requestPlain
+        }
     }
     
-    var parameters: [String : Any]? {
+    var parameters: [String : Any] {
         switch self {
-        case .beers(let pageNo):
-            return ["p": pageNo, "key": Config.apiKey]
+        case .beers(let name):
+            return ["key": Config.apiKey, "name": name, "p": 1]
         default:
             return ["key": Config.apiKey]
         }

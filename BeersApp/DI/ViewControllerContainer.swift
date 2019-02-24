@@ -10,8 +10,12 @@ import Swinject
 
 class ViewControllerContainer {
     
-    func build(viewModelContainer: Container) -> Container {
+    static func build(viewModelContainer: Container) -> Container {
         let container = Container(parent: viewModelContainer)
+        
+        container.register(BeerSearchVC.self) {
+            BeerSearchVC(viewModel: $0.resolve(BeerSearchVM.self)!)
+        }
         
         return container
     }

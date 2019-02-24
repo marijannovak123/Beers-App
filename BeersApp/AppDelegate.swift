@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Swinject
+import AlamofireNetworkActivityLogger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-
+    private(set) var singletonContainer: Container!
+    private(set) var viewModelContainer: Container!
+    private(set) var viewControllerContainer: Container!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        createDependencyContainers()
+        logNetwork()
+        resolveRootView()
+        
         return true
+    }
+    
+    func resolveRootView() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let rootVC = viewControllerContainer.resolve(BeerSearchVC.self)!
+        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        window?.makeKeyAndVisible()
+    }
+    
+    func createDependencyContainers() {
+        singletonContainer = SingletonContainer.build()
+        viewModelContainer = ViewModelContainer.build(singletonContainer: singletonContainer)
+        viewControllerContainer = ViewControllerContainer.build(viewModelContainer: viewModelContainer)
+    }
+    
+    func logNetwork() {
+        NetworkActivityLogger.shared.level = .debug
+        NetworkActivityLogger.shared.startLogging()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,7 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
       
     }
-
 
 }
 

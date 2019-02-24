@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DomainData {
+protocol DomainData: Codable {
     
     associatedtype DatabaseType: Persistable
     

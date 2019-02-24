@@ -12,7 +12,7 @@ import Moya
 
 class SingletonContainer {
     
-    func build() -> Container {
+    static func build() -> Container {
         let container = Container(defaultObjectScope: .container)
         
         container.register(Realm.self) { _ in
@@ -38,6 +38,20 @@ class SingletonContainer {
         container.register(UserDefaultsHelper.self) { _ in
             UserDefaultsHelper()
         }
+        
+        container.register(BeerService.self) {
+            BeerService(api: $0.resolve(ApiNetwork.self)!)
+        }
+        
+        container.register(BeerStorage.self) {
+            BeerStorage(dbManager: $0.resolve(DatabaseManager.self)!)
+        }
+        
+        container.register(BeerRepository.self) {
+            BeerRepository(service: $0.resolve(BeerService.self)!)
+        }
+        
+        
         
         return container
     }
