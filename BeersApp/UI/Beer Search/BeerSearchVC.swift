@@ -17,7 +17,7 @@ class BeerSearchVC: BaseViewController<BeerSearchVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tvBeers.registerCell(cellType: BeerCell.self)
+        setupTableView()
     }
 
     override func bindToViewModel() {
@@ -25,15 +25,23 @@ class BeerSearchVC: BaseViewController<BeerSearchVM> {
         let input = BeerSearchVM.Input(searchText: searchTextDriver)
         let output = viewModel.transform(input: input)
         
-//    output.beers
-//        .drive(tvBeers.rx.items(cellIdentifier: BeerCell.identifier)) { _, beer, cell in
-//                cell.configure(with: beer)
-//            }.disposed(by: disposeBag)
-        
-        output.beers.asObservable()
-            .bind(to: tvBeers.rx.items(cellIdentifier: BeerCell.identifier, cellType: BeerCell.self)) { _, beer, cell in
+
+        output.beers
+            .drive(tvBeers.rx.items(cellIdentifier: BeerCell.identifier, cellType: BeerCell.self)) { _, beer, cell in
                 cell.configure(with: beer)
             }.disposed(by: disposeBag)
+        
+        output.isLoading
+            .asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { self.showLoading($0) })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    func setupTableView() {
+        tvBeers.registerCell(cellType: BeerCell.self)
+        tvBeers.rowHeight = UITableView.automaticDimension
     }
   
 }

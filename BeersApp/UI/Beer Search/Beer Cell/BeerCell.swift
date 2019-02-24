@@ -10,11 +10,12 @@ import UIKit
 
 class BeerCell: UITableViewCell, ReusableCell {
     
-    @IBOutlet weak var ivBeer: UIImageView!
-    @IBOutlet weak var lBeerName: UILabel!
+    
+    @IBOutlet weak var ivBeerImage: UIImageView!
+    @IBOutlet weak var lName: UILabel!
     
     func configure(with data: Beer) {
-        lBeerName.text = data.name
+        lName.text = data.name
     }
     
 }

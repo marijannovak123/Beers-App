@@ -14,11 +14,11 @@ struct BeerStyle: DomainData{
     let categoryId: Int
     let category: BeerCategory?
     let name: String
-    let description: String
-    let ibuMin: String
-    let ibuMax: String
-    let abvMin: String
-    let abvMax: String
+    let description: String?
+    let ibuMin: String?
+    let ibuMax: String?
+    let abvMin: String?
+    let abvMax: String?
     
     var uid: Any {
         return self.id

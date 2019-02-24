@@ -13,9 +13,9 @@ class RMBeer: Object, Persistable {
     
     @objc dynamic var id = ""
     @objc dynamic var name = ""
-    @objc dynamic var desc = ""
-    @objc dynamic var abv = ""
-    @objc dynamic var ibu = ""
+    @objc dynamic var desc: String?
+    @objc dynamic var abv: String?
+    @objc dynamic var ibu: String?
     @objc dynamic var style: RMBeerStyle?
     
     func asDomain() -> Beer {

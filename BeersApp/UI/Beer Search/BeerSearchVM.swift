@@ -34,13 +34,12 @@ class BeerSearchVM: ViewModelType {
     func transform(input: BeerSearchVM.Input) -> BeerSearchVM.Output {
         
         let beerDriver = input.searchText
-            .throttle(0.5)
+            .debounce(0.5)
             .filter { $0 != nil }
             .asObservable()
             .flatMap { [unowned self] query in
                 self.repository.fetchBeers(query: query!)
-            }
-            .trackActivity(activityTracker)
+            }.trackActivity(activityTracker)
             .trackError(errorTracker)
             .asDriver(onErrorJustReturn: [])
         

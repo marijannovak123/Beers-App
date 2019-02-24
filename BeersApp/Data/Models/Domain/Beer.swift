@@ -12,9 +12,9 @@ struct Beer: DomainData {
     
     let id: String
     let name: String
-    let description: String
-    let abv: String
-    let ibu: String
+    let description: String?
+    let abv: String?
+    let ibu: String?
     let style: BeerStyle?
     
     var uid: Any {

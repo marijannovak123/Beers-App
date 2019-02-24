@@ -15,11 +15,11 @@ class RMBeerStyle: Object, Persistable {
     @objc dynamic var categoryId = 0
     @objc dynamic var category: RMBeerCategory?
     @objc dynamic var name = ""
-    @objc dynamic var desc = ""
-    @objc dynamic var ibuMin = ""
-    @objc dynamic var ibuMax = ""
-    @objc dynamic var abvMin = ""
-    @objc dynamic var abvMax = ""
+    @objc dynamic var desc: String?
+    @objc dynamic var ibuMin: String?
+    @objc dynamic var ibuMax: String?
+    @objc dynamic var abvMin: String?
+    @objc dynamic var abvMax: String?
     
     func asDomain() -> BeerStyle {
         return BeerStyle(
