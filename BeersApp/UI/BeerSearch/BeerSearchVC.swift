@@ -9,11 +9,14 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
 
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var tfSearch: UITextField!
+    
+    private lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +31,9 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         let output = viewModel.transform(input: input)
         
         output.beers
-            .drive(tvBeers.rx.items(cellIdentifier: BeerCell.identifier, cellType: BeerCell.self)) { _, beer, cell in
-                cell.configure(with: beer)
-            }.disposed(by: disposeBag)
+            .map { [SectionModel(model: "Beers", items: $0)] }
+            .drive(tvBeers.rx.items(dataSource: self.dataSource))
+            .disposed(by: disposeBag)
         
         output.isLoading
             .asObservable()
@@ -57,7 +60,16 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         tvBeers.rowHeight = UITableView.automaticDimension
     }
     
-    
-  
+    func createDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>> {
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>>(configureCell: { _, tv, ip, beer in
+            let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!
+            cell.configure(with: beer)
+            return cell
+        })
+        
+        dataSource.canEditRowAtIndexPath = { _, _ in true }
+        dataSource.canMoveRowAtIndexPath = { _, _ in true }
+        return dataSource
+    }
 }
 

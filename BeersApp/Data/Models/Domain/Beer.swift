@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RxDataSources
 
-struct Beer: DomainData {
-    
+struct Beer: DomainData, IdentifiableType, Equatable {
+   
     let id: String
     let name: String
     let description: String?
@@ -30,6 +31,14 @@ struct Beer: DomainData {
         beer.ibu = self.ibu
         beer.style = self.style?.asDatabaseType()
         return beer
+    }
+    
+    var identity: String {
+        return self.id
+    }
+    
+    static func == (lhs: Beer, rhs: Beer) -> Bool {
+        return lhs.id == rhs.id
     }
     
 }
