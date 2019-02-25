@@ -16,7 +16,9 @@ target 'BeersApp' do
   pod 'TPKeyboardAvoiding'
   pod 'RxRealm'
   pod 'RealmSwift'
-  
+  pod 'SWRevealViewController'
+  pod 'RxDataSources', '~> 3.0'
+
   target 'BeersAppTests' do
     inherit! :search_paths
     # Pods for testing

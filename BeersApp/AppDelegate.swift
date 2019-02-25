@@ -13,7 +13,7 @@ import AlamofireNetworkActivityLogger
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var instance: AppDelegate {
+    static var instance: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
@@ -34,9 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func resolveRootView() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let rootVC = viewControllerContainer.resolve(BeerSearchVC.self)!
-        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        window?.rootViewController = viewControllerContainer.resolve(SWRevealVC<MenuVC>.self)!
         window?.makeKeyAndVisible()
     }
     

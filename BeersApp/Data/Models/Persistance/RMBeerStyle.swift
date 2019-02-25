@@ -29,9 +29,9 @@ class RMBeerStyle: Object, Persistable {
             name: self.name,
             description: self.desc,
             ibuMin: self.ibuMin,
-            ibuMax: ibuMax,
-            abvMin: abvMin,
-            abvMax: abvMax
+            ibuMax: self.ibuMax,
+            abvMin: self.abvMin,
+            abvMax: self.abvMax
         )
     }
     

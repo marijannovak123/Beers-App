@@ -9,14 +9,41 @@
 import UIKit
 
 enum Screen {
-  
+    
+    case beerSearch
+    case savedBeers
+    case beerDetails(beer: Beer)
+    case menu
     
     func getController() -> UIViewController? {
-        return nil
+        let container = AppDelegate.instance.viewControllerContainer
+        
+        var controller: UIViewController?
+        switch self {
+        case .beerSearch:
+            controller = container?.resolve(BeerSearchVC.self)
+        case .savedBeers:
+            controller = container?.resolve(SavedBeersVC.self)
+        case .menu:
+            return container?.resolve(SWRevealVC<MenuVC>.self)
+        case .beerDetails(let beer):
+            return container?.resolve(BeerDetailsVC.self, argument: beer)
+        }
+        
+        if self.isRootController() {
+            return UINavigationController(rootViewController: controller!)
+        } else {
+            return controller
+        }
     }
     
     func isRootController() -> Bool {
-      return false
+        switch self {
+        case .beerSearch, .savedBeers:
+            return true
+        default:
+            return false
+        }
     }
 }
 

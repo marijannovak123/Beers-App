@@ -21,6 +21,7 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         bindToViewModel()
     }
     
@@ -29,23 +30,7 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
        fatalError("didn't bind viewmodel")
     }
     
-    func handleState(_ state: ViewState) {
-        handleLoading(state)
-    }
     
-
-    func handleEvent(_ event: Event) {
-        
-    }
-    
-    func handleLoading(_ state: ViewState) {
-        switch state {
-        case .loading:
-            showLoading(true)
-        default:
-            showLoading(false)
-        }
-    }
     
     func showLoading(_ show: Bool) {
         self.view.isUserInteractionEnabled = !show

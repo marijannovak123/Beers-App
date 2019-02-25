@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class BeerSearchVC: BaseViewController<BeerSearchVM> {
+class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
 
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var tfSearch: UITextField!
@@ -21,11 +21,12 @@ class BeerSearchVC: BaseViewController<BeerSearchVM> {
     }
 
     override func bindToViewModel() {
-        let searchTextDriver = tfSearch.rx.text.asDriver()
-        let input = BeerSearchVM.Input(searchText: searchTextDriver)
+        let input = BeerSearchVM.Input(
+            searchText: tfSearch.rx.text.asDriver()
+        )
+        
         let output = viewModel.transform(input: input)
         
-
         output.beers
             .drive(tvBeers.rx.items(cellIdentifier: BeerCell.identifier, cellType: BeerCell.self)) { _, beer, cell in
                 cell.configure(with: beer)
@@ -33,15 +34,30 @@ class BeerSearchVC: BaseViewController<BeerSearchVM> {
         
         output.isLoading
             .asObservable()
-            .distinctUntilChanged()
             .subscribe(onNext: { self.showLoading($0) })
             .disposed(by: disposeBag)
         
+        let selectionDriver = tvBeers.rx.itemSelected
+                                .asDriver()
+                                .throttle(0.5)
+        
+        Driver.combineLatest(selectionDriver, output.beers)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] indexBeersJoin in
+                let (indexPath, beers) = indexBeersJoin
+                let beer = beers[indexPath.row]
+                self.tvBeers.deselectRow(at: indexPath, animated: true)
+                self.navigate(to: .beerDetails(beer: beer))
+            }).disposed(by: disposeBag)
+       
     }
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
         tvBeers.rowHeight = UITableView.automaticDimension
     }
+    
+    
   
 }
+
