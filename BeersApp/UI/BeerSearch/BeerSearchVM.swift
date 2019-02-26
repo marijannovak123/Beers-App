@@ -9,13 +9,13 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 class BeerSearchVM: ViewModelType {
 
     private let repository: BeerRepository
     
     private let activityTracker = ActivityIndicator()
-    private let errorTracker = ErrorTracker()
     
     init(repository: BeerRepository) {
         self.repository = repository
@@ -27,7 +27,7 @@ class BeerSearchVM: ViewModelType {
     
     struct Output {
         let isLoading: Driver<Bool>
-        let error: Driver<Error>
+        let beersSection: Driver<[SectionModel<String,Beer>]>
         let beers: Driver<[Beer]>
     }
     
@@ -40,9 +40,16 @@ class BeerSearchVM: ViewModelType {
             .flatMap { [unowned self] query in
                 self.repository.fetchBeers(query: query!)
             }.trackActivity(activityTracker)
-            .trackError(errorTracker)
             .asDriver(onErrorJustReturn: [])
         
-        return Output(isLoading: activityTracker.asDriver(), error: errorTracker.asDriver(), beers: beerDriver)
+        let beerSectionDriver = beerDriver.map {
+            [SectionModel(model: "Beers", items: $0)]
+        }
+        
+        return Output(isLoading: activityTracker.asDriver(), beersSection: beerSectionDriver, beers: beerDriver)
+    }
+    
+    func saveBeer(_ beer: Beer) -> Observable<Void> {
+        return repository.saveBeer(beer)
     }
 }

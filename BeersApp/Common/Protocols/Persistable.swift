@@ -8,11 +8,23 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
-protocol Persistable where Self: Object {
+protocol Persistable where Self: BaseModel {
     
     associatedtype DomainType: DomainData
     
     func asDomain() -> DomainType
+    
 }
 
+
+class BaseModel: Object {
+    
+    @objc dynamic var id = ""
+    
+    override static func primaryKey() -> String {
+        return "id"
+    }
+    
+}

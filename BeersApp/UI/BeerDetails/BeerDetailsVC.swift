@@ -25,6 +25,7 @@ class BeerDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Details"
         setBeerData()
     }
 

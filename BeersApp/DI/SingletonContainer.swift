@@ -48,7 +48,7 @@ class SingletonContainer {
         }
         
         container.register(BeerRepository.self) {
-            BeerRepository(service: $0.resolve(BeerService.self)!)
+            BeerRepository(service: $0.resolve(BeerService.self)!, storage: $0.resolve(BeerStorage.self)!)
         }
         
         

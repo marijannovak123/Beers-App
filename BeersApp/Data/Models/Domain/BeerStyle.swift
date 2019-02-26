@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BeerStyle: DomainData{
+struct BeerStyle: DomainData {
     
     let id: Int
     let categoryId: Int
@@ -27,7 +27,7 @@ struct BeerStyle: DomainData{
     func asDatabaseType() -> RMBeerStyle {
         let style = RMBeerStyle()
         
-        style.id = self.id
+        style.id = String(self.id)
         style.categoryId = self.categoryId
         style.category = self.category?.asDatabaseType()
         style.name = self.name

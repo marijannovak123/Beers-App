@@ -9,9 +9,8 @@
 import Foundation
 import RealmSwift
 
-class RMBeerStyle: Object, Persistable {
+class RMBeerStyle: BaseModel, Persistable {
     
-    @objc dynamic var id = 0
     @objc dynamic var categoryId = 0
     @objc dynamic var category: RMBeerCategory?
     @objc dynamic var name = ""
@@ -23,7 +22,7 @@ class RMBeerStyle: Object, Persistable {
     
     func asDomain() -> BeerStyle {
         return BeerStyle(
-            id: self.id,
+            id: Int(self.id) ?? 0,
             categoryId: self.categoryId,
             category: self.category?.asDomain(),
             name: self.name,

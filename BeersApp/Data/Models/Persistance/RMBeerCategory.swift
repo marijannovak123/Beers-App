@@ -9,13 +9,12 @@
 import Foundation
 import RealmSwift
 
-class RMBeerCategory: Object, Persistable {
+class RMBeerCategory: BaseModel, Persistable {
     
-    @objc dynamic var id = 0
     @objc dynamic var name = ""
     
     func asDomain() -> BeerCategory {
-        return BeerCategory(id: self.id, name: self.name)
+        return BeerCategory(id: Int(self.id)!, name: self.name)
     }
     
 }

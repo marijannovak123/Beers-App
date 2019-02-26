@@ -17,6 +17,8 @@ class MenuChildViewController<V>: BaseViewController<V> where V: ViewModelType {
     
     func addMenuButton() {
         self.revealViewController()?.tapGestureRecognizer()
+        self.revealViewController()?.panGestureRecognizer().isEnabled = true
+    
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"),
                                                                 style: .plain,
                                                                 target: self,
@@ -26,4 +28,5 @@ class MenuChildViewController<V>: BaseViewController<V> where V: ViewModelType {
     @objc private func toggleReveal() {
         self.revealViewController()?.revealToggle(animated: true)
     }
+    
 }

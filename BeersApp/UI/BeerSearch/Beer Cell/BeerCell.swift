@@ -10,7 +10,6 @@ import UIKit
 
 class BeerCell: UITableViewCell, ReusableCell {
     
-    
     @IBOutlet weak var ivBeerImage: UIImageView!
     @IBOutlet weak var lName: UILabel!
     
@@ -21,6 +20,10 @@ class BeerCell: UITableViewCell, ReusableCell {
     
     func configure(with data: Beer) {
         lName.text = data.name
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        //Do nothing
     }
     
 }

@@ -19,7 +19,7 @@ struct BeerCategory: DomainData {
     
     func asDatabaseType() -> RMBeerCategory {
         let beerCategory = RMBeerCategory()
-        beerCategory.id = self.id
+        beerCategory.id = String(self.id)
         beerCategory.name = self.name
         return beerCategory
     }

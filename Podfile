@@ -16,6 +16,7 @@ target 'BeersApp' do
   pod 'TPKeyboardAvoiding'
   pod 'RxRealm'
   pod 'RealmSwift'
+  pod 'Realm'
   pod 'SWRevealViewController'
   pod 'RxDataSources', '~> 3.0'
 

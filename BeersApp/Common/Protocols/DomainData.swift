@@ -16,3 +16,4 @@ protocol DomainData: Codable {
     
     func asDatabaseType() -> DatabaseType
 }
+

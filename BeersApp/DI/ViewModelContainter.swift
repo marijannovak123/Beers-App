@@ -17,8 +17,8 @@ class ViewModelContainer {
             BeerSearchVM(repository: $0.resolve(BeerRepository.self)!)
         }
         
-        container.register(SavedBeersVM.self) { _ in
-            SavedBeersVM()
+        container.register(SavedBeersVM.self) {
+            SavedBeersVM(repository: $0.resolve(BeerRepository.self)!)
         }
         return container
     }

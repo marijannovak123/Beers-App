@@ -36,6 +36,7 @@ DEPENDENCIES:
   - KeychainAccess
   - MBProgressHUD (~> 1.1.0)
   - Moya/RxSwift (~> 12.0)
+  - Realm
   - RealmSwift
   - RxCocoa (~> 4.3.1)
   - RxDataSources (~> 3.0)
@@ -82,6 +83,6 @@ SPEC CHECKSUMS:
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: c6aadf05af0f9ffdad9407d4387a35afcb65d12e
+PODFILE CHECKSUM: 07371fe37523892a90f7aa924ee8ee9e32a860bc
 
 COCOAPODS: 1.6.1

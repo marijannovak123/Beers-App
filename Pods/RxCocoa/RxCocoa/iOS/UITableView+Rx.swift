@@ -172,6 +172,7 @@ extension Reactive where Base: UITableView {
 
         return ControlEvent(events: source)
     }
+    
 
     /**
      Reactive wrapper for `delegate` message `tableView:didDeselectRowAtIndexPath:`.
@@ -181,7 +182,6 @@ extension Reactive where Base: UITableView {
             .map { a in
                 return try castOrThrow(IndexPath.self, a[1])
             }
-
         return ControlEvent(events: source)
     }
 
@@ -285,6 +285,9 @@ extension Reactive where Base: UITableView {
         
         return ControlEvent(events: source)
     }
+    
+ 
+
 
     /**
      Reactive wrapper for `delegate` message `tableView:didDeselectRowAtIndexPath:`.

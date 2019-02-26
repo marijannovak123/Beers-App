@@ -9,9 +9,8 @@
 import Foundation
 import RealmSwift
 
-class RMBeer: Object, Persistable {
+class RMBeer: BaseModel, Persistable {
     
-    @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var desc: String?
     @objc dynamic var abv: String?
@@ -28,5 +27,6 @@ class RMBeer: Object, Persistable {
             style: self.style?.asDomain()
         )
     }
-    
 }
+
+

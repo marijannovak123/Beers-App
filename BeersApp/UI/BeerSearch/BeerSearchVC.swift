@@ -20,6 +20,7 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Browse Beers"
         setupTableView()
     }
 
@@ -30,8 +31,7 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         
         let output = viewModel.transform(input: input)
         
-        output.beers
-            .map { [SectionModel(model: "Beers", items: $0)] }
+        output.beersSection
             .drive(tvBeers.rx.items(dataSource: self.dataSource))
             .disposed(by: disposeBag)
         
@@ -49,15 +49,38 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
             .subscribe(onNext: { [unowned self] indexBeersJoin in
                 let (indexPath, beers) = indexBeersJoin
                 let beer = beers[indexPath.row]
-                self.tvBeers.deselectRow(at: indexPath, animated: true)
                 self.navigate(to: .beerDetails(beer: beer))
             }).disposed(by: disposeBag)
-       
+        
+        let saveSwipeDriver = tvBeers.rx.itemSwipedTrailing()
+            .filter { event in
+                event.actionName == "Save"
+            }.asDriverOnErrorJustComplete()
+        
+        Driver.combineLatest(saveSwipeDriver, output.beers)
+            .asObservable()
+            .flatMap { (parameters) -> Observable<Void> in
+                let (swipeEvent, beers) = parameters
+                let beer = beers[swipeEvent.indexPath.row]
+                return self.viewModel.saveBeer(beer)
+            }.subscribe(onNext: { _ in
+                 self.showMessage("Beer successfully persisted to local storage!")
+            }, onError: { _ in
+                self.showErrorMessage("Error persisting beer.")
+            }).disposed(by: disposeBag)
+        
     }
+    
+}
+
+extension BeerSearchVC: UITableViewDelegate {
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
         tvBeers.rowHeight = UITableView.automaticDimension
+        
+        tvBeers.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     func createDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>> {
@@ -68,8 +91,20 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         })
         
         dataSource.canEditRowAtIndexPath = { _, _ in true }
-        dataSource.canMoveRowAtIndexPath = { _, _ in true }
+
         return dataSource
     }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let saveAction = UIContextualAction(style: .normal, title: "Save") { action, view, handler in
+            handler(true)
+            self.tvBeers.notifyTrailingSwipe(action: "Save", indexPath: indexPath)
+        }
+        
+        saveAction.backgroundColor = .green
+        
+        return UISwipeActionsConfiguration(actions: [saveAction])
+    }
+    
 }
-

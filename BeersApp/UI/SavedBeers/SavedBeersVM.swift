@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 class SavedBeersVM: ViewModelType {
   
@@ -15,11 +17,20 @@ class SavedBeersVM: ViewModelType {
     }
     
     struct Output {
-        
+        let beers: Driver<[Beer]>
+    }
+    
+    private let repository: BeerRepository
+    
+    init(repository: BeerRepository) {
+        self.repository = repository
     }
     
     func transform(input: SavedBeersVM.Input) -> SavedBeersVM.Output {
-        return Output()
+        let beerDriver = repository.loadPersistedBeers()
+            .asDriver(onErrorJustReturn: [])
+        
+        return Output(beers: beerDriver)
     }
     
 }

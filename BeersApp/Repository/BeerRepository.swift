@@ -12,13 +12,23 @@ import RxSwift
 class BeerRepository {
     
     private let service: BeerService
+    private let storage: BeerStorage
     
-    init(service: BeerService) {
+    init(service: BeerService, storage: BeerStorage) {
         self.service = service
+        self.storage = storage
     }
     
     func fetchBeers(query: String) -> Observable<[Beer]> {
         return service.fetchBeersByName(query: query)
+    }
+    
+    func saveBeer(_ beer: Beer) -> Observable<Void> {
+        return storage.save(beer)
+    }
+    
+    func loadPersistedBeers() -> Observable<[Beer]> {
+        return storage.loadAllBeers()
     }
     
 }

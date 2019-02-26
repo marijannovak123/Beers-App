@@ -50,12 +50,12 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
         }
     }
     
-    func showMessage(_ message: String, isError: Bool = true) {
-        if isError {
-            DialogHelper.errorDialog(from: self, message: message)
-        } else {
-            DialogHelper.infoDialog(from: self, title: "Info", message: message)
-        }
+    func showMessage(_ message: String) {
+        DialogHelper.infoDialog(from: self, title: "Info", message: message)
+    }
+    
+    func showErrorMessage(_ message: String) {
+        DialogHelper.errorDialog(from: self, message: message)
     }
     
 }
