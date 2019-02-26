@@ -17,6 +17,7 @@ struct Beer: DomainData {
     let abv: String?
     let ibu: String?
     let style: BeerStyle?
+    let labels: BeerLabel?
     
     var uid: Any {
         return self.id
@@ -30,6 +31,7 @@ struct Beer: DomainData {
         beer.abv = self.abv
         beer.ibu = self.ibu
         beer.style = self.style?.asDatabaseType()
+        beer.labels = self.labels?.asDatabaseType()
         return beer
     }
     

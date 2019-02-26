@@ -16,6 +16,7 @@ class RMBeer: BaseModel, Persistable {
     @objc dynamic var abv: String?
     @objc dynamic var ibu: String?
     @objc dynamic var style: RMBeerStyle?
+    @objc dynamic var labels: RMBeerLabel?
     
     func asDomain() -> Beer {
         return Beer (
@@ -24,7 +25,8 @@ class RMBeer: BaseModel, Persistable {
             description: self.desc,
             abv: self.abv,
             ibu: self.ibu,
-            style: self.style?.asDomain()
+            style: self.style?.asDomain(),
+            labels: self.labels?.asDomain()
         )
     }
 }

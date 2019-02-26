@@ -22,7 +22,7 @@ extension UITableView {
         //Do nothing
     }
     
-    func notifyEditAction(action: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func notifyEditAction(action: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         self.dataSource?.tableView?(self, commit: .delete, forRowAt: indexPath)
     }
 

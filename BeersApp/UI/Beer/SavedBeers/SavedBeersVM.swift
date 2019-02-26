@@ -18,7 +18,8 @@ class SavedBeersVM: ViewModelType {
     
     struct Output {
         let beersSection: Driver<[BeerSection]>
-        let deleteResult: Driver<(String, Bool)>
+        let deleteResult: Driver<UIResult>
+        let beerCount: Driver<Int>
     }
     
     private let repository: BeerRepository
@@ -33,14 +34,17 @@ class SavedBeersVM: ViewModelType {
             .asDriver(onErrorJustReturn: [])
         
         let deleteDriver = input.itemDeleted
-            .debug()
             .asObservable()
-            .flatMap { beer in
+            .flatMap { [unowned self] beer in
                 self.deleteBeer(beer)
-            }.map { ("Successfully deleted.", true) }
-            .asDriver(onErrorJustReturn: ("Error deleting beer.", false))
+            }.map { UIResult(message: "Successfully deleted.", isError: false) }
+            .asDriver(onErrorJustReturn: UIResult(message: "Error deleting beer.", isError: true))
        
-        return Output(beersSection: beerDriver, deleteResult: deleteDriver)
+        let beerCount = beerDriver.map {
+            $0.first?.beers.count ?? 0
+        }
+        
+        return Output(beersSection: beerDriver, deleteResult: deleteDriver, beerCount: beerCount)
     }
     
     func deleteBeer(_ beer: Beer) -> Observable<Void> {

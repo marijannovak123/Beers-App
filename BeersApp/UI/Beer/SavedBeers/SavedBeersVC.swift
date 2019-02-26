@@ -11,9 +11,10 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-class SavedBeersVC: MenuChildViewController<SavedBeersVM> {
+class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
 
     @IBOutlet weak var tvBeers: UITableView!
+    @IBOutlet weak var lNoResults: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,9 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM> {
     }
     
     override func bindToViewModel() {
-        let input = SavedBeersVM.Input(itemDeleted: tvBeers.rx.modelDeleted(Beer.self).asDriver())
+        let deletedDriver = tvBeers.rx.modelDeleted(Beer.self).asDriver()
+        
+        let input = SavedBeersVM.Input(itemDeleted: deletedDriver)
         let output = viewModel.transform(input: input)
         
         output.beersSection
@@ -30,19 +33,29 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM> {
             .disposed(by: disposeBag)
         
         output.deleteResult
-            .drive(onNext: { message, isSuccessful in
-                if isSuccessful {
-                    self.showMessage(message)
+            .drive(onNext: { [unowned self] event in
+                if !event.isError {
+                    self.showMessage(event.message)
                 } else {
-                    self.showErrorMessage(message)
+                    self.showErrorMessage(event.message)
                 }
             }).disposed(by: disposeBag)
         
+        output.beerCount
+            .drive(onNext: { [unowned self] count in
+                self.showEmptyResultSetMessage(count == 0)
+            }).disposed(by: disposeBag)
     }
-
-}
-
-extension SavedBeersVC: UITableViewDelegate {
+    
+    func showEmptyResultSetMessage(_ show: Bool) {
+        if show {
+            tvBeers.isHidden = true
+            lNoResults.isHidden = false
+        } else {
+            tvBeers.isHidden = false
+            lNoResults.isHidden = true
+        }
+    }
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
@@ -59,8 +72,11 @@ extension SavedBeersVC: UITableViewDelegate {
             return cell
         })
         
-        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic,
+                                                                   reloadAnimation: .automatic,
+                                                                   deleteAnimation: .automatic)
         dataSource.canEditRowAtIndexPath = { _, _ in true }
+        
         return dataSource
     }
     
@@ -71,15 +87,6 @@ extension SavedBeersVC: UITableViewDelegate {
         
         return [action]
     }
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { action, view, handler in
-//            self.tvBeers.deleteRows(at: [indexPath], with: .automatic)
-//            //handler(true)
-//        }
-//
-//        deleteAction.backgroundColor = .red
-//
-//        return UISwipeActionsConfiguration(actions: [deleteAction])
-//    }
     
 }
+

@@ -11,20 +11,34 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
-
+class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
+    
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var tfSearch: UITextField!
+    @IBOutlet weak var lNoResults: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Browse Beers"
         setupTableView()
     }
-
+    
     override func bindToViewModel() {
+        let searchTextDriver = tfSearch.rx.text.asDriver()
+        
+        let selectionDriver = tvBeers.rx.itemSelected
+            .asDriver()
+            .throttle(0.5)
+        
+        let saveSwipeDriver = tvBeers.rx.itemSwipedTrailing()
+            .filter { event in
+                event.actionName == "Save"
+            }.asDriverOnErrorJustComplete()
+        
         let input = BeerSearchVM.Input(
-            searchText: tfSearch.rx.text.asDriver()
+            searchText: searchTextDriver,
+            selectionTrigger: selectionDriver,
+            saveTrigger: saveSwipeDriver
         )
         
         let output = viewModel.transform(input: input)
@@ -35,44 +49,42 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         
         output.isLoading
             .asObservable()
-            .subscribe(onNext: { self.showLoading($0) })
-            .disposed(by: disposeBag)
-        
-        let selectionDriver = tvBeers.rx.itemSelected
-                                .asDriver()
-                                .throttle(0.5)
-      
-        //TODO: Refactor this as input!!!
-        Driver.combineLatest(selectionDriver, output.beers)
-            .asObservable()
-            .subscribe(onNext: { [unowned self] indexBeersJoin in
-                let (indexPath, beers) = indexBeersJoin
-                let beer = beers[indexPath.row]
-                self.navigate(to: .beerDetails(beer: beer))
+            .subscribe(onNext: { [unowned self] in
+                self.showLoading($0)
             }).disposed(by: disposeBag)
         
-        let saveSwipeDriver = tvBeers.rx.itemSwipedTrailing()
-            .filter { event in
-                event.actionName == "Save"
-            }.asDriverOnErrorJustComplete()
+       output.selectionResult
+            .drive(onNext: { [unowned self] beer in
+                if let beer = beer {
+                    self.navigate(to: .beerDetails(beer: beer))
+                }
+            }).disposed(by: disposeBag)
         
-        Driver.combineLatest(saveSwipeDriver, output.beers)
-            .asObservable()
-            .flatMap { (parameters) -> Observable<Void> in
-                let (swipeEvent, beers) = parameters
-                let beer = beers[swipeEvent.indexPath.row]
-                return self.viewModel.saveBeer(beer)
-            }.subscribe(onNext: { _ in
-                 self.showMessage("Beer successfully persisted to local storage!")
-            }, onError: { _ in
-                self.showErrorMessage("Error persisting beer.")
+        output.beerCount
+            .drive(onNext: { [unowned self] count in
+                self.showEmptyResultSetMessage(count == 0)
+            }).disposed(by: disposeBag)
+        
+       output.saveResult
+            .drive(onNext: { [unowned self] event in
+                if !event.isError {
+                    self.showMessage(event.message)
+                } else {
+                    self.showErrorMessage(event.message)
+                }
             }).disposed(by: disposeBag)
         
     }
     
-}
-
-extension BeerSearchVC: UITableViewDelegate {
+    func showEmptyResultSetMessage(_ show: Bool) {
+        if show {
+            tvBeers.isHidden = true
+            lNoResults.isHidden = false
+        } else {
+            tvBeers.isHidden = false
+            lNoResults.isHidden = true
+        }
+    }
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
@@ -90,7 +102,7 @@ extension BeerSearchVC: UITableViewDelegate {
         })
         
         dataSource.canEditRowAtIndexPath = { _, _ in true }
-
+        
         return dataSource
     }
     
@@ -107,3 +119,4 @@ extension BeerSearchVC: UITableViewDelegate {
     }
     
 }
+

@@ -21,7 +21,7 @@ protocol Persistable where Self: BaseModel {
 
 class BaseModel: Object {
     
-    @objc dynamic var id = ""
+    @objc dynamic var id = "defaultId"
     
     override static func primaryKey() -> String {
         return "id"
