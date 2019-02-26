@@ -9,7 +9,7 @@
 import Foundation
 import RxDataSources
 
-struct Beer: DomainData, IdentifiableType, Equatable {
+struct Beer: DomainData {
    
     let id: String
     let name: String
@@ -33,12 +33,38 @@ struct Beer: DomainData, IdentifiableType, Equatable {
         return beer
     }
     
+}
+
+extension Beer: IdentifiableType, Equatable {
+    
     var identity: String {
         return self.id
     }
     
     static func == (lhs: Beer, rhs: Beer) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+}
+
+struct BeerSection {
+    var beers: [Beer]
+    var header: String?
+}
+
+extension BeerSection: AnimatableSectionModelType {
+    
+    var items: [Beer] {
+        return self.beers
+    }
+    
+    init(original: BeerSection, items: [Beer]) {
+        self = original
+        self.beers = items
+    }
+    
+    var identity: String? {
+        return header
     }
     
 }

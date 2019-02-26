@@ -16,8 +16,6 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var tfSearch: UITextField!
     
-    private lazy var dataSource = createDataSource()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Browse Beers"
@@ -43,7 +41,8 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM> {
         let selectionDriver = tvBeers.rx.itemSelected
                                 .asDriver()
                                 .throttle(0.5)
-        
+      
+        //TODO: Refactor this as input!!!
         Driver.combineLatest(selectionDriver, output.beers)
             .asObservable()
             .subscribe(onNext: { [unowned self] indexBeersJoin in
@@ -83,7 +82,7 @@ extension BeerSearchVC: UITableViewDelegate {
             .disposed(by: disposeBag)
     }
     
-    func createDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>> {
+    var dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>> {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>>(configureCell: { _, tv, ip, beer in
             let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!
             cell.configure(with: beer)

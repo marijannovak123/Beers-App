@@ -22,6 +22,10 @@ extension UITableView {
         //Do nothing
     }
     
+    func notifyEditAction(action: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.dataSource?.tableView?(self, commit: .delete, forRowAt: indexPath)
+    }
+
 }
 
 extension Reactive where Base: UITableView {
