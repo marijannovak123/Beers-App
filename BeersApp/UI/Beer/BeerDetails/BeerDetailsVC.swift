@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BeerDetailsVC: UIViewController {
 
     @IBOutlet weak var lBeerName: UILabel!
+    @IBOutlet weak var ivBeerImage: UIImageView!
     
     private let beer: Beer
     
@@ -31,5 +33,6 @@ class BeerDetailsVC: UIViewController {
 
     private func setBeerData() {
         lBeerName.text = beer.name
+        ivBeerImage.sd_setImage(with: URL(string: beer.labels?.large ?? ""))
     }
 }

@@ -11,9 +11,10 @@ import Foundation
 class RMBeerLabel: BaseModel, Persistable {
     
     @objc dynamic var icon = ""
+    @objc dynamic var large = ""
     
     func asDomain() -> BeerLabel {
-        return BeerLabel(icon: self.icon)
+        return BeerLabel(icon: self.icon, large: self.large)
     }
     
 }

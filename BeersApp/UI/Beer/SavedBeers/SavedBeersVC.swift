@@ -59,7 +59,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
-        tvBeers.rowHeight = UITableView.automaticDimension
+        tvBeers.rowHeight = 60
         
         tvBeers.rx.setDelegate(self)
             .disposed(by: disposeBag)

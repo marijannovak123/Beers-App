@@ -12,9 +12,11 @@ struct BeerLabel: DomainData {
     
     let id: String = ""
     let icon: String
+    let large: String
     
-    init(icon: String) {
+    init(icon: String, large: String) {
         self.icon = icon
+        self.large = large
     }
     
     var uid: Any {
@@ -25,6 +27,7 @@ struct BeerLabel: DomainData {
         let localLabel = RMBeerLabel()
         localLabel.icon = self.icon
         localLabel.id = self.id
+        localLabel.large = self.large
         return localLabel
     }
     

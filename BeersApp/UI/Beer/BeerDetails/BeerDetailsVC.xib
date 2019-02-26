@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.47"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeerDetailsVC" customModule="BeersApp" customModuleProvider="target">
             <connections>
+                <outlet property="ivBeerImage" destination="qqT-Ag-3i5" id="sh6-Id-OzV"/>
                 <outlet property="lBeerName" destination="LoM-Vk-R0h" id="BfT-Sc-8f2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,8 +22,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qqT-Ag-3i5" userLabel="Beer image">
+                    <rect key="frame" x="32" y="273" width="350" height="350"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="350" id="cxa-eJ-Gpy"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoM-Vk-R0h" userLabel="Beer Name">
-                    <rect key="frame" x="8" y="438" width="398" height="20.5"/>
+                    <rect key="frame" x="30" y="631" width="354" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -30,9 +37,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LoM-Vk-R0h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PkN-2G-zL0"/>
-                <constraint firstItem="LoM-Vk-R0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="hmL-5l-6fG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LoM-Vk-R0h" secondAttribute="trailing" constant="8" id="oTv-R3-c6Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qqT-Ag-3i5" secondAttribute="trailing" constant="32" id="3Ps-WQ-VSq"/>
+                <constraint firstItem="LoM-Vk-R0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="9cg-yR-d91"/>
+                <constraint firstItem="qqT-Ag-3i5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="RYO-rE-PBj"/>
+                <constraint firstItem="qqT-Ag-3i5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TZW-iG-GTQ"/>
+                <constraint firstItem="qqT-Ag-3i5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="aUv-EK-8Lq"/>
+                <constraint firstItem="LoM-Vk-R0h" firstAttribute="top" secondItem="qqT-Ag-3i5" secondAttribute="bottom" constant="8" id="lt2-fR-WRj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LoM-Vk-R0h" secondAttribute="trailing" constant="30" id="oTF-RF-Brp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="18.840579710144929" y="39.508928571428569"/>

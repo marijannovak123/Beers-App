@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BeerCell: UITableViewCell, ReusableCell {
     
@@ -20,6 +21,7 @@ class BeerCell: UITableViewCell, ReusableCell {
     
     func configure(with data: Beer) {
         lName.text = data.name
+        ivBeerImage.sd_setImage(with: URL(string: data.labels?.icon ?? ""), placeholderImage: #imageLiteral(resourceName: "beer_placeholder"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

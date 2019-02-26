@@ -27,6 +27,9 @@ PODS:
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
+  - SDWebImage (4.4.5):
+    - SDWebImage/Core (= 4.4.5)
+  - SDWebImage/Core (4.4.5)
   - Swinject (2.5.0)
   - SWRevealViewController (2.3.0)
   - TPKeyboardAvoiding (1.3.2)
@@ -42,6 +45,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.0)
   - RxRealm
   - RxSwift (~> 4.3.1)
+  - SDWebImage (~> 4.0)
   - Swinject
   - SWRevealViewController
   - TPKeyboardAvoiding
@@ -61,6 +65,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRealm
     - RxSwift
+    - SDWebImage
     - Swinject
     - SWRevealViewController
     - TPKeyboardAvoiding
@@ -79,10 +84,11 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: 07371fe37523892a90f7aa924ee8ee9e32a860bc
+PODFILE CHECKSUM: 66f3b6e22ea8851ed054f641e19f6ecd2363f795
 
 COCOAPODS: 1.6.1
