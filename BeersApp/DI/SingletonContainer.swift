@@ -27,8 +27,11 @@ class SingletonContainer {
             DatabaseManager(realm: $0.resolve(Realm.self)!)
         }
         
-        container.register(MoyaProvider<ApiEndpoint>.self) { _ in
-            MoyaProvider<ApiEndpoint>()
+        container.register(MoyaProvider<ApiEndpoint>.self) {
+            //mock using JWT for learning purposes
+            let userDefaults = $0.resolve(UserDefaultsHelper.self)!
+            let authPlugin = AccessTokenPlugin(tokenClosure: { userDefaults.getJwt() })
+            return MoyaProvider<ApiEndpoint>(plugins: [authPlugin])
         }
         
         container.register(ApiNetwork.self) {
@@ -50,8 +53,6 @@ class SingletonContainer {
         container.register(BeerRepository.self) {
             BeerRepository(service: $0.resolve(BeerService.self)!, storage: $0.resolve(BeerStorage.self)!)
         }
-        
-        
         
         return container
     }

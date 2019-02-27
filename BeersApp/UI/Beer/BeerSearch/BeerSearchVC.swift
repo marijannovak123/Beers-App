@@ -19,7 +19,7 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Browse Beers"
+        self.title = "browse_beers".localized
         setupTableView()
     }
     
@@ -108,7 +108,7 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let saveAction = UIContextualAction(style: .normal, title: "Save") { action, view, handler in
+        let saveAction = UIContextualAction(style: .normal, title: "save".localized) { action, view, handler in
             handler(true)
             self.tvBeers.notifyTrailingSwipe(action: "Save", indexPath: indexPath)
         }

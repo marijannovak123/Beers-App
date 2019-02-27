@@ -51,7 +51,7 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
     }
     
     func showMessage(_ message: String) {
-        DialogHelper.infoDialog(from: self, title: "Info", message: message)
+        DialogHelper.infoDialog(from: self, title: "info".localized, message: message)
     }
     
     func showErrorMessage(_ message: String) {

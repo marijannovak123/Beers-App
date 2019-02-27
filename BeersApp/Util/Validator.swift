@@ -20,20 +20,17 @@ enum ValidationType {
     case isEmail
     case requiredLength(_ length: Int)
     case isProperDate
-    case isGender
     
     func resolveFailedValidationMessage() -> String {
         switch self {
         case .notEmpty:
-            return "Input is required"
+            return "input_required".localized
         case .isEmail:
-            return "Malformed email"
+            return "malformed_mail".localized
         case .requiredLength(let length):
-            return "Input should be at least \(length) characters long"
+            return String(format: "input_length".localized, length)
         case .isProperDate:
-            return "Incorrect date formatting"
-        case .isGender:
-            return "Not a gender"
+            return "incorrect_date".localized
         }
     }
 }
@@ -43,7 +40,6 @@ enum InputType {
     case password
     case username
     case date
-    case gender
     
     func getValidationTypes() -> [ValidationType] {
         switch self {
@@ -55,8 +51,6 @@ enum InputType {
             return [.notEmpty, .requiredLength(4)]
         case .date:
             return [.notEmpty, .isProperDate]
-        case .gender:
-            return [.notEmpty, .isGender]
         }
     }
 }
@@ -104,8 +98,6 @@ class Validator {
                     valid = value.count >= length
                 case .isProperDate:
                     valid = true //do some checking here..
-                case .isGender:
-                    valid = Constants.genders.contains(where: { $0 == value })
                 }
                 
                 if !valid {

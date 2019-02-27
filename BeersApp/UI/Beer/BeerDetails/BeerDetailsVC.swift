@@ -27,7 +27,7 @@ class BeerDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Details"
+        self.title = "beer_details".localized
         setBeerData()
     }
 

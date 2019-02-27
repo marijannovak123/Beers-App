@@ -17,5 +17,9 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
     
 }

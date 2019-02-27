@@ -9,7 +9,6 @@ target 'BeersApp' do
   pod 'RxSwift',    '~> 4.3.1'
   pod 'RxCocoa',    '~> 4.3.1'
   pod 'Moya/RxSwift', '~> 12.0'
-  pod 'KeychainAccess'
   pod 'Swinject'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'AlamofireNetworkActivityLogger', '~> 2.3'

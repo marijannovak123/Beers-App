@@ -58,9 +58,9 @@ class BeerSearchVM: ViewModelType {
                 let beer = beers[swipeEvent.indexPath.row]
                 return self.saveBeer(beer)
             }.map {
-                UIResult(message: "Successfully persisted beer to local storage.", isError: false)
+                UIResult(message: "persist_success".localized, isError: false)
             }.asDriver(onErrorJustReturn:
-                UIResult(message: "Error persisting beer to local storage.", isError: true)
+                UIResult(message: "persist_error".localized, isError: true)
             )
         
         let selectionResult = input.selectionTrigger

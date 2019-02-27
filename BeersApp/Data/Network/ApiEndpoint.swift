@@ -13,7 +13,12 @@ enum ApiEndpoint {
     case beers(nameQuery: String)
 }
 
-extension ApiEndpoint: TargetType {
+extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
+    
+    var authorizationType: AuthorizationType {
+       return .bearer
+    }
+    
     
     var baseURL: URL { return URL(string: Config.baseUrl)! }
     

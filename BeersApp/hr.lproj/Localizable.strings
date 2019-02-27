@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  BeersApp
+
+  Created by Marijan on 27/02/2019.
+  Copyright © 2019 Marijan. All rights reserved.
+*/
+"browse_beers" = "Pretraži piva";
+"beer_details" = "Detalji o pivu";
+"delete" = "Izbriši";
+"saved_beers" = "Spremljena piva";
+"delete_success" = "Uspješno izbrisano.";
+"delete_error" = "Pogreška pri brisanju piva.";
+"save" = "Spremi";
+"persist_success" = "Pivo uspješno spremljeno.";
+"persist_error" = "Pogreška pri spremanji piva.";
+"input_required" = "Morate unijeti vrijednost u ovo polje";
+"malformed_mail" = "Pogrešno formatiran email";
+"input_length" = "Treba upisati bar '%@' znakova";
+"incorrect_date" = "Neispravan datum";
+"error" = "Pogreška";
+"info" = "Info";

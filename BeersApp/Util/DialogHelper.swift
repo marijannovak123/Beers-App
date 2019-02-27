@@ -20,6 +20,6 @@ class DialogHelper {
     }
     
     public static func errorDialog(from parent: UIViewController, message: String) {
-        infoDialog(from: parent, title: "Error", message: message)
+        infoDialog(from: parent, title: "error".localized, message: message)
     }
 }

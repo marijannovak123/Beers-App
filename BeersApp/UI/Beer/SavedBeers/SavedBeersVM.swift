@@ -37,8 +37,8 @@ class SavedBeersVM: ViewModelType {
             .asObservable()
             .flatMap { [unowned self] beer in
                 self.deleteBeer(beer)
-            }.map { UIResult(message: "Successfully deleted.", isError: false) }
-            .asDriver(onErrorJustReturn: UIResult(message: "Error deleting beer.", isError: true))
+            }.map { UIResult(message: "delete_success".localized, isError: false) }
+            .asDriver(onErrorJustReturn: UIResult(message: "delete_error".localized, isError: true))
        
         let beerCount = beerDriver.map {
             $0.first?.beers.count ?? 0

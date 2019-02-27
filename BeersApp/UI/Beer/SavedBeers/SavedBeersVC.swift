@@ -18,7 +18,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Saved Beers"
+        self.title = "saved_beers".localized
         setupTableView()
     }
     
@@ -81,7 +81,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let action = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let action = UITableViewRowAction(style: .destructive, title: "delete".localized) { (action, indexPath) in
             self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath)
         }
         

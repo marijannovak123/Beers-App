@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  BeersApp
+
+  Created by Marijan on 27/02/2019.
+  Copyright © 2019 Marijan. All rights reserved.
+*/
+"browse_beers" = "Browse Beers";
+"beer_details" = "Beer Details";
+"delete" = "Delete";
+"saved_beers" = "Saved Beers";
+"delete_success" = "Successfully deleted.";
+"delete_error" = "Error deleting beer.";
+"save" = "Save";
+"persist_success" = "Successfully persisted beer to local storage.";
+"persist_error" = "Error persisting beer to local storage.";
+"input_required" = "Input is required";
+"malformed_mail" = "Malformed email";
+"input_length" = "Input should be at least '%@' characters long";
+"incorrect_date" = "Incorrect date formatting";
+"error" = "Error";
+"info" = "Info";

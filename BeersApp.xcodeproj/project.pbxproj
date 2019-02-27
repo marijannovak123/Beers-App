@@ -37,7 +37,6 @@
 		9F7088CE2221D6E400E5205F /* DialogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C82221D6E400E5205F /* DialogHelper.swift */; };
 		9F7088CF2221D6E400E5205F /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C92221D6E400E5205F /* Validator.swift */; };
 		9F7088D02221D6E400E5205F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088CA2221D6E400E5205F /* Constants.swift */; };
-		9F7088D22221D6EF00E5205F /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088D12221D6EE00E5205F /* AppButton.swift */; };
 		9F7088DF2221DB2800E5205F /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088DE2221DB2800E5205F /* Screen.swift */; };
 		9F7088E22221DBE300E5205F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E12221DBE300E5205F /* DatabaseManager.swift */; };
 		9F7088E42221DC2700E5205F /* SingletonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E32221DC2700E5205F /* SingletonContainer.swift */; };
@@ -73,6 +72,7 @@
 		9F9FEFB822240F3300E5EF49 /* BeerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */; };
 		9F9FEFB922240F3300E5EF49 /* BeerDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */; };
 		9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */; };
+		9FFEC6D6222673670071062D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FFEC6D8222673670071062D /* Localizable.strings */; };
 		B4CC28FB8943CC389F98FF11 /* Pods_BeersAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */; };
 		BFF6F0EE9459EDC5D1A3E284 /* Pods_BeersAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0F9B4DDE55EA739E2FFC53 /* Pods_BeersAppUITests.framework */; };
 		E92CDC748DE164BFB6FBDFB7 /* Pods_BeersApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C484D139BF5EFE45A355EF69 /* Pods_BeersApp.framework */; };
@@ -137,7 +137,6 @@
 		9F7088C82221D6E400E5205F /* DialogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogHelper.swift; sourceTree = "<group>"; };
 		9F7088C92221D6E400E5205F /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		9F7088CA2221D6E400E5205F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9F7088D12221D6EE00E5205F /* AppButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		9F7088DE2221DB2800E5205F /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		9F7088E12221DBE300E5205F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		9F7088E32221DC2700E5205F /* SingletonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonContainer.swift; sourceTree = "<group>"; };
@@ -173,6 +172,9 @@
 		9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsVC.swift; sourceTree = "<group>"; };
 		9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerDetailsVC.xib; sourceTree = "<group>"; };
 		9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEvent.swift; sourceTree = "<group>"; };
+		9FFEC6D7222673670071062D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9FFEC6D9222674000071062D /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9FFEC6DA222674010071062D /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C484D139BF5EFE45A355EF69 /* Pods_BeersApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FA71DF8D2A8F949F3ED724 /* Pods-BeersAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-BeersAppUITests/Pods-BeersAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0F9B4DDE55EA739E2FFC53 /* Pods_BeersAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,10 +273,10 @@
 				9F7088D82221DA5500E5205F /* Util */,
 				9F7088D52221D9EC00E5205F /* Config */,
 				9F7088D42221D9E000E5205F /* Common */,
-				9F7088D32221D9D000E5205F /* Views */,
 				9F7088752221D19A00E5205F /* AppDelegate.swift */,
 				9F70887C2221D19B00E5205F /* Assets.xcassets */,
 				9F70887E2221D19B00E5205F /* LaunchScreen.storyboard */,
+				9FFEC6D8222673670071062D /* Localizable.strings */,
 				9F7088812221D19B00E5205F /* Info.plist */,
 			);
 			path = BeersApp;
@@ -296,14 +298,6 @@
 				9F7088972221D19B00E5205F /* Info.plist */,
 			);
 			path = BeersAppUITests;
-			sourceTree = "<group>";
-		};
-		9F7088D32221D9D000E5205F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9F7088D12221D6EE00E5205F /* AppButton.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9F7088D42221D9E000E5205F /* Common */ = {
@@ -640,6 +634,7 @@
 			knownRegions = (
 				en,
 				Base,
+				hr,
 			);
 			mainGroup = 9F7088692221D19A00E5205F;
 			productRefGroup = 9F7088732221D19A00E5205F /* Products */;
@@ -662,6 +657,7 @@
 				9F9FEFA72223E2CB00E5EF49 /* SavedBeersVC.xib in Resources */,
 				9F70887D2221D19B00E5205F /* Assets.xcassets in Resources */,
 				9F9FEFAB2223E36200E5EF49 /* MenuVC.xib in Resources */,
+				9FFEC6D6222673670071062D /* Localizable.strings in Resources */,
 				9F89DE1F22220CD50031989B /* BeerSearchVC.xib in Resources */,
 				9F9FEFB02223E3EB00E5EF49 /* MenuItemCell.xib in Resources */,
 				9F6B6E1A22230F9F002FE015 /* BeerCell.xib in Resources */,
@@ -698,7 +694,6 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -720,7 +715,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -858,7 +852,6 @@
 				9F7088A62221D60E00E5205F /* ApiEndpoint.swift in Sources */,
 				9F7088E62221DC9800E5205F /* ViewModelContainter.swift in Sources */,
 				9F80BB532222CB400094333F /* BeerStorage.swift in Sources */,
-				9F7088D22221D6EF00E5205F /* AppButton.swift in Sources */,
 				9F89DE0E2221F08E0031989B /* Beer.swift in Sources */,
 				9F7088C02221D68700E5205F /* BaseStorage.swift in Sources */,
 				9F7088B62221D66D00E5205F /* TableViewExtensions.swift in Sources */,
@@ -908,8 +901,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				9F70887F2221D19B00E5205F /* Base */,
+				9FFEC6D9222674000071062D /* hr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9FFEC6D8222673670071062D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FFEC6D7222673670071062D /* en */,
+				9FFEC6DA222674010071062D /* hr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -919,6 +922,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -981,6 +985,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
