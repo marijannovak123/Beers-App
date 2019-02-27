@@ -37,9 +37,9 @@ enum MenuItem {
     var title: String {
         switch self {
         case .beerSearch:
-            return "Search Beers"
+            return "browse_beers".localized
         case .savedBeers:
-            return "Saved Beers"
+            return "saved_beers".localized
         }
     }
     

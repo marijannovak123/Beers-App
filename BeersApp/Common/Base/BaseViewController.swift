@@ -30,8 +30,6 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
        fatalError("didn't bind viewmodel")
     }
     
-    
-    
     func showLoading(_ show: Bool) {
         self.view.isUserInteractionEnabled = !show
         hideProgressIfAlreadyShown()
