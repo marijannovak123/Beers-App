@@ -12,7 +12,9 @@ import SDWebImage
 class BeerCell: UITableViewCell, ReusableCell {
     
     @IBOutlet weak var ivBeerImage: UIImageView!
+    @IBOutlet weak var lABV: UILabel!
     @IBOutlet weak var lName: UILabel!
+    @IBOutlet weak var lIBU: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +23,8 @@ class BeerCell: UITableViewCell, ReusableCell {
     
     func configure(with data: Beer) {
         lName.text = data.name
+        lABV.text = "abv: \(data.abv ?? "-") %"
+        lIBU.text = "ibu: \(data.ibu ?? "-")"
         ivBeerImage.sd_setImage(with: URL(string: data.labels?.icon ?? ""), placeholderImage: #imageLiteral(resourceName: "beer_placeholder"))
     }
     

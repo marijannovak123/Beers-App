@@ -20,6 +20,11 @@ class ViewModelContainer {
         container.register(SavedBeersVM.self) {
             SavedBeersVM(repository: $0.resolve(BeerRepository.self)!)
         }
+        
+        container.register(BreweriesSearchVM.self) {
+            BreweriesSearchVM(repository: $0.resolve(BreweryRepository.self)!)
+        }
+        
         return container
     }
 }

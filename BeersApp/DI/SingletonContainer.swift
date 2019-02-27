@@ -15,6 +15,7 @@ class SingletonContainer {
     static func build() -> Container {
         let container = Container(defaultObjectScope: .container)
         
+        // MARK: Singletons
         container.register(Realm.self) { _ in
             if let realm = try? Realm() {
                 return realm
@@ -42,16 +43,32 @@ class SingletonContainer {
             UserDefaultsHelper()
         }
         
+        
+        // MARK: Services
         container.register(BeerService.self) {
             BeerService(api: $0.resolve(ApiNetwork.self)!)
         }
         
+        container.register(BreweryService.self) {
+            BreweryService(api: $0.resolve(ApiNetwork.self)!)
+        }
+        
+        // MARK: Storages
         container.register(BeerStorage.self) {
             BeerStorage(dbManager: $0.resolve(DatabaseManager.self)!)
         }
         
+        container.register(BreweryStorage.self) {
+            BreweryStorage(dbManager: $0.resolve(DatabaseManager.self)!)
+        }
+        
+        // MARK: Repositories
         container.register(BeerRepository.self) {
             BeerRepository(service: $0.resolve(BeerService.self)!, storage: $0.resolve(BeerStorage.self)!)
+        }
+        
+        container.register(BreweryRepository.self) {
+            BreweryRepository(service: $0.resolve(BreweryService.self)!, storage: $0.resolve(BreweryStorage.self)!)
         }
         
         return container
