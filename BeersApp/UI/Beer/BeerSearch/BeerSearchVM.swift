@@ -83,4 +83,5 @@ class BeerSearchVM: ViewModelType {
     func saveBeer(_ beer: Beer) -> Observable<Void> {
         return repository.saveBeer(beer)
     }
+    
 }

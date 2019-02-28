@@ -88,7 +88,8 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
-        tvBeers.rowHeight = 60
+        tvBeers.rowHeight = UITableView.automaticDimension
+        tvBeers.estimatedRowHeight = 150
         
         tvBeers.rx.setDelegate(self)
             .disposed(by: disposeBag)
@@ -117,6 +118,6 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [saveAction])
     }
-    
+
 }
 

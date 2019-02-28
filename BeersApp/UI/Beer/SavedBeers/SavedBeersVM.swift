@@ -11,7 +11,9 @@ import RxCocoa
 import RxSwift
 
 class SavedBeersVM: ViewModelType {
-  
+    
+    private let expandedIndexRelay = BehaviorRelay.init(value: -1)
+    
     struct Input {
         let itemDeleted: Driver<Beer>
     }
@@ -29,8 +31,15 @@ class SavedBeersVM: ViewModelType {
     }
     
     func transform(input: SavedBeersVM.Input) -> SavedBeersVM.Output {
-        let beerDriver = repository.loadPersistedBeers()
-            .map { [BeerSection(beers: $0, header: "Persisted Beers")] }
+        let beerDriver = Observable.combineLatest(expandedIndexRelay.asObservable(), repository.loadPersistedBeers()) {
+            expandedIndex, beers -> [BeerWrapper] in
+                var beerWrappers = [BeerWrapper]()
+                for (index, beer) in beers.enumerated() {
+                    beerWrappers.append(BeerWrapper(beer: beer, isExpanded: (expandedIndex == index), index: index))
+                }
+                return beerWrappers
+            }
+            .map { [BeerSection(beers: $0, header: nil)] }
             .asDriver(onErrorJustReturn: [])
         
         let deleteDriver = input.itemDeleted
@@ -51,4 +60,7 @@ class SavedBeersVM: ViewModelType {
         return repository.deleteBeer(beer)
     }
     
+    func setExpandedCell(at index: Int) {
+        self.expandedIndexRelay.accept(index)
+    }
 }

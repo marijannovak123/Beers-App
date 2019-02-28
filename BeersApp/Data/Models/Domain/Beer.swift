@@ -37,30 +37,32 @@ struct Beer: DomainData {
     
 }
 
-extension Beer: IdentifiableType, Equatable {
+struct BeerWrapper: IdentifiableType, Equatable {
+    let beer: Beer
+    let isExpanded: Bool
+    let index: Int
     
     var identity: String {
-        return self.id
+        return self.beer.id
     }
     
-    static func == (lhs: Beer, rhs: Beer) -> Bool {
-        return lhs.id == rhs.id
+    static func == (lhs: BeerWrapper, rhs: BeerWrapper) -> Bool {
+        return (lhs.beer.id == rhs.beer.id && lhs.isExpanded == rhs.isExpanded)
     }
-    
 }
 
 struct BeerSection {
-    var beers: [Beer]
+    var beers: [BeerWrapper]
     var header: String?
 }
 
 extension BeerSection: AnimatableSectionModelType {
     
-    var items: [Beer] {
+    var items: [BeerWrapper] {
         return self.beers
     }
     
-    init(original: BeerSection, items: [Beer]) {
+    init(original: BeerSection, items: [BeerWrapper]) {
         self = original
         self.beers = items
     }

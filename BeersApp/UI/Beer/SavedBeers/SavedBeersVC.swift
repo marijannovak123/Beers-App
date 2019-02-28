@@ -11,8 +11,8 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
-
+class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate, BeerCellExpandDelegate {
+    
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var lNoResults: UILabel!
     
@@ -59,7 +59,8 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     func setupTableView() {
         tvBeers.registerCell(cellType: BeerCell.self)
-        tvBeers.rowHeight = 60
+        tvBeers.rowHeight = UITableView.automaticDimension
+        tvBeers.estimatedRowHeight = 150
         
         tvBeers.rx.setDelegate(self)
             .disposed(by: disposeBag)
@@ -68,7 +69,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     var dataSource: RxTableViewSectionedAnimatedDataSource<BeerSection> {
         let dataSource = RxTableViewSectionedAnimatedDataSource<BeerSection>(configureCell: { (_, tv, ip, beer) -> UITableViewCell in
             let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!
-            cell.configure(with: beer)
+            cell.configureWithHandler(data: beer, delegate: self)
             return cell
         })
         
@@ -76,7 +77,6 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
                                                                    reloadAnimation: .automatic,
                                                                    deleteAnimation: .automatic)
         dataSource.canEditRowAtIndexPath = { _, _ in true }
-        
         return dataSource
     }
     
@@ -86,6 +86,10 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         }
         
         return [action]
+    }
+    
+    func onExpanded(at index: Int) {
+        viewModel.setExpandedCell(at: index)
     }
     
 }
