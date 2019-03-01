@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate, BeerCellExpandDelegate {
+class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var lNoResults: UILabel!
@@ -88,9 +88,14 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate, 
         return [action]
     }
     
+    
+    
+}
+
+extension SavedBeersVC: BeerCellExpandDelegate {
+    
     func onExpanded(at index: Int) {
         viewModel.setExpandedCell(at: index)
     }
     
 }
-

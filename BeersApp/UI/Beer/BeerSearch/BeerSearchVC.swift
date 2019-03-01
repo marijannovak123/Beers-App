@@ -28,7 +28,6 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
         
         let selectionDriver = tvBeers.rx.itemSelected
             .asDriver()
-            .throttle(0.5)
         
         let saveSwipeDriver = tvBeers.rx.itemSwipedTrailing()
             .filter { event in

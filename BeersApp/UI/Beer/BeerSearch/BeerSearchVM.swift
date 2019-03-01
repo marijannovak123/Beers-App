@@ -64,6 +64,7 @@ class BeerSearchVM: ViewModelType {
             )
         
         let selectionResult = input.selectionTrigger
+            .throttle(0.5)
             .withLatestFrom(beerDriver) { ($0, $1) }
             .asObservable()
             .map { (selectionBeerJoin) -> Beer in
