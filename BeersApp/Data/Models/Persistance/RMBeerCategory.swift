@@ -14,7 +14,7 @@ class RMBeerCategory: BaseModel, Persistable {
     @objc dynamic var name = ""
     
     func asDomain() -> BeerCategory {
-        return BeerCategory(id: Int(self.id)!, name: self.name)
+        return BeerCategory(id: Int(self.id) ?? 0, name: self.name)
     }
     
 }

@@ -11,6 +11,7 @@ import Moya
 
 enum ApiEndpoint {
     case beers(nameQuery: String)
+    case breweries(nameQuery: String)
 }
 
 extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
@@ -19,13 +20,14 @@ extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
        return .bearer
     }
     
-    
     var baseURL: URL { return URL(string: Config.baseUrl)! }
     
     var path: String {
         switch self {
         case .beers:
             return "beers"
+        case .breweries:
+            return "breweries"
         }
     }
     
@@ -42,10 +44,8 @@ extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
     
     var task: Task {
         switch self {
-        case .beers:
-            return .requestParameters(
-                parameters: self.parameters,
-                encoding: URLEncoding.default)
+        case .beers, .breweries:
+            return .requestParameters(parameters: self.parameters, encoding: URLEncoding.default)
         default:
             return .requestPlain
         }
@@ -53,7 +53,7 @@ extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
     
     var parameters: [String : Any] {
         switch self {
-        case .beers(let name):
+        case .beers(let name), .breweries(let name):
             return ["key": Config.apiKey, "name": name, "p": 1]
         default:
             return ["key": Config.apiKey]

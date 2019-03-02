@@ -1,14 +1,14 @@
 //
-//  ReusableCell.swift
-//  ios learning
+//  ReusableCollectionCell.swift
+//  BeersApp
 //
-//  Created by UHP Digital Mac 3 on 30.01.19.
+//  Created by Marijan on 01/03/2019.
 //  Copyright © 2019 Marijan. All rights reserved.
 //
 
 import UIKit
 
-protocol ReusableCell where Self: UITableViewCell  {
+protocol ReusableCollectionCell where Self: UICollectionViewCell  {
     associatedtype Data
     
     static var identifier: String { get }
@@ -16,11 +16,9 @@ protocol ReusableCell where Self: UITableViewCell  {
     func configure(with data: Data)
 }
 
-extension ReusableCell {
+extension ReusableCollectionCell {
     
     static var identifier: String {
         return String(describing: self)
     }
 }
-
-

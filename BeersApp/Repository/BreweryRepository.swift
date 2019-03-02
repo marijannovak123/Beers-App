@@ -6,7 +6,7 @@
 //  Copyright © 2019 Marijan. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 class BreweryRepository {
     
@@ -16,5 +16,9 @@ class BreweryRepository {
     init(service: BreweryService, storage: BreweryStorage) {
         self.service = service
         self.storage = storage
+    }
+    
+    func getBreweriesByName(name: String) -> Observable<[Brewery]> {
+        return service.fetchBreweriesByName(name: name)
     }
 }

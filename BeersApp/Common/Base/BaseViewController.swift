@@ -21,7 +21,6 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
         bindToViewModel()
     }
     
