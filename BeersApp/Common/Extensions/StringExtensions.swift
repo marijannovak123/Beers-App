@@ -21,4 +21,9 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
+    static func generateRandomId(length: Int) -> String {
+        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomCharacters = (0..<length).map {_ in characters.randomElement()!}
+        return String(randomCharacters)
+    }
 }

@@ -21,12 +21,10 @@
 		9F7088A52221D60E00E5205F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A32221D60E00E5205F /* Network.swift */; };
 		9F7088A62221D60E00E5205F /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A42221D60E00E5205F /* ApiEndpoint.swift */; };
 		9F7088AA2221D64B00E5205F /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A72221D64B00E5205F /* Persistable.swift */; };
-		9F7088AB2221D64B00E5205F /* FormViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A82221D64B00E5205F /* FormViewControllerType.swift */; };
 		9F7088AC2221D64B00E5205F /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A92221D64B00E5205F /* ReusableCell.swift */; };
 		9F7088B22221D66D00E5205F /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088AD2221D66D00E5205F /* ViewControllerExtensions.swift */; };
 		9F7088B32221D66D00E5205F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088AE2221D66D00E5205F /* StringExtensions.swift */; };
 		9F7088B42221D66D00E5205F /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088AF2221D66D00E5205F /* RxExtensions.swift */; };
-		9F7088B52221D66D00E5205F /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088B02221D66D00E5205F /* UITextFieldExtensions.swift */; };
 		9F7088B62221D66D00E5205F /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088B12221D66D00E5205F /* TableViewExtensions.swift */; };
 		9F7088BE2221D68700E5205F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088B82221D68700E5205F /* BaseViewController.swift */; };
 		9F7088C02221D68700E5205F /* BaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088BA2221D68700E5205F /* BaseStorage.swift */; };
@@ -35,7 +33,7 @@
 		9F7088CC2221D6E400E5205F /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C62221D6E300E5205F /* UserDefaultsHelper.swift */; };
 		9F7088CD2221D6E400E5205F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C72221D6E300E5205F /* Config.swift */; };
 		9F7088CE2221D6E400E5205F /* DialogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C82221D6E400E5205F /* DialogHelper.swift */; };
-		9F7088CF2221D6E400E5205F /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C92221D6E400E5205F /* Validator.swift */; };
+		9F7088CF2221D6E400E5205F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088C92221D6E400E5205F /* Validation.swift */; };
 		9F7088D02221D6E400E5205F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088CA2221D6E400E5205F /* Constants.swift */; };
 		9F7088DF2221DB2800E5205F /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088DE2221DB2800E5205F /* Screen.swift */; };
 		9F7088E22221DBE300E5205F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E12221DBE300E5205F /* DatabaseManager.swift */; };
@@ -47,6 +45,9 @@
 		9F73C76E222D1F3500CB34AF /* AddBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */; };
 		9F73C76F222D1F3500CB34AF /* AddBeerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */; };
 		9F73C771222D21AB00CB34AF /* CellExpandDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C770222D21AB00CB34AF /* CellExpandDelegate.swift */; };
+		9F73C774222D32E900CB34AF /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C773222D32E900CB34AF /* AppButton.swift */; };
+		9F73C776222D503A00CB34AF /* ValidatableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C775222D503A00CB34AF /* ValidatableTextField.swift */; };
+		9F73C778222D651300CB34AF /* PersonalBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C777222D651300CB34AF /* PersonalBeer.swift */; };
 		9F80BB472222C4640094333F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB452222C4630094333F /* ActivityIndicator.swift */; };
 		9F80BB482222C4640094333F /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB462222C4640094333F /* ErrorTracker.swift */; };
 		9F80BB4D2222C8C60094333F /* BeerSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB4C2222C8C60094333F /* BeerSearchVM.swift */; };
@@ -140,12 +141,10 @@
 		9F7088A32221D60E00E5205F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		9F7088A42221D60E00E5205F /* ApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		9F7088A72221D64B00E5205F /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
-		9F7088A82221D64B00E5205F /* FormViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewControllerType.swift; sourceTree = "<group>"; };
 		9F7088A92221D64B00E5205F /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		9F7088AD2221D66D00E5205F /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		9F7088AE2221D66D00E5205F /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		9F7088AF2221D66D00E5205F /* RxExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
-		9F7088B02221D66D00E5205F /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		9F7088B12221D66D00E5205F /* TableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
 		9F7088B82221D68700E5205F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9F7088BA2221D68700E5205F /* BaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStorage.swift; sourceTree = "<group>"; };
@@ -154,7 +153,7 @@
 		9F7088C62221D6E300E5205F /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		9F7088C72221D6E300E5205F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9F7088C82221D6E400E5205F /* DialogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogHelper.swift; sourceTree = "<group>"; };
-		9F7088C92221D6E400E5205F /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		9F7088C92221D6E400E5205F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		9F7088CA2221D6E400E5205F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F7088DE2221DB2800E5205F /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		9F7088E12221DBE300E5205F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -166,6 +165,9 @@
 		9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerVC.swift; sourceTree = "<group>"; };
 		9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBeerVC.xib; sourceTree = "<group>"; };
 		9F73C770222D21AB00CB34AF /* CellExpandDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExpandDelegate.swift; sourceTree = "<group>"; };
+		9F73C773222D32E900CB34AF /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		9F73C775222D503A00CB34AF /* ValidatableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableTextField.swift; sourceTree = "<group>"; };
+		9F73C777222D651300CB34AF /* PersonalBeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBeer.swift; sourceTree = "<group>"; };
 		9F80BB452222C4630094333F /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		9F80BB462222C4640094333F /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		9F80BB4C2222C8C60094333F /* BeerSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchVM.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		9F7088742221D19A00E5205F /* BeersApp */ = {
 			isa = PBXGroup;
 			children = (
+				9F73C772222D329400CB34AF /* Views */,
 				9F80BB4E2222CA9C0094333F /* Repository */,
 				9F89DE1B22220CAE0031989B /* UI */,
 				9F7088E02221DB7400E5205F /* DI */,
@@ -381,7 +384,6 @@
 				9F7088AF2221D66D00E5205F /* RxExtensions.swift */,
 				9F7088AE2221D66D00E5205F /* StringExtensions.swift */,
 				9F7088B12221D66D00E5205F /* TableViewExtensions.swift */,
-				9F7088B02221D66D00E5205F /* UITextFieldExtensions.swift */,
 				9F7088AD2221D66D00E5205F /* ViewControllerExtensions.swift */,
 				9F89DE192221FB610031989B /* RealmExtensions.swift */,
 				9F8D83C1222973C800DDAFAA /* CollectionViewExtensions.swift */,
@@ -395,7 +397,7 @@
 				9F80BB452222C4630094333F /* ActivityIndicator.swift */,
 				9F80BB462222C4640094333F /* ErrorTracker.swift */,
 				9F7088C82221D6E400E5205F /* DialogHelper.swift */,
-				9F7088C92221D6E400E5205F /* Validator.swift */,
+				9F7088C92221D6E400E5205F /* Validation.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -450,6 +452,15 @@
 			path = "Add Beer";
 			sourceTree = "<group>";
 		};
+		9F73C772222D329400CB34AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F73C773222D32E900CB34AF /* AppButton.swift */,
+				9F73C775222D503A00CB34AF /* ValidatableTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9F80BB4B2222C89A0094333F /* BeerSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,7 +512,6 @@
 			children = (
 				9F7088A92221D64B00E5205F /* ReusableCell.swift */,
 				9F7088E92221DEE100E5205F /* ViewModelType.swift */,
-				9F7088A82221D64B00E5205F /* FormViewControllerType.swift */,
 				9F7088A72221D64B00E5205F /* Persistable.swift */,
 				9F89DE132221F5890031989B /* DomainData.swift */,
 				9F8D83BF2229737500DDAFAA /* ReusableCollectionCell.swift */,
@@ -529,6 +539,7 @@
 				9F21A34E2225CDB80080A537 /* BeerLabel.swift */,
 				9FFEC6E0222697880071062D /* Brewery.swift */,
 				9FFEC6EE2226B16E0071062D /* BreweryImages.swift */,
+				9F73C777222D651300CB34AF /* PersonalBeer.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -914,13 +925,13 @@
 				9F89DE122221F2AA0031989B /* BeerCategory.swift in Sources */,
 				9F89DE1A2221FB610031989B /* RealmExtensions.swift in Sources */,
 				9FFEC6E1222697880071062D /* Brewery.swift in Sources */,
+				9F73C778222D651300CB34AF /* PersonalBeer.swift in Sources */,
 				9F89DE182221F6440031989B /* RMBeerCategory.swift in Sources */,
 				9F9FEFA62223E2CB00E5EF49 /* SavedBeersVC.swift in Sources */,
 				9F7088DF2221DB2800E5205F /* Screen.swift in Sources */,
 				9F9FEFB822240F3300E5EF49 /* BeerDetailsVC.swift in Sources */,
 				9F7088A52221D60E00E5205F /* Network.swift in Sources */,
 				9FFEC6E8222698040071062D /* BreweriesSearchVC.swift in Sources */,
-				9F7088AB2221D64B00E5205F /* FormViewControllerType.swift in Sources */,
 				9F9FEFA22223E0EA00E5EF49 /* Menu.swift in Sources */,
 				9F7088EA2221DEE100E5205F /* ViewModelType.swift in Sources */,
 				9F9FEFAF2223E3EB00E5EF49 /* MenuItemCell.swift in Sources */,
@@ -938,6 +949,7 @@
 				9F8D83BD222968AB00DDAFAA /* BreweryCell.swift in Sources */,
 				9F9FEFB22223F47000E5EF49 /* MenuChildViewController.swift in Sources */,
 				9F7088762221D19A00E5205F /* AppDelegate.swift in Sources */,
+				9F73C774222D32E900CB34AF /* AppButton.swift in Sources */,
 				9F7088CC2221D6E400E5205F /* UserDefaultsHelper.swift in Sources */,
 				9FFEC6EF2226B16E0071062D /* BreweryImages.swift in Sources */,
 				9FFEC6E32226979E0071062D /* BreweryStorage.swift in Sources */,
@@ -950,7 +962,6 @@
 				9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */,
 				9F73C76B222D1E4900CB34AF /* AddBeerVM.swift in Sources */,
 				9F89DE1E22220CD50031989B /* BeerSearchVC.swift in Sources */,
-				9F7088B52221D66D00E5205F /* UITextFieldExtensions.swift in Sources */,
 				9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */,
 				9FFEC6ED2226B1020071062D /* RMBreweryImages.swift in Sources */,
 				9FFEC6EB222698110071062D /* BreweriesSearchVM.swift in Sources */,
@@ -959,8 +970,9 @@
 				9F80BB532222CB400094333F /* BeerStorage.swift in Sources */,
 				9F89DE0E2221F08E0031989B /* Beer.swift in Sources */,
 				9F7088C02221D68700E5205F /* BaseStorage.swift in Sources */,
+				9F73C776222D503A00CB34AF /* ValidatableTextField.swift in Sources */,
 				9F7088B62221D66D00E5205F /* TableViewExtensions.swift in Sources */,
-				9F7088CF2221D6E400E5205F /* Validator.swift in Sources */,
+				9F7088CF2221D6E400E5205F /* Validation.swift in Sources */,
 				9F89DE102221F25B0031989B /* BeerStyle.swift in Sources */,
 				9FFEC6DF2226976C0071062D /* RMBrewery.swift in Sources */,
 				9F7088E42221DC2700E5205F /* SingletonContainer.swift in Sources */,
