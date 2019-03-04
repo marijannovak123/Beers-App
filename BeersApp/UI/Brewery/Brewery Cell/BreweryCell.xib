@@ -20,17 +20,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PzO-ov-qMH" userLabel="Brewery Image">
-                        <rect key="frame" x="150" y="130" width="50" height="40"/>
+                        <rect key="frame" x="115" y="105" width="120" height="90"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="0GB-t4-Wg2"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="SjP-uu-PZg"/>
-                            <constraint firstAttribute="width" constant="50" id="d67-eR-tyy"/>
-                            <constraint firstAttribute="height" constant="40" id="j4e-dB-t1x"/>
+                            <constraint firstAttribute="width" constant="120" id="d67-eR-tyy"/>
+                            <constraint firstAttribute="height" constant="90" id="j4e-dB-t1x"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63Y-2o-Cs9" userLabel="Brewery Name">
-                        <rect key="frame" x="4" y="174" width="342" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <rect key="frame" x="4" y="199" width="342" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

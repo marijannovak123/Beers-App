@@ -15,7 +15,10 @@ class BreweryCell: UICollectionViewCell, ReusableCollectionCell {
     
     func configure(with data: Brewery) {
         lBreweryName.text = data.name
-        ivBrewery.sd_setImage(with: URL(string: data.images?.large ?? ""), placeholderImage: #imageLiteral(resourceName: "barrel"))
+        ivBrewery.contentMode = .scaleAspectFit
+        ivBrewery.sd_setShowActivityIndicatorView(true)
+        ivBrewery.sd_setIndicatorStyle(.gray)
+        ivBrewery.sd_setImage(with: URL(string: data.images?.large ?? ""), placeholderImage: #imageLiteral(resourceName: "beer-tap"))
     }
     
 }

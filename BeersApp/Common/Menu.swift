@@ -57,7 +57,7 @@ enum MenuItem {
         case .savedBeers:
             return #imageLiteral(resourceName: "save")
         case .brewerySearch:
-            return #imageLiteral(resourceName: "barrel")
+            return #imageLiteral(resourceName: "beer-tap")
         }
     }
     
