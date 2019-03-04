@@ -25,6 +25,10 @@ class ViewModelContainer {
             BreweriesSearchVM(repository: $0.resolve(BreweryRepository.self)!)
         }
         
+        container.register(AddBeerVM.self) {
+            AddBeerVM(repository: $0.resolve(BeerRepository.self)!)
+        }
+        
         return container
     }
 }

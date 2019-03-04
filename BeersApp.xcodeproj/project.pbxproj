@@ -43,6 +43,10 @@
 		9F7088E62221DC9800E5205F /* ViewModelContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E52221DC9800E5205F /* ViewModelContainter.swift */; };
 		9F7088E82221DD1000E5205F /* ViewControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E72221DD1000E5205F /* ViewControllerContainer.swift */; };
 		9F7088EA2221DEE100E5205F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088E92221DEE100E5205F /* ViewModelType.swift */; };
+		9F73C76B222D1E4900CB34AF /* AddBeerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C76A222D1E4900CB34AF /* AddBeerVM.swift */; };
+		9F73C76E222D1F3500CB34AF /* AddBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */; };
+		9F73C76F222D1F3500CB34AF /* AddBeerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */; };
+		9F73C771222D21AB00CB34AF /* CellExpandDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73C770222D21AB00CB34AF /* CellExpandDelegate.swift */; };
 		9F80BB472222C4640094333F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB452222C4630094333F /* ActivityIndicator.swift */; };
 		9F80BB482222C4640094333F /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB462222C4640094333F /* ErrorTracker.swift */; };
 		9F80BB4D2222C8C60094333F /* BeerSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB4C2222C8C60094333F /* BeerSearchVM.swift */; };
@@ -158,6 +162,10 @@
 		9F7088E52221DC9800E5205F /* ViewModelContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContainter.swift; sourceTree = "<group>"; };
 		9F7088E72221DD1000E5205F /* ViewControllerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerContainer.swift; sourceTree = "<group>"; };
 		9F7088E92221DEE100E5205F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		9F73C76A222D1E4900CB34AF /* AddBeerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerVM.swift; sourceTree = "<group>"; };
+		9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerVC.swift; sourceTree = "<group>"; };
+		9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBeerVC.xib; sourceTree = "<group>"; };
+		9F73C770222D21AB00CB34AF /* CellExpandDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExpandDelegate.swift; sourceTree = "<group>"; };
 		9F80BB452222C4630094333F /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		9F80BB462222C4640094333F /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		9F80BB4C2222C8C60094333F /* BeerSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchVM.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 		9F21A3492225B9DD0080A537 /* Beer */ = {
 			isa = PBXGroup;
 			children = (
+				9F73C765222D1DCD00CB34AF /* Add Beer */,
 				9F9FEFA32223E2AA00E5EF49 /* SavedBeers */,
 				9F80BB592222D6330094333F /* Beer Cell */,
 				9F9FEFB522240F1B00E5EF49 /* BeerDetails */,
@@ -431,6 +440,16 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		9F73C765222D1DCD00CB34AF /* Add Beer */ = {
+			isa = PBXGroup;
+			children = (
+				9F73C76A222D1E4900CB34AF /* AddBeerVM.swift */,
+				9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */,
+				9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */,
+			);
+			path = "Add Beer";
+			sourceTree = "<group>";
+		};
 		9F80BB4B2222C89A0094333F /* BeerSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +505,7 @@
 				9F7088A72221D64B00E5205F /* Persistable.swift */,
 				9F89DE132221F5890031989B /* DomainData.swift */,
 				9F8D83BF2229737500DDAFAA /* ReusableCollectionCell.swift */,
+				9F73C770222D21AB00CB34AF /* CellExpandDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -732,6 +752,7 @@
 				9F8D83BE222968AB00DDAFAA /* BreweryCell.xib in Resources */,
 				9F9FEFB02223E3EB00E5EF49 /* MenuItemCell.xib in Resources */,
 				9F6B6E1A22230F9F002FE015 /* BeerCell.xib in Resources */,
+				9F73C76F222D1F3500CB34AF /* AddBeerVC.xib in Resources */,
 				9F9FEFB922240F3300E5EF49 /* BeerDetailsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,6 +906,7 @@
 				9F7088BE2221D68700E5205F /* BaseViewController.swift in Sources */,
 				9F7088CB2221D6E400E5205F /* Colors.swift in Sources */,
 				9F9FEFAA2223E36200E5EF49 /* MenuVC.swift in Sources */,
+				9F73C771222D21AB00CB34AF /* CellExpandDelegate.swift in Sources */,
 				9F9FEFB42223F5DA00E5EF49 /* SavedBeersVM.swift in Sources */,
 				9F89DE162221F6320031989B /* RMBeerStyle.swift in Sources */,
 				9F80BB472222C4640094333F /* ActivityIndicator.swift in Sources */,
@@ -926,6 +948,7 @@
 				9F80BB4D2222C8C60094333F /* BeerSearchVM.swift in Sources */,
 				9F7088AA2221D64B00E5205F /* Persistable.swift in Sources */,
 				9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */,
+				9F73C76B222D1E4900CB34AF /* AddBeerVM.swift in Sources */,
 				9F89DE1E22220CD50031989B /* BeerSearchVC.swift in Sources */,
 				9F7088B52221D66D00E5205F /* UITextFieldExtensions.swift in Sources */,
 				9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */,
@@ -941,6 +964,7 @@
 				9F89DE102221F25B0031989B /* BeerStyle.swift in Sources */,
 				9FFEC6DF2226976C0071062D /* RMBrewery.swift in Sources */,
 				9F7088E42221DC2700E5205F /* SingletonContainer.swift in Sources */,
+				9F73C76E222D1F3500CB34AF /* AddBeerVC.swift in Sources */,
 				9F7088CE2221D6E400E5205F /* DialogHelper.swift in Sources */,
 				9F7088CD2221D6E400E5205F /* Config.swift in Sources */,
 				9F8D83C02229737500DDAFAA /* ReusableCollectionCell.swift in Sources */,

@@ -31,7 +31,4 @@ struct BeerLabel: DomainData {
         return localLabel
     }
     
-    typealias DatabaseType = RMBeerLabel
-    
-    
 }

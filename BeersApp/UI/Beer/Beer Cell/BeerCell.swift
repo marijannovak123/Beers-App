@@ -10,9 +10,6 @@ import UIKit
 import SDWebImage
 import RxSwift
 
-protocol BeerCellExpandDelegate: class {
-    func onExpanded(at index: Int)
-}
 
 class BeerCell: UITableViewCell, ReusableCell {
     
@@ -22,7 +19,7 @@ class BeerCell: UITableViewCell, ReusableCell {
     @IBOutlet weak var btnExpand: UIButton!
     @IBOutlet weak var lDescription: UILabel!
     
-    private weak var delegate: BeerCellExpandDelegate?
+    private weak var delegate: CellExpandDelegate?
     private var index = -1
     
     override func awakeFromNib() {
@@ -37,7 +34,7 @@ class BeerCell: UITableViewCell, ReusableCell {
         lDescription.text = data.description ?? "Some text"
     }
     
-    func configureWithHandler(data: BeerWrapper, delegate: BeerCellExpandDelegate) {
+    func configureWithHandler(data: BeerWrapper, delegate: CellExpandDelegate) {
         self.btnExpand.isHidden = false
         self.delegate = delegate
         self.index = data.index

@@ -33,7 +33,6 @@ class BreweriesSearchVC: MenuChildViewController<BreweriesSearchVM>, UICollectio
             .disposed(by: disposeBag)
         
         output.breweriesSections
-            .debug()
             .drive(cvBreweries.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         

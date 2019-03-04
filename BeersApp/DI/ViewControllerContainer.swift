@@ -35,6 +35,10 @@ class ViewControllerContainer {
             BeerDetailsVC(beer: beer)
         }
         
+        container.register(AddBeerVC.self) {
+            AddBeerVC(viewModel: $0.resolve(AddBeerVM.self)!)
+        }
+        
         container.register(BreweriesSearchVC.self) {
             BreweriesSearchVC(viewModel: $0.resolve(BreweriesSearchVM.self)!)
         }

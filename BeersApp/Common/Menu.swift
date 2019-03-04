@@ -25,6 +25,7 @@ enum MenuItem {
     case beerSearch
     case savedBeers
     case brewerySearch
+    case addBeer
     
     var screen: Screen? {
         switch self {
@@ -34,6 +35,8 @@ enum MenuItem {
             return .savedBeers
         case .brewerySearch:
             return .brewerySearch
+        case .addBeer:
+            return .addBeer
         }
     }
 
@@ -47,6 +50,8 @@ enum MenuItem {
             return "saved_beers".localized
         case .brewerySearch:
             return "breweries".localized
+        case .addBeer:
+            return "my_beers".localized
         }
     }
     
@@ -58,11 +63,13 @@ enum MenuItem {
             return #imageLiteral(resourceName: "save")
         case .brewerySearch:
             return #imageLiteral(resourceName: "beer-tap")
+        case .addBeer:
+            return #imageLiteral(resourceName: "beer")
         }
     }
     
     static var allValues: [MenuItem] {
-        return [.beerSearch, .savedBeers, .brewerySearch]
+        return [.beerSearch, .savedBeers, .brewerySearch, .addBeer]
     }
 }
 

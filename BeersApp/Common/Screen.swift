@@ -13,6 +13,7 @@ enum Screen {
     case beerSearch
     case savedBeers
     case brewerySearch
+    case addBeer
     case beerDetails(beer: Beer)
     case menu
     
@@ -31,6 +32,8 @@ enum Screen {
             return container?.resolve(BeerDetailsVC.self, argument: beer)
         case .brewerySearch:
             controller = container?.resolve(BreweriesSearchVC.self)
+        case .addBeer:
+            controller = container?.resolve(AddBeerVC.self)
         }
         
         if self.isRootController() {
@@ -42,7 +45,7 @@ enum Screen {
     
     func isRootController() -> Bool {
         switch self {
-        case .beerSearch, .savedBeers, .brewerySearch:
+        case .beerSearch, .savedBeers, .brewerySearch, .addBeer:
             return true
         default:
             return false

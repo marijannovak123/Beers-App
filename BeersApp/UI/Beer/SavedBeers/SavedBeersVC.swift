@@ -92,7 +92,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
 }
 
-extension SavedBeersVC: BeerCellExpandDelegate {
+extension SavedBeersVC: CellExpandDelegate {
     
     func onExpanded(at index: Int) {
         viewModel.setExpandedCell(at: index)
