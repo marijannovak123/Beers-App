@@ -57,10 +57,10 @@ class BeerSearchVM: ViewModelType {
                 let (swipeEvent, beers) = parameters
                 let beer = beers[swipeEvent.indexPath.row]
                 return self.saveBeer(beer)
-            }.map {
-                UIResult(message: "persist_success".localized, isError: false)
+            }.map { _ in
+                UIResult.success("persist_success".localized)
             }.asDriver(onErrorJustReturn:
-                UIResult(message: "persist_error".localized, isError: true)
+                UIResult.error("persist_error".localized)
             )
         
         let selectionResult = input.selectionTrigger

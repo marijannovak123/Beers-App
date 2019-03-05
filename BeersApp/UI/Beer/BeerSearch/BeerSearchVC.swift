@@ -66,10 +66,11 @@ class BeerSearchVC: MenuChildViewController<BeerSearchVM>, UITableViewDelegate {
         
        output.saveResult
             .drive(onNext: { [unowned self] event in
-                if !event.isError {
-                    self.showMessage(event.message)
-                } else {
-                    self.showErrorMessage(event.message)
+                switch event {
+                case .error(let message):
+                    self.showErrorMessage(message)
+                case .success(let message):
+                    self.showMessage(message!)
                 }
             }).disposed(by: disposeBag)
         

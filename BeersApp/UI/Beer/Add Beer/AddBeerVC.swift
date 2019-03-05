@@ -34,10 +34,11 @@ class AddBeerVC: MenuChildViewController<AddBeerVM> {
         
         output.beerCreatedDriver
             .drive(onNext: { result in
-                if result.isError {
-                    self.showErrorMessage(result.message)
-                } else {
-                    self.showMessage(result.message)
+                switch result {
+                case .error(let message):
+                    self.showErrorMessage(message)
+                case .success(let message):
+                    self.showMessage(message!)
                 }
             })
             .disposed(by: disposeBag)

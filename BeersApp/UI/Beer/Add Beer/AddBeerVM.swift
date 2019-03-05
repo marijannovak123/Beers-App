@@ -9,6 +9,8 @@
 import Foundation
 import RxCocoa
 
+typealias AddBeerInput = (name: ValidatedText, description: ValidatedText, abv: ValidatedText, ibu: ValidatedText)
+
 class AddBeerVM: ViewModelType {
     
     //text inputs could all be combined in an array for nicer validity filtering
@@ -34,22 +36,27 @@ class AddBeerVM: ViewModelType {
         let beerCreatedDriver = input.createButtonDriver
             .withLatestFrom (
                 Driver.combineLatest(input.nameDriver, input.descriptionDriver, input.alcoholDriver, input.bitternessDriver)
-            ).filter { parameters -> Bool in
-                let (name, description, alcohol, bitterness) = parameters
-                return name.isValid && description.isValid && alcohol.isValid && bitterness.isValid
-            }.map { parameters -> PersonalBeer in
-                let (name, description, alcohol, bitterness) = parameters
-                return PersonalBeer(id: String.generateRandomId(length: 6), name: name.value!, description: description.value!, abv: alcohol.value!, ibu: bitterness.value!)
+            ).filter { [unowned self] in
+                self.isInputValid(parameters: $0)
+            }.map { [unowned self] in
+                self.generateBeer(parameters: $0)
             }.asObservable()
-            .map { $0.asBeer() }
-            .flatMap { beer in
+            .flatMap { [unowned self] beer in
                 self.repository.saveBeer(beer)
-            }.map {
-                UIResult(message: "Beer created successsfully!", isError: false)
+            }.map { _ in
+                UIResult.success("Beer created successsfully!")
             }.asDriver( onErrorJustReturn:
-                UIResult(message: "Error creating beer", isError: true)
+                UIResult.error("Error creating beer")
             )
         
         return Output(beerCreatedDriver: beerCreatedDriver)
+    }
+    
+    private func generateBeer(parameters: AddBeerInput) -> Beer {
+        return PersonalBeer(id: String.generateRandomId(length: 6), name: parameters.name.value!, description: parameters.description.value!, abv: parameters.abv.value!, ibu: parameters.ibu.value!).asBeer()
+    }
+    
+    private func isInputValid(parameters: AddBeerInput) -> Bool {
+        return parameters.name.isValid && parameters.description.isValid && parameters.abv.isValid && parameters.ibu.isValid
     }
 }

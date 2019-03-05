@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UIResult {
-    let message: String
-    let isError: Bool
+enum UIResult { //refactor to enum
+    case error(_ message: String)
+    case success(_ message: String?)
 }

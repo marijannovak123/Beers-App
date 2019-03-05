@@ -18,7 +18,7 @@ struct ValidatedText {
 class ValidatableTextField: UITextField {
     
     var inputType: InputType? = nil
-    var isAtOriginalState: Bool = true //to avoid setting error to textfield that has been only focused and not any text has been entered
+    var isAtOriginalState: Bool = true //to avoid setting error to textfield that has been only focused and not any text has been entered yet
     
     var validatedText: Driver<ValidatedText> {
         return self.rx.text.asDriver()
