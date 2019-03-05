@@ -15,7 +15,7 @@ class SavedBeersVM: ViewModelType {
     private let expandedIndexRelay = BehaviorRelay.init(value: -1)
     
     struct Input {
-        let itemDeleted: Driver<Beer>
+        let itemDeleted: Driver<BeerWrapper>
     }
     
     struct Output {
@@ -44,8 +44,8 @@ class SavedBeersVM: ViewModelType {
         
         let deleteDriver = input.itemDeleted
             .asObservable()
-            .flatMap { [unowned self] beer in
-                self.deleteBeer(beer)
+            .flatMap { [unowned self] beerWrapper in
+                self.deleteBeer(beerWrapper.beer)
             }.map { _ in .success("delete_success".localized) }
             .asDriver(onErrorJustReturn: UIResult.error("delete_error".localized))
        

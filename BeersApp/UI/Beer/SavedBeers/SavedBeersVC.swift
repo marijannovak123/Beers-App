@@ -23,7 +23,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     }
     
     override func bindToViewModel() {
-        let deletedDriver = tvBeers.rx.modelDeleted(Beer.self).asDriver()
+        let deletedDriver = tvBeers.rx.modelDeleted(BeerWrapper.self).asDriver()
         
         let input = SavedBeersVM.Input(itemDeleted: deletedDriver)
         let output = viewModel.transform(input: input)
