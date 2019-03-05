@@ -36,13 +36,17 @@ class SWRevealVC<T: MenuType>: SWRevealViewController {
 
 extension SWRevealVC: MenuDelegate {
     
-    func showController(index: Int) {
+    func showController(index: Int, toggleMenu: Bool) {
         if let viewControllers = menu?.viewControllers, index < viewControllers.count && index != selection {
             let controller = viewControllers[index]
             self.setFront(controller, animated: true)
             self.selection = index
         }
-        self.revealToggle(animated: true)
+        
+        if toggleMenu {
+            self.revealToggle(animated: true)
+        }
+
     }
     
 }

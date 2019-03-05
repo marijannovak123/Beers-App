@@ -31,7 +31,7 @@ class BeerCell: UITableViewCell, ReusableCell {
     func configure(with data: Beer) {
         lName.text = data.name
         ivBeerImage.sd_setImage(with: URL(string: data.labels?.icon ?? ""), placeholderImage: #imageLiteral(resourceName: "beer_placeholder"))
-        lDescription.text = data.description ?? "Some text"
+        lDescription.text = "kita"//data.description ?? "Some text"
     }
     
     func configureWithHandler(data: BeerWrapper, delegate: CellExpandDelegate) {

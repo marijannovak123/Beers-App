@@ -50,7 +50,7 @@ class MenuVC: UIViewController, MenuType {
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.showController(index: indexPath.row)
+        delegate?.showController(index: indexPath.row, toggleMenu: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

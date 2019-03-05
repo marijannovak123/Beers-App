@@ -13,7 +13,6 @@ typealias AddBeerInput = (name: ValidatedText, description: ValidatedText, abv: 
 
 class AddBeerVM: ViewModelType {
     
-    //text inputs could all be combined in an array for nicer validity filtering
     struct Input {
         let createButtonDriver: Driver<Void>
         let nameDriver: Driver<ValidatedText>
@@ -36,10 +35,10 @@ class AddBeerVM: ViewModelType {
         let beerCreatedDriver = input.createButtonDriver
             .withLatestFrom (
                 Driver.combineLatest(input.nameDriver, input.descriptionDriver, input.alcoholDriver, input.bitternessDriver)
-            ).filter { [unowned self] in
-                self.isInputValid(parameters: $0)
-            }.map { [unowned self] in
-                self.generateBeer(parameters: $0)
+            ).filter { [unowned self] parameters in
+                self.isInputValid(parameters: parameters)
+            }.map { [unowned self] parameters in
+                self.generateBeer(parameters: parameters)
             }.asObservable()
             .flatMap { [unowned self] beer in
                 self.repository.saveBeer(beer)

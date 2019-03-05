@@ -445,9 +445,9 @@
 		9F73C765222D1DCD00CB34AF /* Add Beer */ = {
 			isa = PBXGroup;
 			children = (
-				9F73C76A222D1E4900CB34AF /* AddBeerVM.swift */,
 				9F73C76C222D1F3500CB34AF /* AddBeerVC.swift */,
 				9F73C76D222D1F3500CB34AF /* AddBeerVC.xib */,
+				9F73C76A222D1E4900CB34AF /* AddBeerVM.swift */,
 			);
 			path = "Add Beer";
 			sourceTree = "<group>";

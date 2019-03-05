@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuDelegate: class {
-    func showController(index: Int)
+    func showController(index: Int, toggleMenu: Bool)
 }
 
 protocol MenuType where Self: UIViewController {
