@@ -12,14 +12,11 @@ class DialogHelper {
     
     private init() {}
     
-    public static func infoDialog(from parent: UIViewController, title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-    
+    public static func promptDialog(parent: UIViewController, message: String, positiveText: String, negativeText: String, completion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: positiveText, style: .default, handler: { _ in completion() }))
+        alertController.addAction(UIAlertAction(title: negativeText, style: .cancel, handler: nil))
         parent.present(alertController, animated: true, completion: nil)
     }
-    
-    public static func errorDialog(from parent: UIViewController, message: String) {
-        infoDialog(from: parent, title: "error".localized, message: message)
-    }
+
 }

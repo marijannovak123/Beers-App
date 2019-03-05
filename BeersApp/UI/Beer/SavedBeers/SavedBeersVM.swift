@@ -16,11 +16,13 @@ class SavedBeersVM: ViewModelType {
     
     struct Input {
         let itemDeleted: Driver<BeerWrapper>
+        let allDeleted: Driver<Void>
     }
     
     struct Output {
         let beersSection: Driver<[BeerSection]>
         let deleteResult: Driver<UIResult>
+        let deleteAllResult: Driver<UIResult>
         let beerCount: Driver<Int>
     }
     
@@ -45,19 +47,22 @@ class SavedBeersVM: ViewModelType {
         let deleteDriver = input.itemDeleted
             .asObservable()
             .flatMap { [unowned self] beerWrapper in
-                self.deleteBeer(beerWrapper.beer)
+                 self.repository.deleteBeer(beerWrapper.beer)
             }.map { _ in .success("delete_success".localized) }
             .asDriver(onErrorJustReturn: UIResult.error("delete_error".localized))
        
+        let deleteAllDriver = input.allDeleted
+            .asObservable()
+            .flatMap { _ in
+                self.repository.deleteAllBeers()
+            }.map { _ in .success("delete_success".localized) }
+            .asDriver(onErrorJustReturn: UIResult.error("delete.error".localized))
+        
         let beerCount = beerDriver.map {
             $0.first?.beers.count ?? 0
         }
         
-        return Output(beersSection: beerDriver, deleteResult: deleteDriver, beerCount: beerCount)
-    }
-    
-    func deleteBeer(_ beer: Beer) -> Observable<Void> {
-        return repository.deleteBeer(beer)
+        return Output(beersSection: beerDriver, deleteResult: deleteDriver, deleteAllResult: deleteAllDriver, beerCount: beerCount)
     }
     
     func setExpandedCell(at index: Int) {

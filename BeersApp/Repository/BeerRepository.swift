@@ -35,4 +35,7 @@ class BeerRepository {
         return storage.deleteBeer(beer)
     }
     
+    func deleteAllBeers() -> Observable<Void> {
+        return storage.deleteAllBeers()
+    }
 }

@@ -44,7 +44,7 @@ class AddBeerVM: ViewModelType {
                 self.repository.saveBeer(beer)
             }.map { _ in
                 UIResult.success("Beer created successsfully!")
-            }.asDriver( onErrorJustReturn:
+            }.asDriver(onErrorJustReturn:
                 UIResult.error("Error creating beer")
             )
         

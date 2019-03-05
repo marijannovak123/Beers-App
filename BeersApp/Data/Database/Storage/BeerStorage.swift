@@ -22,4 +22,8 @@ class BeerStorage: BaseStorage {
     func deleteBeer(_ beer: Beer) -> Observable<Void> {
         return databaseManager.deleteObject(object: beer)
     }
+    
+    func deleteAllBeers() -> Observable<Void> {
+        return databaseManager.deleteAll(type: Beer.self)
+    }
 }

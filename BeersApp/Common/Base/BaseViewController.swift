@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import MBProgressHUD
+import Loaf
 
 class BaseViewController<V>: UIViewController where V: ViewModelType {
     
@@ -48,11 +49,11 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
     }
     
     func showMessage(_ message: String) {
-        DialogHelper.infoDialog(from: self, title: "info".localized, message: message)
+        Loaf(message, state: .info, sender: self).show()
     }
     
     func showErrorMessage(_ message: String) {
-        DialogHelper.errorDialog(from: self, message: message)
+        Loaf(message, state: .warning, sender: self).show()
     }
     
 }

@@ -22,3 +22,4 @@
 "info" = "Info";
 "breweries" = "Pivovare";
 "my_beers" = "Dodaj pivo";
+"delete_prompt" = "Obrisati pivo?";

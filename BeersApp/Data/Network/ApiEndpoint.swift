@@ -46,8 +46,6 @@ extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .beers, .breweries:
             return .requestParameters(parameters: self.parameters, encoding: URLEncoding.default)
-        default:
-            return .requestPlain
         }
     }
     
@@ -55,8 +53,6 @@ extension ApiEndpoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .beers(let name), .breweries(let name):
             return ["key": Config.apiKey, "name": name, "p": 1]
-        default:
-            return ["key": Config.apiKey]
         }
     }
     

@@ -16,7 +16,10 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var lNoResults: UILabel!
     
+    private var deleteAllButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
+        addDeleteAllButton()
         super.viewDidLoad()
         self.title = "saved_beers".localized
         setupTableView()
@@ -24,8 +27,8 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     override func bindToViewModel() {
         let deletedDriver = tvBeers.rx.modelDeleted(BeerWrapper.self).asDriver()
-        
-        let input = SavedBeersVM.Input(itemDeleted: deletedDriver)
+        let allDeletedDriver = deleteAllButton.rx.tap.asDriver()
+        let input = SavedBeersVM.Input(itemDeleted: deletedDriver, allDeleted: allDeletedDriver)
         let output = viewModel.transform(input: input)
         
         output.beersSection
@@ -67,6 +70,11 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
             .disposed(by: disposeBag)
     }
     
+    func addDeleteAllButton() {
+        deleteAllButton = UIBarButtonItem(image: #imageLiteral(resourceName: "delete-all"), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = deleteAllButton
+    }
+    
     var dataSource: RxTableViewSectionedAnimatedDataSource<BeerSection> {
         let dataSource = RxTableViewSectionedAnimatedDataSource<BeerSection>(configureCell: { (_, tv, ip, beer) -> UITableViewCell in
             let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!
@@ -83,13 +91,13 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let action = UITableViewRowAction(style: .destructive, title: "delete".localized) { (action, indexPath) in
-            self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath)
+            DialogHelper.promptDialog(parent: self, message: "delete_prompt".localized, positiveText: "Yes", negativeText: "No", completion: {
+                self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath) //could have used Completable
+            })
         }
         
         return [action]
     }
-    
-    
     
 }
 

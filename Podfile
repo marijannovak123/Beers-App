@@ -19,6 +19,7 @@ target 'BeersApp' do
   pod 'SWRevealViewController'
   pod 'RxDataSources', '~> 3.0'
   pod 'SDWebImage', '~> 4.0'
+  pod 'Loaf'
 
   target 'BeersAppTests' do
     inherit! :search_paths

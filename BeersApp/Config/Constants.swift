@@ -12,6 +12,4 @@ final class Constants {
     
     private init() {}
     
-    public static let isLoggedIn = "is_logged_in"
-
 }

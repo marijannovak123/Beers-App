@@ -22,3 +22,4 @@
 "info" = "Info";
 "breweries" = "Breweries";
 "my_beers" = "Add Beer";
+"delete_prompt" = "Delete beer?";

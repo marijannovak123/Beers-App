@@ -57,6 +57,7 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
             .disposed(by: disposeBag)
     }
     
+    //if the create button was pressed and the inputs are at original state (no error at just focus) set that they can be marked as invalid
     func enableTextFieldErrors() {
         if tfName.isAtOriginalState || tfDescription.isAtOriginalState || tfBitterness.isAtOriginalState || tfAlcohol.isAtOriginalState {
             tfBitterness.isAtOriginalState = false
@@ -85,14 +86,6 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
         
         tfAlcohol.inputView = alcoholPicker
         tfBitterness.inputView = bitternessPicker
-    }
-    
-    @objc func setAlcohol(_ sender: UIPickerView) {
-        
-    }
-    
-    @objc func setBitterness(_ sender: UIPickerView) {
-       
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
