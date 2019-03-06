@@ -82,6 +82,15 @@
 		9F9FEFB822240F3300E5EF49 /* BeerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */; };
 		9F9FEFB922240F3300E5EF49 /* BeerDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */; };
 		9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */; };
+		9FBFBEA1222FF4310092E8DE /* NearbyLocationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBE9F222FF4310092E8DE /* NearbyLocationsVC.swift */; };
+		9FBFBEA2222FF4310092E8DE /* NearbyLocationsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA0222FF4310092E8DE /* NearbyLocationsVC.xib */; };
+		9FBFBEA4222FF62C0092E8DE /* NearbyLocationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA3222FF62C0092E8DE /* NearbyLocationsVM.swift */; };
+		9FBFBEA62230063A0092E8DE /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA52230063A0092E8DE /* LocationRepository.swift */; };
+		9FBFBEA8223006880092E8DE /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA7223006880092E8DE /* LocationService.swift */; };
+		9FBFBEAA2230069B0092E8DE /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA92230069B0092E8DE /* LocationStorage.swift */; };
+		9FBFBEAC223007630092E8DE /* LocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEAB223007630092E8DE /* LocationsResponse.swift */; };
+		9FBFBEAE223007840092E8DE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEAD223007840092E8DE /* Location.swift */; };
+		9FBFBEB0223007980092E8DE /* RMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBEAF223007980092E8DE /* RMLocation.swift */; };
 		9FFEC6D6222673670071062D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FFEC6D8222673670071062D /* Localizable.strings */; };
 		9FFEC6DC222693C70071062D /* BreweryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6DB222693C70071062D /* BreweryRepository.swift */; };
 		9FFEC6DF2226976C0071062D /* RMBrewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6DE2226976C0071062D /* RMBrewery.swift */; };
@@ -202,6 +211,15 @@
 		9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsVC.swift; sourceTree = "<group>"; };
 		9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerDetailsVC.xib; sourceTree = "<group>"; };
 		9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEvent.swift; sourceTree = "<group>"; };
+		9FBFBE9F222FF4310092E8DE /* NearbyLocationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsVC.swift; sourceTree = "<group>"; };
+		9FBFBEA0222FF4310092E8DE /* NearbyLocationsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyLocationsVC.xib; sourceTree = "<group>"; };
+		9FBFBEA3222FF62C0092E8DE /* NearbyLocationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsVM.swift; sourceTree = "<group>"; };
+		9FBFBEA52230063A0092E8DE /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
+		9FBFBEA7223006880092E8DE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		9FBFBEA92230069B0092E8DE /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
+		9FBFBEAB223007630092E8DE /* LocationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResponse.swift; sourceTree = "<group>"; };
+		9FBFBEAD223007840092E8DE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		9FBFBEAF223007980092E8DE /* RMLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLocation.swift; sourceTree = "<group>"; };
 		9FFEC6D7222673670071062D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9FFEC6D9222674000071062D /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9FFEC6DA222674010071062D /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -279,6 +297,7 @@
 			children = (
 				9F6B6E1522230547002FE015 /* BeersResponse.swift */,
 				9F8D83B9222939E300DDAFAA /* BreweriesResponse.swift */,
+				9FBFBEAB223007630092E8DE /* LocationsResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -476,6 +495,7 @@
 			children = (
 				9F80BB572222CDBC0094333F /* BeerRepository.swift */,
 				9FFEC6DB222693C70071062D /* BreweryRepository.swift */,
+				9FBFBEA52230063A0092E8DE /* LocationRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -485,6 +505,7 @@
 			children = (
 				9F80BB522222CB400094333F /* BeerStorage.swift */,
 				9FFEC6E22226979E0071062D /* BreweryStorage.swift */,
+				9FBFBEA92230069B0092E8DE /* LocationStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -494,6 +515,7 @@
 			children = (
 				9F80BB552222CB7B0094333F /* BeerService.swift */,
 				9FFEC6E4222697BB0071062D /* BreweryService.swift */,
+				9FBFBEA7223006880092E8DE /* LocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -540,6 +562,7 @@
 				9FFEC6E0222697880071062D /* Brewery.swift */,
 				9FFEC6EE2226B16E0071062D /* BreweryImages.swift */,
 				9F73C777222D651300CB34AF /* PersonalBeer.swift */,
+				9FBFBEAD223007840092E8DE /* Location.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -553,6 +576,7 @@
 				9F21A34C2225CD420080A537 /* RMBeerLabel.swift */,
 				9FFEC6DE2226976C0071062D /* RMBrewery.swift */,
 				9FFEC6EC2226B1020071062D /* RMBreweryImages.swift */,
+				9FBFBEAF223007980092E8DE /* RMLocation.swift */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -560,6 +584,7 @@
 		9F89DE1B22220CAE0031989B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9FBFBE9C222FF3870092E8DE /* Locations */,
 				9FFEC6DD222693CD0071062D /* Brewery */,
 				9F21A3492225B9DD0080A537 /* Beer */,
 				9F9FEF9C2223DF6600E5EF49 /* MainMenu */,
@@ -623,6 +648,16 @@
 				9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */,
 			);
 			path = BeerDetails;
+			sourceTree = "<group>";
+		};
+		9FBFBE9C222FF3870092E8DE /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				9FBFBE9F222FF4310092E8DE /* NearbyLocationsVC.swift */,
+				9FBFBEA0222FF4310092E8DE /* NearbyLocationsVC.xib */,
+				9FBFBEA3222FF62C0092E8DE /* NearbyLocationsVM.swift */,
+			);
+			path = Locations;
 			sourceTree = "<group>";
 		};
 		9FFEC6DD222693CD0071062D /* Brewery */ = {
@@ -763,6 +798,7 @@
 				9F8D83BE222968AB00DDAFAA /* BreweryCell.xib in Resources */,
 				9F9FEFB02223E3EB00E5EF49 /* MenuItemCell.xib in Resources */,
 				9F6B6E1A22230F9F002FE015 /* BeerCell.xib in Resources */,
+				9FBFBEA2222FF4310092E8DE /* NearbyLocationsVC.xib in Resources */,
 				9F73C76F222D1F3500CB34AF /* AddBeerVC.xib in Resources */,
 				9F9FEFB922240F3300E5EF49 /* BeerDetailsVC.xib in Resources */,
 			);
@@ -913,10 +949,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F8D83C2222973C800DDAFAA /* CollectionViewExtensions.swift in Sources */,
+				9FBFBEA1222FF4310092E8DE /* NearbyLocationsVC.swift in Sources */,
 				9F9FEF9F2223DFED00E5EF49 /* SWRevealVC.swift in Sources */,
 				9F80BB582222CDBC0094333F /* BeerRepository.swift in Sources */,
 				9F89DE0C2221F07A0031989B /* RMBeer.swift in Sources */,
+				9FBFBEAA2230069B0092E8DE /* LocationStorage.swift in Sources */,
 				9F7088BE2221D68700E5205F /* BaseViewController.swift in Sources */,
+				9FBFBEA8223006880092E8DE /* LocationService.swift in Sources */,
+				9FBFBEA62230063A0092E8DE /* LocationRepository.swift in Sources */,
 				9F7088CB2221D6E400E5205F /* Colors.swift in Sources */,
 				9F9FEFAA2223E36200E5EF49 /* MenuVC.swift in Sources */,
 				9F73C771222D21AB00CB34AF /* CellExpandDelegate.swift in Sources */,
@@ -947,6 +987,7 @@
 				9F89DE142221F5890031989B /* DomainData.swift in Sources */,
 				9F7088D02221D6E400E5205F /* Constants.swift in Sources */,
 				9F7088B42221D66D00E5205F /* RxExtensions.swift in Sources */,
+				9FBFBEA4222FF62C0092E8DE /* NearbyLocationsVM.swift in Sources */,
 				9F80BB482222C4640094333F /* ErrorTracker.swift in Sources */,
 				9F8D83BD222968AB00DDAFAA /* BreweryCell.swift in Sources */,
 				9F9FEFB22223F47000E5EF49 /* MenuChildViewController.swift in Sources */,
@@ -964,6 +1005,7 @@
 				9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */,
 				9F73C76B222D1E4900CB34AF /* AddBeerVM.swift in Sources */,
 				9F89DE1E22220CD50031989B /* BeerSearchVC.swift in Sources */,
+				9FBFBEAE223007840092E8DE /* Location.swift in Sources */,
 				9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */,
 				9FFEC6ED2226B1020071062D /* RMBreweryImages.swift in Sources */,
 				9FFEC6EB222698110071062D /* BreweriesSearchVM.swift in Sources */,
@@ -973,11 +1015,13 @@
 				9F89DE0E2221F08E0031989B /* Beer.swift in Sources */,
 				9F7088C02221D68700E5205F /* BaseStorage.swift in Sources */,
 				9F73C776222D503A00CB34AF /* ValidatableTextField.swift in Sources */,
+				9FBFBEB0223007980092E8DE /* RMLocation.swift in Sources */,
 				9F7088B62221D66D00E5205F /* TableViewExtensions.swift in Sources */,
 				9F7088CF2221D6E400E5205F /* Validation.swift in Sources */,
 				9F89DE102221F25B0031989B /* BeerStyle.swift in Sources */,
 				9FFEC6DF2226976C0071062D /* RMBrewery.swift in Sources */,
 				9F7088E42221DC2700E5205F /* SingletonContainer.swift in Sources */,
+				9FBFBEAC223007630092E8DE /* LocationsResponse.swift in Sources */,
 				9F73C76E222D1F3500CB34AF /* AddBeerVC.swift in Sources */,
 				9F7088CE2221D6E400E5205F /* DialogHelper.swift in Sources */,
 				9F7088CD2221D6E400E5205F /* Config.swift in Sources */,

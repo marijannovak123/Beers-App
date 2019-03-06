@@ -29,6 +29,10 @@ class ViewModelContainer {
             AddBeerVM(repository: $0.resolve(BeerRepository.self)!)
         }
         
+        container.register(NearbyLocationsVM.self) { 
+            NearbyLocationsVM(repository: $0.resolve(LocationRepository.self)!)
+        }
+        
         return container
     }
 }

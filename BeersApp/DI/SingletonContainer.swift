@@ -53,6 +53,10 @@ class SingletonContainer {
             BreweryService(api: $0.resolve(ApiNetwork.self)!)
         }
         
+        container.register(LocationService.self) {
+            LocationService(api: $0.resolve(ApiNetwork.self)!)
+        }
+        
         // MARK: Storages
         container.register(BeerStorage.self) {
             BeerStorage(dbManager: $0.resolve(DatabaseManager.self)!)
@@ -60,6 +64,10 @@ class SingletonContainer {
         
         container.register(BreweryStorage.self) {
             BreweryStorage(dbManager: $0.resolve(DatabaseManager.self)!)
+        }
+        
+        container.register(LocationStorage.self) {
+            LocationStorage(dbManager: $0.resolve(DatabaseManager.self)!)
         }
         
         // MARK: Repositories
@@ -71,6 +79,9 @@ class SingletonContainer {
             BreweryRepository(service: $0.resolve(BreweryService.self)!, storage: $0.resolve(BreweryStorage.self)!)
         }
         
+        container.register(LocationRepository.self) {
+            LocationRepository(service: $0.resolve(LocationService.self)!, storage: $0.resolve(LocationStorage.self)!)
+        }
         return container
     }
 }

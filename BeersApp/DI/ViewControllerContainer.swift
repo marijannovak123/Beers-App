@@ -43,6 +43,10 @@ class ViewControllerContainer {
             BreweriesSearchVC(viewModel: $0.resolve(BreweriesSearchVM.self)!)
         }
         
+        container.register(NearbyLocationsVC.self) {
+            NearbyLocationsVC(viewModel: $0.resolve(NearbyLocationsVM.self)!)
+        }
+        
         return container
     }
 }

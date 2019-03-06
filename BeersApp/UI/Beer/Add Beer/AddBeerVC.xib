@@ -32,34 +32,34 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mu1-dQ-L0X">
-                                    <rect key="frame" x="8" y="217.5" width="359" height="212"/>
+                                    <rect key="frame" x="32" y="217.5" width="311" height="212"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dt-lO-qr5" userLabel="Beer Name" customClass="ValidatableTextField" customModule="BeersApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L7R-dm-Vnf" userLabel="Beer Description" customClass="ValidatableTextField" customModule="BeersApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="45" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="45" width="311" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alcohol Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3S-dJ-OHX" userLabel="Beer Alchol Percentage" customClass="ValidatableTextField" customModule="BeersApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="90" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="90" width="311" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bitterness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPX-1K-XfU" userLabel="Beer Bitterness" customClass="ValidatableTextField" customModule="BeersApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="135" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="135" width="311" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aA-np-PaA" userLabel="Create Button" customClass="AppButton" customModule="BeersApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="180" width="359" height="32"/>
+                                            <rect key="frame" x="0.0" y="180" width="311" height="32"/>
                                             <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="17"/>
                                             <state key="normal" title="Create">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,9 +70,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="mu1-dQ-L0X" firstAttribute="leading" secondItem="Qnr-EB-WZe" secondAttribute="leading" constant="8" id="BpD-8n-5PQ"/>
+                                <constraint firstItem="mu1-dQ-L0X" firstAttribute="leading" secondItem="Qnr-EB-WZe" secondAttribute="leading" constant="32" id="BpD-8n-5PQ"/>
                                 <constraint firstItem="mu1-dQ-L0X" firstAttribute="centerY" secondItem="Qnr-EB-WZe" secondAttribute="centerY" id="UHD-yY-8Ka"/>
-                                <constraint firstAttribute="trailing" secondItem="mu1-dQ-L0X" secondAttribute="trailing" constant="8" id="YHN-sN-8qT"/>
+                                <constraint firstAttribute="trailing" secondItem="mu1-dQ-L0X" secondAttribute="trailing" constant="32" id="YHN-sN-8qT"/>
                             </constraints>
                         </view>
                     </subviews>
