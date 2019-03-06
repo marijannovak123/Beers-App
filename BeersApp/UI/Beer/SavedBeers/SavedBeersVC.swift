@@ -37,22 +37,12 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         
         output.deleteResult
             .drive(onNext: { [unowned self] event in
-                switch event {
-                case .error(let message):
-                    self.showErrorMessage(message)
-                case .success(let message):
-                    self.showMessage(message!)
-                }
+                self.handleUIResult(event)
             }).disposed(by: disposeBag)
         
         output.deleteAllResult
             .drive(onNext: { [unowned self] event in
-                switch event {
-                case .error(let message):
-                    self.showErrorMessage(message)
-                case .success(let message):
-                    self.showMessage(message!)
-                }
+                self.handleUIResult(event)
             }).disposed(by: disposeBag)
         
         output.beerCount

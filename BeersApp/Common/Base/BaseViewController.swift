@@ -48,12 +48,21 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
         }
     }
     
+    func handleUIResult(_ result: UIResult) {
+        switch result {
+        case .error(let message):
+            self.showErrorMessage(message)
+        case .success(let message):
+            self.showMessage(message!)
+        }
+    }
+    
     func showMessage(_ message: String) {
-        Loaf(message, state: .info, sender: self).show()
+        Loaf(message, state: .info, sender: self).show(.short)
     }
     
     func showErrorMessage(_ message: String) {
-        Loaf(message, state: .warning, sender: self).show()
+        Loaf(message, state: .warning, sender: self).show(.short)
     }
     
 }
