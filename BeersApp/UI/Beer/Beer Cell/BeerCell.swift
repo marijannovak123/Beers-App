@@ -31,7 +31,7 @@ class BeerCell: UITableViewCell, ReusableCell {
     func configure(with data: Beer) {
         lName.text = data.name
         ivBeerImage.sd_setImage(with: URL(string: data.labels?.icon ?? ""), placeholderImage: #imageLiteral(resourceName: "beer_placeholder"))
-        lDescription.text = "kita"//data.description ?? "Some text"
+        lDescription.text = data.description ?? "Some text"
     }
     
     func configureWithHandler(data: BeerWrapper, delegate: CellExpandDelegate) {
@@ -46,7 +46,9 @@ class BeerCell: UITableViewCell, ReusableCell {
         expandableView.isHidden = !data.isExpanded
         
         if data.isExpanded {
-            btnExpand.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            btnExpand.setImage(#imageLiteral(resourceName: "up-arrow"), for: .normal)
+        } else {
+            btnExpand.setImage(#imageLiteral(resourceName: "down-arrow"), for: .normal)
         }
     }
     

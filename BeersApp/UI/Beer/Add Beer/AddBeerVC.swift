@@ -49,12 +49,22 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
                     self.showErrorMessage(message)
                 case .success(let message):
                     self.showMessage(message!)
-                    if let swRevealVC = self.revealViewController() as? SWRevealVC<MenuVC> {
-                        swRevealVC.showController(index: 1, toggleMenu: false)
-                    }
+                    self.clearFormAndSwitchToSavedBeers()
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    func clearFormAndSwitchToSavedBeers() {
+        tfName.text = nil
+        tfDescription.text = nil
+        tfAlcohol.text = nil
+        tfBitterness.text = nil
+        
+        if let swRevealVC = self.revealViewController() as? SWRevealVC<MenuVC> {
+            swRevealVC.menu?.tvMenu.selectRow(at: IndexPath(row: 1, section: 0), animated: true, scrollPosition: UITableView.ScrollPosition.middle)
+            swRevealVC.menu?.delegate?.showController(index: 1, toggleMenu: false)
+        }
     }
     
     //if the create button was pressed and the inputs are at original state (no error at just focus) set that they can be marked as invalid
