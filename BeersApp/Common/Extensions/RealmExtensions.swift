@@ -60,19 +60,13 @@ extension Reactive where Base: Realm {
     }
     
     func deleteMultiple<T: DomainData>(entities: [T]) -> Observable<Void> {
-        return Observable.create { observer in
-            do {
-                try self.base.write {
-                    self.base.delete(entities.asDatabaseType())
-                }
-                
-                observer.onNext(())
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
-            }
-            return Disposables.create()
+        var requests = [Observable<Void>]()
+        
+        for entity in entities {
+            requests.append(delete(entity: entity))
         }
+        
+        return Observable.zip(requests).mapToVoid()
     }
 
 }

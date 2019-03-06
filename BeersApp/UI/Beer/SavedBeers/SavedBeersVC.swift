@@ -16,13 +16,13 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     @IBOutlet weak var tvBeers: UITableView!
     @IBOutlet weak var lNoResults: UILabel!
     
-    private var deleteAllButton: UIBarButtonItem!
+    private var deleteAllButton = UIBarButtonItem(image: #imageLiteral(resourceName: "delete-all"), style: .plain, target: nil, action: nil)
     
     override func viewDidLoad() {
-        addDeleteAllButton()
         super.viewDidLoad()
         self.title = "saved_beers".localized
         setupTableView()
+        navigationItem.rightBarButtonItem = deleteAllButton
     }
     
     override func bindToViewModel() {
@@ -36,6 +36,16 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
             .disposed(by: disposeBag)
         
         output.deleteResult
+            .drive(onNext: { [unowned self] event in
+                switch event {
+                case .error(let message):
+                    self.showErrorMessage(message)
+                case .success(let message):
+                    self.showMessage(message!)
+                }
+            }).disposed(by: disposeBag)
+        
+        output.deleteAllResult
             .drive(onNext: { [unowned self] event in
                 switch event {
                 case .error(let message):
@@ -69,12 +79,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         tvBeers.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
-    
-    func addDeleteAllButton() {
-        deleteAllButton = UIBarButtonItem(image: #imageLiteral(resourceName: "delete-all"), style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = deleteAllButton
-    }
-    
+   
     var dataSource: RxTableViewSectionedAnimatedDataSource<BeerSection> {
         let dataSource = RxTableViewSectionedAnimatedDataSource<BeerSection>(configureCell: { (_, tv, ip, beer) -> UITableViewCell in
             let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!

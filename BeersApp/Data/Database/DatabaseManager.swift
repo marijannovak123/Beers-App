@@ -47,9 +47,8 @@ class DatabaseManager {
     }
     
     func deleteAll<T: DomainData>(type: T.Type) -> Observable<Void> where T.DatabaseType.DomainType == T {
-        return self.allObjects(oftype: type).flatMap { [unowned self] allObjects in
-            self.deleteMultiple(objects: allObjects)
-        }
+        let objects = realm.objects(type.DatabaseType.self).toArray()
+        return self.deleteMultiple(objects: objects.asDomain())
     }
     
     func saveObject<T: DomainData>(object: T) -> Observable<Void> {
