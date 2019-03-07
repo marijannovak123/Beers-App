@@ -59,7 +59,7 @@ class NearbyLocationsVC: MenuChildViewController<NearbyLocationsVM> {
     
     func setRegionToFirstMarker(_ location: Location) {
         let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000000, longitudinalMeters: 1000000)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 10000000, longitudinalMeters: 10000000)
         mapView.setRegion(region, animated: true)
     }
 }
