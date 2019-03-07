@@ -13,9 +13,14 @@ class NearbyLocationsVC: MenuChildViewController<NearbyLocationsVM> {
    
     @IBOutlet weak var mapView: MKMapView!
     
+    private var mapMarkers = [MKPointAnnotation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "locations".localized
+        mapView.showsScale = true
+        mapView.showsUserLocation = true
+        mapView.setRegion(MKCoordinateRegion.init(mapView.visibleMapRect), animated: true)
     }
 
     override func bindToViewModel() {
@@ -35,6 +40,26 @@ class NearbyLocationsVC: MenuChildViewController<NearbyLocationsVM> {
     }
     
     func setLocationMarksOnMap(_ locations: [Location]) {
-        print(locations)
+        mapView.removeAnnotations(mapMarkers)
+        mapMarkers.removeAll()
+        
+        for location in locations {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            annotation.title = location.name
+            mapMarkers.append(annotation)
+        }
+        
+        mapView.addAnnotations(mapMarkers)
+        
+        if locations.count > 0 {
+            setRegionToFirstMarker(locations[0])
+        }
+    }
+    
+    func setRegionToFirstMarker(_ location: Location) {
+        let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000000, longitudinalMeters: 1000000)
+        mapView.setRegion(region, animated: true)
     }
 }

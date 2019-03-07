@@ -14,6 +14,5 @@ class BeerService: BaseService {
     func fetchBeersByName(query: String) -> Observable<[Beer]> {
         return api.request(target: .beers(nameQuery: query), responseType: BeersResponse.self)
             .map { $0.data ?? [] }
-            .catchErrorJustReturn([])
     }
 }

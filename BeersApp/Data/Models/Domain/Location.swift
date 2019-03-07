@@ -14,7 +14,7 @@ struct Location: DomainData {
     let name: String
     let streetAddress: String
     let locality: String
-    let region: String
+    let region: String?
     let postalCode: String
     let latitude: Double
     let longitude: Double

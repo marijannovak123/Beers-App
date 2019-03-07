@@ -13,7 +13,7 @@ class RMLocation: BaseModel, Persistable {
     @objc var name = ""
     @objc var streetAddress = ""
     @objc var locality = ""
-    @objc var region = ""
+    @objc var region: String?
     @objc var postalCode = ""
     @objc var latitude: Double = 0.0
     @objc var longitude: Double = 0.0
