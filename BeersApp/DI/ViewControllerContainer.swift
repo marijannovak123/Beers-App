@@ -47,6 +47,10 @@ class ViewControllerContainer {
             NearbyLocationsVC(viewModel: $0.resolve(NearbyLocationsVM.self)!)
         }
         
+        container.register(GameVC.self) { _ in
+            GameVC()
+        }
+        
         return container
     }
 }

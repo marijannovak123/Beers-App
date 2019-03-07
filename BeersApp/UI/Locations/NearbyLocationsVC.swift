@@ -20,7 +20,6 @@ class NearbyLocationsVC: MenuChildViewController<NearbyLocationsVM> {
         title = "locations".localized
         mapView.showsScale = true
         mapView.showsUserLocation = true
-        mapView.setRegion(MKCoordinateRegion.init(mapView.visibleMapRect), animated: true)
     }
 
     override func bindToViewModel() {

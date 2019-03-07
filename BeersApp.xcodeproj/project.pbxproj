@@ -81,6 +81,8 @@
 		9F9FEFB42223F5DA00E5EF49 /* SavedBeersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB32223F5DA00E5EF49 /* SavedBeersVM.swift */; };
 		9F9FEFB822240F3300E5EF49 /* BeerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */; };
 		9F9FEFB922240F3300E5EF49 /* BeerDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */; };
+		9FA4D3B1223157DD00C5362E /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4D3B0223157DD00C5362E /* GameVC.swift */; };
+		9FA4D3B52231580400C5362E /* BeerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4D3B42231580400C5362E /* BeerGameScene.swift */; };
 		9FA566F322255BEE009CA0D1 /* SwipeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */; };
 		9FBFBEA1222FF4310092E8DE /* NearbyLocationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFBE9F222FF4310092E8DE /* NearbyLocationsVC.swift */; };
 		9FBFBEA2222FF4310092E8DE /* NearbyLocationsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBFBEA0222FF4310092E8DE /* NearbyLocationsVC.xib */; };
@@ -210,6 +212,8 @@
 		9F9FEFB32223F5DA00E5EF49 /* SavedBeersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBeersVM.swift; sourceTree = "<group>"; };
 		9F9FEFB622240F3300E5EF49 /* BeerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsVC.swift; sourceTree = "<group>"; };
 		9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerDetailsVC.xib; sourceTree = "<group>"; };
+		9FA4D3B0223157DD00C5362E /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		9FA4D3B42231580400C5362E /* BeerGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerGameScene.swift; sourceTree = "<group>"; };
 		9FA566F222255BEE009CA0D1 /* SwipeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEvent.swift; sourceTree = "<group>"; };
 		9FBFBE9F222FF4310092E8DE /* NearbyLocationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsVC.swift; sourceTree = "<group>"; };
 		9FBFBEA0222FF4310092E8DE /* NearbyLocationsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyLocationsVC.xib; sourceTree = "<group>"; };
@@ -584,6 +588,7 @@
 		9F89DE1B22220CAE0031989B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4D3AF223157C600C5362E /* Game */,
 				9FBFBE9C222FF3870092E8DE /* Locations */,
 				9FFEC6DD222693CD0071062D /* Brewery */,
 				9F21A3492225B9DD0080A537 /* Beer */,
@@ -648,6 +653,15 @@
 				9F9FEFB722240F3300E5EF49 /* BeerDetailsVC.xib */,
 			);
 			path = BeerDetails;
+			sourceTree = "<group>";
+		};
+		9FA4D3AF223157C600C5362E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9FA4D3B0223157DD00C5362E /* GameVC.swift */,
+				9FA4D3B42231580400C5362E /* BeerGameScene.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		9FBFBE9C222FF3870092E8DE /* Locations */ = {
@@ -978,10 +992,12 @@
 				9F7088EA2221DEE100E5205F /* ViewModelType.swift in Sources */,
 				9F9FEFAF2223E3EB00E5EF49 /* MenuItemCell.swift in Sources */,
 				9F7088AC2221D64B00E5205F /* ReusableCell.swift in Sources */,
+				9FA4D3B52231580400C5362E /* BeerGameScene.swift in Sources */,
 				9F21A34B2225BEB50080A537 /* UIResult.swift in Sources */,
 				9F8D83BA222939E300DDAFAA /* BreweriesResponse.swift in Sources */,
 				9FFEC6E5222697BB0071062D /* BreweryService.swift in Sources */,
 				9F6B6E1922230F9F002FE015 /* BeerCell.swift in Sources */,
+				9FA4D3B1223157DD00C5362E /* GameVC.swift in Sources */,
 				9F21A34F2225CDB80080A537 /* BeerLabel.swift in Sources */,
 				9F7088E22221DBE300E5205F /* DatabaseManager.swift in Sources */,
 				9F89DE142221F5890031989B /* DomainData.swift in Sources */,
