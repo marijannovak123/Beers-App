@@ -54,6 +54,7 @@
 		9F80BB532222CB400094333F /* BeerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB522222CB400094333F /* BeerStorage.swift */; };
 		9F80BB562222CB7B0094333F /* BeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB552222CB7B0094333F /* BeerService.swift */; };
 		9F80BB582222CDBC0094333F /* BeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F80BB572222CDBC0094333F /* BeerRepository.swift */; };
+		9F85BFED22329A500020A7C4 /* GameStartOrOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F85BFEC22329A500020A7C4 /* GameStartOrOverScene.swift */; };
 		9F89DE0C2221F07A0031989B /* RMBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89DE0B2221F07A0031989B /* RMBeer.swift */; };
 		9F89DE0E2221F08E0031989B /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89DE0D2221F08E0031989B /* Beer.swift */; };
 		9F89DE102221F25B0031989B /* BeerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89DE0F2221F25B0031989B /* BeerStyle.swift */; };
@@ -185,6 +186,7 @@
 		9F80BB522222CB400094333F /* BeerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStorage.swift; sourceTree = "<group>"; };
 		9F80BB552222CB7B0094333F /* BeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerService.swift; sourceTree = "<group>"; };
 		9F80BB572222CDBC0094333F /* BeerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRepository.swift; sourceTree = "<group>"; };
+		9F85BFEC22329A500020A7C4 /* GameStartOrOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartOrOverScene.swift; sourceTree = "<group>"; };
 		9F89DE0B2221F07A0031989B /* RMBeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBeer.swift; sourceTree = "<group>"; };
 		9F89DE0D2221F08E0031989B /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		9F89DE0F2221F25B0031989B /* BeerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStyle.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			children = (
 				9FA4D3B0223157DD00C5362E /* GameVC.swift */,
 				9FA4D3B42231580400C5362E /* BeerGameScene.swift */,
+				9F85BFEC22329A500020A7C4 /* GameStartOrOverScene.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				9F6B6E1922230F9F002FE015 /* BeerCell.swift in Sources */,
 				9FA4D3B1223157DD00C5362E /* GameVC.swift in Sources */,
 				9F21A34F2225CDB80080A537 /* BeerLabel.swift in Sources */,
+				9F85BFED22329A500020A7C4 /* GameStartOrOverScene.swift in Sources */,
 				9F7088E22221DBE300E5205F /* DatabaseManager.swift in Sources */,
 				9F89DE142221F5890031989B /* DomainData.swift in Sources */,
 				9F7088D02221D6E400E5205F /* Constants.swift in Sources */,

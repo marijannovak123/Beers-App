@@ -13,6 +13,8 @@ class GameVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Beer Game"
+        addMenuButton()
         displayGameScene()
     }
     
@@ -28,10 +30,24 @@ class GameVC: UIViewController {
         skView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         skView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         
-        let scene = BeerGameScene()
+        let scene = GameStartOrOverScene()
+        scene.isGameOver = false
         scene.size = view.bounds.size
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
     }
 
+    func addMenuButton() {
+        self.revealViewController()?.tapGestureRecognizer()
+        self.revealViewController()?.panGestureRecognizer().isEnabled = false
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(toggleReveal))
+    }
+    
+    @objc private func toggleReveal() {
+        self.revealViewController()?.revealToggle(animated: true)
+    }
 }
