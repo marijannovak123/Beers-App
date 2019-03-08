@@ -1,1 +1,1 @@
-Beers App
+Learning iOS with MVVM and RxSwift
