@@ -8,6 +8,8 @@ target 'BeersApp' do
   # Pods for BeersApp
   pod 'RxSwift',    '~> 4.3.1'
   pod 'RxCocoa',    '~> 4.3.1'
+  pod 'RxTest'
+  pod 'RxBlocking‘
   pod 'Moya/RxSwift', '~> 12.0'
   pod 'Swinject'
   pod 'MBProgressHUD', '~> 1.1.0'

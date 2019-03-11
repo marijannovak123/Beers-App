@@ -8,7 +8,13 @@
 
 import RxSwift
 
-class BreweryRepository {
+protocol BreweryRepository {
+    
+    func getBreweriesByName(name: String) -> Observable<[Brewery]>
+    
+}
+
+class BreweryRepositoryImpl: BreweryRepository {
     
     private let service: BreweryService
     private let storage: BreweryStorage

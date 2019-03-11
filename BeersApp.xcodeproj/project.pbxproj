@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F00902822367CA0006632C1 /* BeerSearchTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902722367CA0006632C1 /* BeerSearchTestCase.swift */; };
+		9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */; };
+		9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902C22369CC1006632C1 /* ModelMocks.swift */; };
 		9F21A34B2225BEB50080A537 /* UIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34A2225BEB50080A537 /* UIResult.swift */; };
 		9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34C2225CD420080A537 /* RMBeerLabel.swift */; };
 		9F21A34F2225CDB80080A537 /* BeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34E2225CDB80080A537 /* BeerLabel.swift */; };
@@ -16,7 +19,6 @@
 		9F7088762221D19A00E5205F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088752221D19A00E5205F /* AppDelegate.swift */; };
 		9F70887D2221D19B00E5205F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F70887C2221D19B00E5205F /* Assets.xcassets */; };
 		9F7088802221D19B00E5205F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F70887E2221D19B00E5205F /* LaunchScreen.storyboard */; };
-		9F70888B2221D19B00E5205F /* BeersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F70888A2221D19B00E5205F /* BeersAppTests.swift */; };
 		9F7088962221D19B00E5205F /* BeersAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088952221D19B00E5205F /* BeersAppUITests.swift */; };
 		9F7088A52221D60E00E5205F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A32221D60E00E5205F /* Network.swift */; };
 		9F7088A62221D60E00E5205F /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7088A42221D60E00E5205F /* ApiEndpoint.swift */; };
@@ -133,6 +135,9 @@
 		434B86DDFD5DBEC222217D81 /* Pods-BeersAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		470A7D34926A6E4EB5951179 /* Pods-BeersAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.release.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F00902722367CA0006632C1 /* BeerSearchTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchTestCase.swift; sourceTree = "<group>"; };
+		9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRepositoryMock.swift; sourceTree = "<group>"; };
+		9F00902C22369CC1006632C1 /* ModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMocks.swift; sourceTree = "<group>"; };
 		9F21A34A2225BEB50080A537 /* UIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResult.swift; sourceTree = "<group>"; };
 		9F21A34C2225CD420080A537 /* RMBeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBeerLabel.swift; sourceTree = "<group>"; };
 		9F21A34E2225CDB80080A537 /* BeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerLabel.swift; sourceTree = "<group>"; };
@@ -145,7 +150,6 @@
 		9F70887F2221D19B00E5205F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F7088812221D19B00E5205F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7088862221D19B00E5205F /* BeersAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeersAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F70888A2221D19B00E5205F /* BeersAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersAppTests.swift; sourceTree = "<group>"; };
 		9F70888C2221D19B00E5205F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7088912221D19B00E5205F /* BeersAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeersAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7088952221D19B00E5205F /* BeersAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersAppUITests.swift; sourceTree = "<group>"; };
@@ -286,6 +290,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9F009029223699BB006632C1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */,
+				9F00902C22369CC1006632C1 /* ModelMocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		9F21A3492225B9DD0080A537 /* Beer */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,8 +366,9 @@
 		9F7088892221D19B00E5205F /* BeersAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				9F70888A2221D19B00E5205F /* BeersAppTests.swift */,
+				9F009029223699BB006632C1 /* Mocks */,
 				9F70888C2221D19B00E5205F /* Info.plist */,
+				9F00902722367CA0006632C1 /* BeerSearchTestCase.swift */,
 			);
 			path = BeersAppTests;
 			sourceTree = "<group>";
@@ -856,10 +870,13 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -878,10 +895,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -1055,7 +1075,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F70888B2221D19B00E5205F /* BeersAppTests.swift in Sources */,
+				9F00902822367CA0006632C1 /* BeerSearchTestCase.swift in Sources */,
+				9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */,
+				9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

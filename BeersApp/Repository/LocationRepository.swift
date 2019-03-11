@@ -9,7 +9,13 @@
 import Foundation
 import RxSwift
 
-class LocationRepository {
+protocol LocationRepository {
+    
+    func fetchLocations() -> Observable<[Location]>
+    
+}
+
+class LocationRepositoryImpl: LocationRepository {
     
     private let service: LocationService
     private let storage: LocationStorage

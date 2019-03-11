@@ -72,15 +72,15 @@ class SingletonContainer {
         
         // MARK: Repositories
         container.register(BeerRepository.self) {
-            BeerRepository(service: $0.resolve(BeerService.self)!, storage: $0.resolve(BeerStorage.self)!)
+            BeerRepositoryImpl(service: $0.resolve(BeerService.self)!, storage: $0.resolve(BeerStorage.self)!)
         }
         
         container.register(BreweryRepository.self) {
-            BreweryRepository(service: $0.resolve(BreweryService.self)!, storage: $0.resolve(BreweryStorage.self)!)
+            BreweryRepositoryImpl(service: $0.resolve(BreweryService.self)!, storage: $0.resolve(BreweryStorage.self)!)
         }
         
         container.register(LocationRepository.self) {
-            LocationRepository(service: $0.resolve(LocationService.self)!, storage: $0.resolve(LocationStorage.self)!)
+            LocationRepositoryImpl(service: $0.resolve(LocationService.self)!, storage: $0.resolve(LocationStorage.self)!)
         }
         return container
     }

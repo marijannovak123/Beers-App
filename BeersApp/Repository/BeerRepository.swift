@@ -9,7 +9,20 @@
 import Foundation
 import RxSwift
 
-class BeerRepository {
+protocol BeerRepository {
+    
+    func fetchBeers(query: String) -> Observable<[Beer]>
+    
+    func saveBeer(_ beer: Beer) -> Observable<Void>
+    
+    func loadPersistedBeers() -> Observable<[Beer]>
+    
+    func deleteBeer(_ beer: Beer) -> Observable<Void>
+    
+    func deleteAllBeers() -> Observable<Void>
+}
+
+class BeerRepositoryImpl: BeerRepository {
     
     private let service: BeerService
     private let storage: BeerStorage
