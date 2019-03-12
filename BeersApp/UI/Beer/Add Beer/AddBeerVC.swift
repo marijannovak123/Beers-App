@@ -48,7 +48,7 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
                 case .error(let message):
                     self.showErrorMessage(message)
                 case .success(let message):
-                    self.showMessage(message!)
+                    self.showMessage(message)
                     self.clearFormAndSwitchToSavedBeers()
                 }
             })

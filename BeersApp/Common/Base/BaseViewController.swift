@@ -53,7 +53,7 @@ class BaseViewController<V>: UIViewController where V: ViewModelType {
         case .error(let message):
             self.showErrorMessage(message)
         case .success(let message):
-            self.showMessage(message!)
+            self.showMessage(message)
         }
     }
     

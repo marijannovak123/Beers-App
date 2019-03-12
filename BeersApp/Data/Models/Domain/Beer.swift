@@ -51,9 +51,13 @@ struct BeerWrapper: IdentifiableType, Equatable {
     }
 }
 
-struct BeerSection {
+struct BeerSection: Equatable {
     var beers: [BeerWrapper]
     var header: String?
+    
+    static func == (lhs: BeerSection, rhs: BeerSection) -> Bool {
+        return lhs.beers == rhs.beers
+    }
 }
 
 extension BeerSection: AnimatableSectionModelType {
