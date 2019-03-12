@@ -27,7 +27,6 @@ class SavedBeersTestCase: XCTestCase {
     }
     
     func testViewModelBinds() {
-        beerRepo.shouldFail = false
         let itemDeleted = testScheduler.createColdObservable(
             [.next(5, ModelMocks.beerWrappers[0])]
         ).asDriverOnErrorJustComplete()
@@ -99,18 +98,20 @@ class SavedBeersTestCase: XCTestCase {
         
         testScheduler.start()
         
+        //Completions and stream terminations happening (I assume) because drivers are transformed to observables to test, otherwise in real application using Drivers that don't terminate
+        
         //return empty array on error and complete
         XCTAssertEqual(beerSectionObserver.events, [.next(0, []), .completed(0)])
         //no results, so 0 and complete
         XCTAssertEqual(beerCountObserver.events, [.next(0, 0), .completed(0)])
-        //deletion errror
+        //deletion errror and completion
         XCTAssertEqual(deleteItemObserver.events, [.next(5, UIResult.error("delete_error".localized)), .completed(5)])
-        //deletion error
+        //deletion error and completion
         XCTAssertEqual(deleteAllObserver.events, [.next(10, UIResult.error("delete_error".localized)), .completed(10)])
     }
 
     override func tearDown() {
-    
+        beerRepo.shouldFail = false
     }
 
 }
