@@ -8,10 +8,7 @@
 
 import XCTest
 import RxTest
-import RxBlocking
-import RxCocoa
 import RxSwift
-import RxDataSources
 @testable import BeersApp
 
 class SavedBeersTestCase: XCTestCase {
@@ -44,10 +41,10 @@ class SavedBeersTestCase: XCTestCase {
         let deleteAllObserver = testScheduler.createObserver(UIResult.self)
         
         testScheduler.scheduleAt(0) {
-            output.beersSection.asObservable().subscribe(beerSectionObserver).disposed(by: self.disposeBag)
-            output.beerCount.asObservable().subscribe(beerCountObserver).disposed(by: self.disposeBag)
-            output.deleteResult.asObservable().subscribe(deleteItemObserver).disposed(by: self.disposeBag)
-            output.deleteAllResult.asObservable().subscribe(deleteAllObserver).disposed(by: self.disposeBag)
+            output.beersSection.drive(beerSectionObserver).disposed(by: self.disposeBag)
+            output.beerCount.drive(beerCountObserver).disposed(by: self.disposeBag)
+            output.deleteResult.drive(deleteItemObserver).disposed(by: self.disposeBag)
+            output.deleteAllResult.drive(deleteAllObserver).disposed(by: self.disposeBag)
         }
     
         testScheduler.scheduleAt(15) {
@@ -86,10 +83,10 @@ class SavedBeersTestCase: XCTestCase {
         let deleteAllObserver = testScheduler.createObserver(UIResult.self)
         
         testScheduler.scheduleAt(0) {
-            output.beersSection.asObservable().subscribe(beerSectionObserver).disposed(by: self.disposeBag)
-            output.beerCount.asObservable().subscribe(beerCountObserver).disposed(by: self.disposeBag)
-            output.deleteResult.asObservable().subscribe(deleteItemObserver).disposed(by: self.disposeBag)
-            output.deleteAllResult.asObservable().subscribe(deleteAllObserver).disposed(by: self.disposeBag)
+            output.beersSection.drive(beerSectionObserver).disposed(by: self.disposeBag)
+            output.beerCount.drive(beerCountObserver).disposed(by: self.disposeBag)
+            output.deleteResult.drive(deleteItemObserver).disposed(by: self.disposeBag)
+            output.deleteAllResult.drive(deleteAllObserver).disposed(by: self.disposeBag)
         }
         
         testScheduler.scheduleAt(15) {
@@ -97,8 +94,6 @@ class SavedBeersTestCase: XCTestCase {
         }
         
         testScheduler.start()
-        
-        //Completions and stream terminations happening (I assume) because drivers are transformed to observables to test, otherwise in real application using Drivers that don't terminate
         
         //return empty array on error and complete
         XCTAssertEqual(beerSectionObserver.events, [.next(0, []), .completed(0)])

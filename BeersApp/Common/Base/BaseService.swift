@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class BaseService {
     
@@ -15,4 +16,6 @@ class BaseService {
     init(api: ApiNetwork) {
         self.api = api
     }
+ 
+    
 }

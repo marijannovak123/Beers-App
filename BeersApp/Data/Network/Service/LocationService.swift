@@ -14,5 +14,7 @@ class LocationService: BaseService {
     func fetchLocations() -> Observable<[Location]> {
         return api.request(target: .locations, responseType: LocationsResponse.self)
             .map { $0.data ?? [] }
+            .catchErrorJustReturn([])
     }
 }
+

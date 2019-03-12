@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F00902822367CA0006632C1 /* SavedBeersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902722367CA0006632C1 /* SavedBeersTestCase.swift */; };
+		9F00902822367CA0006632C1 /* SavedBeersVMTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902722367CA0006632C1 /* SavedBeersVMTestCase.swift */; };
 		9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */; };
 		9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F00902C22369CC1006632C1 /* ModelMocks.swift */; };
 		9F21A34B2225BEB50080A537 /* UIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34A2225BEB50080A537 /* UIResult.swift */; };
 		9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34C2225CD420080A537 /* RMBeerLabel.swift */; };
 		9F21A34F2225CDB80080A537 /* BeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34E2225CDB80080A537 /* BeerLabel.swift */; };
 		9F6657A02237E87E0022C7BD /* BaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66579F2237E87E0022C7BD /* BaseMock.swift */; };
+		9F6657A42237FE9E0022C7BD /* BeerRepositoryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6657A32237FE9E0022C7BD /* BeerRepositoryTestCase.swift */; };
 		9F6B6E1622230547002FE015 /* BeersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1522230547002FE015 /* BeersResponse.swift */; };
 		9F6B6E1922230F9F002FE015 /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1722230F9F002FE015 /* BeerCell.swift */; };
 		9F6B6E1A22230F9F002FE015 /* BeerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1822230F9F002FE015 /* BeerCell.xib */; };
@@ -136,13 +137,14 @@
 		434B86DDFD5DBEC222217D81 /* Pods-BeersAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		470A7D34926A6E4EB5951179 /* Pods-BeersAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.release.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F00902722367CA0006632C1 /* SavedBeersTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBeersTestCase.swift; sourceTree = "<group>"; };
+		9F00902722367CA0006632C1 /* SavedBeersVMTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBeersVMTestCase.swift; sourceTree = "<group>"; };
 		9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRepositoryMock.swift; sourceTree = "<group>"; };
 		9F00902C22369CC1006632C1 /* ModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMocks.swift; sourceTree = "<group>"; };
 		9F21A34A2225BEB50080A537 /* UIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResult.swift; sourceTree = "<group>"; };
 		9F21A34C2225CD420080A537 /* RMBeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBeerLabel.swift; sourceTree = "<group>"; };
 		9F21A34E2225CDB80080A537 /* BeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerLabel.swift; sourceTree = "<group>"; };
 		9F66579F2237E87E0022C7BD /* BaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMock.swift; sourceTree = "<group>"; };
+		9F6657A32237FE9E0022C7BD /* BeerRepositoryTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRepositoryTestCase.swift; sourceTree = "<group>"; };
 		9F6B6E1522230547002FE015 /* BeersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersResponse.swift; sourceTree = "<group>"; };
 		9F6B6E1722230F9F002FE015 /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
 		9F6B6E1822230F9F002FE015 /* BeerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerCell.xib; sourceTree = "<group>"; };
@@ -371,7 +373,8 @@
 			children = (
 				9F009029223699BB006632C1 /* Mocks */,
 				9F70888C2221D19B00E5205F /* Info.plist */,
-				9F00902722367CA0006632C1 /* SavedBeersTestCase.swift */,
+				9F00902722367CA0006632C1 /* SavedBeersVMTestCase.swift */,
+				9F6657A32237FE9E0022C7BD /* BeerRepositoryTestCase.swift */,
 			);
 			path = BeersAppTests;
 			sourceTree = "<group>";
@@ -1078,10 +1081,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F00902822367CA0006632C1 /* SavedBeersTestCase.swift in Sources */,
+				9F00902822367CA0006632C1 /* SavedBeersVMTestCase.swift in Sources */,
 				9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */,
 				9F6657A02237E87E0022C7BD /* BaseMock.swift in Sources */,
 				9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */,
+				9F6657A42237FE9E0022C7BD /* BeerRepositoryTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
