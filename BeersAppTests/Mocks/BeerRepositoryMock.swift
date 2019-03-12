@@ -10,28 +10,26 @@ import Foundation
 import RxSwift
 @testable import BeersApp
 
-class BeerRepositoryMock: BeerRepository {
-    
-    var shouldFail = false
+class BeerRepositoryMock: BaseMock, BeerRepository {
     
     func fetchBeers(query: String) -> Observable<[Beer]> {
-        return Observable.just(ModelMocks.beers)
+        return generateResult(ModelMocks.beers)
     }
     
     func saveBeer(_ beer: Beer) -> Observable<Void> {
-        return Observable.just(())
+        return generateResult(())
     }
     
     func loadPersistedBeers() -> Observable<[Beer]> {
-        return Observable.just(ModelMocks.beers)
+        return generateResult(ModelMocks.beers)
     }
     
     func deleteBeer(_ beer: Beer) -> Observable<Void> {
-        return Observable.just(())
+        return generateResult(())
     }
     
     func deleteAllBeers() -> Observable<Void> {
-        return Observable.just(())
+        return generateResult(())
     }
     
 }

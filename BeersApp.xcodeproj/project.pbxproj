@@ -13,6 +13,7 @@
 		9F21A34B2225BEB50080A537 /* UIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34A2225BEB50080A537 /* UIResult.swift */; };
 		9F21A34D2225CD420080A537 /* RMBeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34C2225CD420080A537 /* RMBeerLabel.swift */; };
 		9F21A34F2225CDB80080A537 /* BeerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21A34E2225CDB80080A537 /* BeerLabel.swift */; };
+		9F6657A02237E87E0022C7BD /* BaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66579F2237E87E0022C7BD /* BaseMock.swift */; };
 		9F6B6E1622230547002FE015 /* BeersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1522230547002FE015 /* BeersResponse.swift */; };
 		9F6B6E1922230F9F002FE015 /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1722230F9F002FE015 /* BeerCell.swift */; };
 		9F6B6E1A22230F9F002FE015 /* BeerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B6E1822230F9F002FE015 /* BeerCell.xib */; };
@@ -141,6 +142,7 @@
 		9F21A34A2225BEB50080A537 /* UIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResult.swift; sourceTree = "<group>"; };
 		9F21A34C2225CD420080A537 /* RMBeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBeerLabel.swift; sourceTree = "<group>"; };
 		9F21A34E2225CDB80080A537 /* BeerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerLabel.swift; sourceTree = "<group>"; };
+		9F66579F2237E87E0022C7BD /* BaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMock.swift; sourceTree = "<group>"; };
 		9F6B6E1522230547002FE015 /* BeersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersResponse.swift; sourceTree = "<group>"; };
 		9F6B6E1722230F9F002FE015 /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
 		9F6B6E1822230F9F002FE015 /* BeerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerCell.xib; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */,
 				9F00902C22369CC1006632C1 /* ModelMocks.swift */,
+				9F66579F2237E87E0022C7BD /* BaseMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1077,6 +1080,7 @@
 			files = (
 				9F00902822367CA0006632C1 /* SavedBeersTestCase.swift in Sources */,
 				9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */,
+				9F6657A02237E87E0022C7BD /* BaseMock.swift in Sources */,
 				9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

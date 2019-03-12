@@ -56,7 +56,7 @@ class SavedBeersVM: ViewModelType {
             .flatMap { _ in
                 self.repository.deleteAllBeers()
             }.map { _ in .success("delete_success".localized) }
-            .asDriver(onErrorJustReturn: UIResult.error("delete.error".localized))
+            .asDriver(onErrorJustReturn: UIResult.error("delete_error".localized))
         
         let beerCount = beerDriver.map {
             $0.first?.beers.count ?? 0
