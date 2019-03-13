@@ -42,7 +42,7 @@ extension Reactive where Base: UITableView {
         let source = self.methodInvoked(#selector(self.base.notifyLeadingSwipe))
             .map { parameters in
                 return SwipeEvent(actionName: parameters[0] as! String, indexPath: parameters[1] as! IndexPath)
-        }
+            }
         return ControlEvent(events: source)
     }
     

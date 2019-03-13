@@ -17,5 +17,9 @@ class BaseService {
         self.api = api
     }
  
-    
+    func apiListRequest<T: ApiResult<R>, R>(target: ApiEndpoint, responseType: T.Type) -> Observable<[R]> {
+        return api.request(target: target, responseType: responseType)
+            .map { $0.data ?? [] }
+            .catchErrorJustReturn([])
+    }
 }

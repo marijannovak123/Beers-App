@@ -11,8 +11,6 @@ import RxSwift
 class BreweryService: BaseService {
 
     func fetchBreweriesByName(name: String) -> Observable<[Brewery]> {
-        return api.request(target: .breweries(nameQuery: name), responseType: BreweriesResponse.self)
-            .map { $0.data ?? [] }
-            .catchErrorJustReturn([])
+        return apiListRequest(target: .breweries(nameQuery: name), responseType: ApiResult<Brewery>.self)
     }
 }

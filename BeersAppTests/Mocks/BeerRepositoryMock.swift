@@ -13,23 +13,23 @@ import RxSwift
 class BeerRepositoryMock: BaseMock, BeerRepository {
     
     func fetchBeers(query: String) -> Observable<[Beer]> {
-        return generateResult(ModelMocks.beers)
+        return generateRxResult(ModelMocks.beers)
     }
     
     func saveBeer(_ beer: Beer) -> Observable<Void> {
-        return generateResult(())
+        return generateRxResult(())
     }
     
     func loadPersistedBeers() -> Observable<[Beer]> {
-        return generateResult(ModelMocks.beers)
+        return generateRxResult(ModelMocks.beers)
     }
     
     func deleteBeer(_ beer: Beer) -> Observable<Void> {
-        return generateResult(())
+        return generateRxResult(())
     }
     
     func deleteAllBeers() -> Observable<Void> {
-        return generateResult(())
+        return generateRxResult(())
     }
     
 }

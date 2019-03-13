@@ -21,7 +21,7 @@ class BaseMock {
         return MockError(message: "mocked error")
     }
     
-    func generateResult<T>(_ resultIfNotFail: T) -> Observable<T> {
+    func generateRxResult<T>(_ resultIfNotFail: T) -> Observable<T> {
         if shouldFail {
             return Observable.error(error)
         } else {
