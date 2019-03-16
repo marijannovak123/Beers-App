@@ -108,7 +108,8 @@
 		9FFEC6ED2226B1020071062D /* RMBreweryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6EC2226B1020071062D /* RMBreweryImages.swift */; };
 		9FFEC6EF2226B16E0071062D /* BreweryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6EE2226B16E0071062D /* BreweryImages.swift */; };
 		B4CC28FB8943CC389F98FF11 /* Pods_BeersAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */; };
-		BFF6F0EE9459EDC5D1A3E284 /* Pods_BeersAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0F9B4DDE55EA739E2FFC53 /* Pods_BeersAppUITests.framework */; };
+		CAC063B3223D53E10041F302 /* BeerServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC063B2223D53E10041F302 /* BeerServiceMock.swift */; };
+		CAC063B5223D544B0041F302 /* BeerStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC063B4223D544B0041F302 /* BeerStorageMock.swift */; };
 		E92CDC748DE164BFB6FBDFB7 /* Pods_BeersApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C484D139BF5EFE45A355EF69 /* Pods_BeersApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +132,6 @@
 
 /* Begin PBXFileReference section */
 		0FFD2EF53D36DFB6AEA0BDC1 /* Pods-BeersApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersApp.release.xcconfig"; path = "Target Support Files/Pods-BeersApp/Pods-BeersApp.release.xcconfig"; sourceTree = "<group>"; };
-		243822C865F30D4313600168 /* Pods-BeersAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppUITests.release.xcconfig"; path = "Target Support Files/Pods-BeersAppUITests/Pods-BeersAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		434B86DDFD5DBEC222217D81 /* Pods-BeersAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		470A7D34926A6E4EB5951179 /* Pods-BeersAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppTests.release.xcconfig"; path = "Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,7 +244,8 @@
 		9FFEC6EC2226B1020071062D /* RMBreweryImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBreweryImages.swift; sourceTree = "<group>"; };
 		9FFEC6EE2226B16E0071062D /* BreweryImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryImages.swift; sourceTree = "<group>"; };
 		C484D139BF5EFE45A355EF69 /* Pods_BeersApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8FA71DF8D2A8F949F3ED724 /* Pods-BeersAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-BeersAppUITests/Pods-BeersAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAC063B2223D53E10041F302 /* BeerServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceMock.swift; sourceTree = "<group>"; };
+		CAC063B4223D544B0041F302 /* BeerStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStorageMock.swift; sourceTree = "<group>"; };
 		DB0F9B4DDE55EA739E2FFC53 /* Pods_BeersAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF9EE073EA5933F8F843C4B /* Pods-BeersApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeersApp.debug.xcconfig"; path = "Target Support Files/Pods-BeersApp/Pods-BeersApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,7 +271,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF6F0EE9459EDC5D1A3E284 /* Pods_BeersAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +284,6 @@
 				0FFD2EF53D36DFB6AEA0BDC1 /* Pods-BeersApp.release.xcconfig */,
 				434B86DDFD5DBEC222217D81 /* Pods-BeersAppTests.debug.xcconfig */,
 				470A7D34926A6E4EB5951179 /* Pods-BeersAppTests.release.xcconfig */,
-				C8FA71DF8D2A8F949F3ED724 /* Pods-BeersAppUITests.debug.xcconfig */,
-				243822C865F30D4313600168 /* Pods-BeersAppUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -296,6 +294,8 @@
 				9F00902A223699CF006632C1 /* BeerRepositoryMock.swift */,
 				9F00902C22369CC1006632C1 /* ModelMocks.swift */,
 				9F66579F2237E87E0022C7BD /* BaseMock.swift */,
+				CAC063B2223D53E10041F302 /* BeerServiceMock.swift */,
+				CAC063B4223D544B0041F302 /* BeerStorageMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -756,7 +756,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F7088A02221D19B00E5205F /* Build configuration list for PBXNativeTarget "BeersAppUITests" */;
 			buildPhases = (
-				5623CB69B17D90A9381E40BE /* [CP] Check Pods Manifest.lock */,
 				9F70888D2221D19B00E5205F /* Sources */,
 				9F70888E2221D19B00E5205F /* Frameworks */,
 				9F70888F2221D19B00E5205F /* Resources */,
@@ -935,28 +934,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeersAppTests/Pods-BeersAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5623CB69B17D90A9381E40BE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BeersAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BAFAFCD4EEA144D3724BC9B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1099,6 +1076,8 @@
 				9F00902822367CA0006632C1 /* SavedBeersVMTestCase.swift in Sources */,
 				9F00902D22369CC1006632C1 /* ModelMocks.swift in Sources */,
 				9F6657A02237E87E0022C7BD /* BaseMock.swift in Sources */,
+				CAC063B3223D53E10041F302 /* BeerServiceMock.swift in Sources */,
+				CAC063B5223D544B0041F302 /* BeerStorageMock.swift in Sources */,
 				9F00902B223699CF006632C1 /* BeerRepositoryMock.swift in Sources */,
 				9F6657A42237FE9E0022C7BD /* BeerRepositoryTestCase.swift in Sources */,
 			);
@@ -1357,7 +1336,6 @@
 		};
 		9F7088A12221D19B00E5205F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8FA71DF8D2A8F949F3ED724 /* Pods-BeersAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1379,7 +1357,6 @@
 		};
 		9F7088A22221D19B00E5205F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243822C865F30D4313600168 /* Pods-BeersAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

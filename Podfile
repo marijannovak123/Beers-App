@@ -27,9 +27,4 @@ target 'BeersApp' do
     pod 'RxBlocking‘
   end
 
-  target 'BeersAppUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

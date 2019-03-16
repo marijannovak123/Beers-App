@@ -9,7 +9,11 @@
 import Foundation
 import RxSwift
 
-class BeerService: BaseService {
+protocol BeerService {
+    func fetchBeersByName(query: String) -> Observable<[Beer]>
+}
+
+class BeerServiceImpl: BaseService, BeerService {
     
     func fetchBeersByName(query: String) -> Observable<[Beer]> {
         return apiListRequest(target: .beers(nameQuery: query), responseType: ApiResult<Beer>.self)

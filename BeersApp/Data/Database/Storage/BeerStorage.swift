@@ -9,7 +9,17 @@
 import Foundation
 import RxSwift
 
-class BeerStorage: BaseStorage {
+protocol BeerStorage {
+    func save(_ beer: Beer) -> Observable<Void>
+    
+    func loadAllBeers() -> Observable<[Beer]>
+    
+    func deleteBeer(_ beer: Beer) -> Observable<Void>
+    
+    func deleteAllBeers() -> Observable<Void>
+}
+
+class BeerStorageImpl: BaseStorage, BeerStorage {
     
     func save(_ beer: Beer) -> Observable<Void> {
         return databaseManager.saveObject(object: beer)

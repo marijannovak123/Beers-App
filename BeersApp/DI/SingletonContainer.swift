@@ -46,7 +46,7 @@ class SingletonContainer {
         
         // MARK: Services
         container.register(BeerService.self) {
-            BeerService(api: $0.resolve(ApiNetwork.self)!)
+            BeerServiceImpl(api: $0.resolve(ApiNetwork.self)!)
         }
         
         container.register(BreweryService.self) {
@@ -59,7 +59,7 @@ class SingletonContainer {
         
         // MARK: Storages
         container.register(BeerStorage.self) {
-            BeerStorage(dbManager: $0.resolve(DatabaseManager.self)!)
+            BeerStorageImpl(dbManager: $0.resolve(DatabaseManager.self)!)
         }
         
         container.register(BreweryStorage.self) {

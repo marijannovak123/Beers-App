@@ -9,20 +9,46 @@
 import XCTest
 @testable import BeersApp
 import RxSwift
+import RxBlocking
 
 class BeerRepositoryTestCase: XCTestCase {
 
+    private var beerRepository: BeerRepositoryImpl!
+    
+    private let beerService = BeerServiceMock()
+    private let beerStorage = BeerStorageMock()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        beerRepository = BeerRepositoryImpl(service: beerService, storage: beerStorage)
     }
 
+    func testFetchBeers() {
+        let fetchedBeers = try! beerRepository.fetchBeers(query: "testString").toBlocking().first()!
+        XCTAssertEqual(fetchedBeers, ModelMocks.beers)
+    }
+    
+    func testSaveBeer() {
+        let savedEvent = try! beerRepository.saveBeer(ModelMocks.beers.first!).toBlocking().toArray()
+        XCTAssert(savedEvent.count > 0)
+    }
+    
+    func testLoadPersistedBeers() {
+       let loadedBeers = try! beerRepository.loadPersistedBeers().toBlocking().first()!
+        XCTAssertEqual(loadedBeers, ModelMocks.beers)
+    }
+    
+    func testDeleteBeer() {
+        let isDeleted = try! beerRepository.deleteBeer(ModelMocks.beers[0]).toBlocking().toArray()
+        XCTAssert(isDeleted.count > 0)
+    }
+    
+    func testDeleteAllBeers() {
+        let isDeleted = try! beerRepository.deleteAllBeers().toBlocking().toArray()
+        XCTAssert(isDeleted.count > 0)
+    }
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+       
     }
-
-    func testExample() {
-      
-    }
-
 
 }

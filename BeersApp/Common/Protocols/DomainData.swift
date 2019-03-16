@@ -8,12 +8,14 @@
 
 import Foundation
 
-protocol DomainData: Codable {
+protocol DomainData: Codable, Equatable {
     
     associatedtype DatabaseType: Persistable
     
     var uid: Any {get}
     
     func asDatabaseType() -> DatabaseType
+   
 }
+
 
