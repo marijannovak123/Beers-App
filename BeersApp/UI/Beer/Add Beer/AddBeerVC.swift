@@ -8,18 +8,18 @@
 
 import UIKit
 
-class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tfName: ValidatableTextField!
     @IBOutlet weak var tfDescription: ValidatableTextField!
     @IBOutlet weak var tfAlcohol: ValidatableTextField!
     @IBOutlet weak var tfBitterness: ValidatableTextField!
     @IBOutlet weak var btnCreate: AppButton!
+    @IBOutlet weak var ivBeerImage: UIImageView!
     
     private let alcoholPicker = UIPickerView()
     private let bitternessPicker = UIPickerView()
-    
-    private var imagePath: String?
+    private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,10 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
                 switch result {
                 case .error(let message):
                     self.showErrorMessage(message)
+                    self.viewModel.imagePath = nil
                 case .success(let message):
                     self.showMessage(message)
+                    self.viewModel.imagePath = nil
                     self.clearFormAndSwitchToSavedBeers()
                 }
             })
@@ -98,6 +100,16 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
         
         tfAlcohol.inputView = alcoholPicker
         tfBitterness.inputView = bitternessPicker
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        
+        ivBeerImage.isUserInteractionEnabled = true
+        ivBeerImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onImagePressed)))
+    }
+    
+    @objc func onImagePressed() {
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -151,6 +163,28 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
         } else {
             return Constants.bitternessPickerComponentWidth
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            ivBeerImage.contentMode = .scaleAspectFit
+            ivBeerImage.image = pickedImage
+            
+            let fileManager = FileManager.default
+            let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+            let imagePath = documentsPath?.appendingPathComponent("image\(Date().timeIntervalSince1970).jpg")
+
+            let imageData = pickedImage.jpegData(compressionQuality: 0.75)
+            
+            do {
+                try imageData?.write(to: imagePath!)
+                viewModel.imagePath = imagePath?.path
+            } catch {
+                showMessage("Error saving image")
+            }
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 

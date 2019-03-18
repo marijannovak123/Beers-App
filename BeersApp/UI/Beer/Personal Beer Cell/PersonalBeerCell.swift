@@ -11,14 +11,11 @@ import UIKit
 class PersonalBeerCell: UITableViewCell, ReusableCell {
     
     @IBOutlet weak var lName: UILabel!
-    @IBOutlet weak var lABV: UILabel!
-    @IBOutlet weak var lIBU: UILabel!
     @IBOutlet weak var ivImage: UIImageView!
     @IBOutlet weak var lDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,10 +24,11 @@ class PersonalBeerCell: UITableViewCell, ReusableCell {
     
     func configure(with data: PersonalBeer) {
         lName.text = data.name
-        lABV.text = data.abv
-        lIBU.text = data.ibu
-        ivImage.image = UIImage(named: "beer")
         lDescription.text = data.description
+        
+        if let imagePath = data.localImagePath {
+            ivImage.image = UIImage(contentsOfFile: imagePath)
+        } 
     }
     
 }

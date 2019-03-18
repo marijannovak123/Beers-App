@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBeerVC" customModule="BeersApp" customModuleProvider="target">
             <connections>
                 <outlet property="btnCreate" destination="0aA-np-PaA" id="OJu-5B-o2s"/>
+                <outlet property="ivBeerImage" destination="NNN-pc-cHy" id="8wj-BX-coI"/>
                 <outlet property="tfAlcohol" destination="R3S-dJ-OHX" id="VHy-x6-kyI"/>
                 <outlet property="tfBitterness" destination="WPX-1K-XfU" id="IvG-Q6-ElY"/>
                 <outlet property="tfDescription" destination="L7R-dm-Vnf" id="zX8-qQ-NT7"/>
@@ -67,12 +68,19 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-pc-cHy" userLabel="Beer Image">
+                                    <rect key="frame" x="16" y="32" width="343" height="169.5"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="mu1-dQ-L0X" firstAttribute="leading" secondItem="Qnr-EB-WZe" secondAttribute="leading" constant="32" id="BpD-8n-5PQ"/>
+                                <constraint firstItem="mu1-dQ-L0X" firstAttribute="top" secondItem="NNN-pc-cHy" secondAttribute="bottom" constant="16" id="Hu1-1T-VeD"/>
                                 <constraint firstItem="mu1-dQ-L0X" firstAttribute="centerY" secondItem="Qnr-EB-WZe" secondAttribute="centerY" id="UHD-yY-8Ka"/>
+                                <constraint firstItem="NNN-pc-cHy" firstAttribute="top" secondItem="Qnr-EB-WZe" secondAttribute="top" constant="32" id="W4w-W5-cw2"/>
                                 <constraint firstAttribute="trailing" secondItem="mu1-dQ-L0X" secondAttribute="trailing" constant="32" id="YHN-sN-8qT"/>
+                                <constraint firstAttribute="trailing" secondItem="NNN-pc-cHy" secondAttribute="trailing" constant="16" id="gNG-zR-4mj"/>
+                                <constraint firstItem="NNN-pc-cHy" firstAttribute="leading" secondItem="Qnr-EB-WZe" secondAttribute="leading" constant="16" id="qU6-KF-Xuo"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -97,4 +105,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="beer_placeholder" width="40" height="40"/>
+    </resources>
 </document>

@@ -13,6 +13,8 @@ typealias AddBeerInput = (name: ValidatedText, description: ValidatedText, abv: 
 
 class AddBeerVM: ViewModelType {
     
+    var imagePath: String?
+    
     struct Input {
         let createButtonDriver: Driver<Void>
         let nameDriver: Driver<ValidatedText>
@@ -52,7 +54,7 @@ class AddBeerVM: ViewModelType {
     }
     
     private func generateBeer(parameters: AddBeerInput) -> PersonalBeer {
-        return PersonalBeer(id: String.generateRandomId(length: 6), name: parameters.name.value!, description: parameters.description.value!, abv: parameters.abv.value!, ibu: parameters.ibu.value!, localImagePath: "")
+        return PersonalBeer(id: String.generateRandomId(length: 6), name: parameters.name.value!, description: parameters.description.value!, abv: parameters.abv.value!, ibu: parameters.ibu.value!, localImagePath: imagePath)
     }
     
     private func isInputValid(parameters: AddBeerInput) -> Bool {
