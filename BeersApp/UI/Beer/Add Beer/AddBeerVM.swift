@@ -41,7 +41,7 @@ class AddBeerVM: ViewModelType {
                 self.generateBeer(parameters: parameters)
             }.asObservable()
             .flatMap { [unowned self] beer in
-                self.repository.saveBeer(beer)
+                self.repository.savePersonalBeer(beer)
             }.map { _ in
                 UIResult.success("Beer created successsfully!")
             }.asDriver(onErrorJustReturn:
@@ -51,8 +51,8 @@ class AddBeerVM: ViewModelType {
         return Output(beerCreatedDriver: beerCreatedDriver)
     }
     
-    private func generateBeer(parameters: AddBeerInput) -> Beer {
-        return PersonalBeer(id: String.generateRandomId(length: 6), name: parameters.name.value!, description: parameters.description.value!, abv: parameters.abv.value!, ibu: parameters.ibu.value!).asBeer()
+    private func generateBeer(parameters: AddBeerInput) -> PersonalBeer {
+        return PersonalBeer(id: String.generateRandomId(length: 6), name: parameters.name.value!, description: parameters.description.value!, abv: parameters.abv.value!, ibu: parameters.ibu.value!, localImagePath: "")
     }
     
     private func isInputValid(parameters: AddBeerInput) -> Bool {

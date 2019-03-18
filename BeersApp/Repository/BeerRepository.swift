@@ -15,7 +15,11 @@ protocol BeerRepository {
     
     func saveBeer(_ beer: Beer) -> Observable<Void>
     
+    func savePersonalBeer(_ beer: PersonalBeer) -> Observable<Void>
+    
     func loadPersistedBeers() -> Observable<[Beer]>
+    
+    func loadPersonalBeers() -> Observable<[PersonalBeer]>
     
     func deleteBeer(_ beer: Beer) -> Observable<Void>
     
@@ -40,8 +44,16 @@ class BeerRepositoryImpl: BeerRepository {
         return storage.save(beer)
     }
     
+    func savePersonalBeer(_ beer: PersonalBeer) -> Observable<Void> {
+        return storage.savePersonal(beer)
+    }
+    
     func loadPersistedBeers() -> Observable<[Beer]> {
         return storage.loadAllBeers()
+    }
+    
+    func loadPersonalBeers() -> Observable<[PersonalBeer]> {
+        return storage.loadAllPersonalBeers()
     }
     
     func deleteBeer(_ beer: Beer) -> Observable<Void> {

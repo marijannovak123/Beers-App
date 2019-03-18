@@ -19,6 +19,8 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
     private let alcoholPicker = UIPickerView()
     private let bitternessPicker = UIPickerView()
     
+    private var imagePath: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setValidation()
@@ -99,18 +101,18 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerView == alcoholPicker ? 3 : 1
+        return pickerView == alcoholPicker ? Constants.alcoholPickerComponentsNo : Constants.bitternessPickerComponentsNo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == alcoholPicker {
-            if component == 1 {
-                return 1
+            if component == Constants.decimalPointComponent {
+                return Constants.decimalPointComponentRows
             } else {
-                return component == 0 ? 11 : 10
+                return component == 0 ? Constants.alcoholPickerLeftComponentRows : Constants.alcoholPickerRightComponentRows
             }
         } else {
-            return 13
+            return Constants.bitternesPickerRows
         }
     }
     
@@ -141,13 +143,13 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         if pickerView == alcoholPicker {
-            if component == 1 {
-                return 20
+            if component == Constants.decimalPointComponent {
+                return Constants.decimalPointWidth
             } else {
-                return 40
+                return Constants.alcoholPickerComponentWidth
             }
         } else {
-            return 50
+            return Constants.bitternessPickerComponentWidth
         }
     }
 }

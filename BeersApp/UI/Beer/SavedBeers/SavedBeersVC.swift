@@ -14,6 +14,7 @@ import RxCocoa
 class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     
     @IBOutlet weak var tvBeers: UITableView!
+    @IBOutlet weak var tvPersonalBeers: UITableView!
     @IBOutlet weak var lNoResults: UILabel!
     
     private var deleteAllButton = UIBarButtonItem(image: #imageLiteral(resourceName: "delete-all"), style: .plain, target: nil, action: nil)
@@ -21,7 +22,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "saved_beers".localized
-        setupTableView()
+        setupTableViews()
         navigationItem.rightBarButtonItem = deleteAllButton
     }
     
@@ -32,7 +33,11 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         let output = viewModel.transform(input: input)
         
         output.beersSection
-            .drive(tvBeers.rx.items(dataSource: dataSource))
+            .drive(tvBeers.rx.items(dataSource: beerDataSource))
+            .disposed(by: disposeBag)
+        
+        output.personalBeersSection
+            .drive(tvPersonalBeers.rx.items(dataSource: personalBeerDataSource))
             .disposed(by: disposeBag)
         
         output.deleteResult
@@ -61,37 +66,59 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         }
     }
     
-    func setupTableView() {
+    func setupTableViews() {
         tvBeers.registerCell(cellType: BeerCell.self)
         tvBeers.rowHeight = UITableView.automaticDimension
         tvBeers.estimatedRowHeight = 150
         
         tvBeers.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        tvPersonalBeers.registerCell(cellType: PersonalBeerCell.self)
+        tvPersonalBeers.rowHeight = UITableView.automaticDimension
+        tvPersonalBeers.estimatedRowHeight = 200
+        
+        tvPersonalBeers.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
    
-    var dataSource: RxTableViewSectionedAnimatedDataSource<BeerSection> {
+    var beerDataSource: RxTableViewSectionedAnimatedDataSource<BeerSection> {
         let dataSource = RxTableViewSectionedAnimatedDataSource<BeerSection>(configureCell: { (_, tv, ip, beer) -> UITableViewCell in
             let cell = tv.dequeueReusableCell(cellType: BeerCell.self, for: ip)!
             cell.configureWithHandler(data: beer, delegate: self)
             return cell
         })
         
-        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic,
-                                                                   reloadAnimation: .automatic,
-                                                                   deleteAnimation: .automatic)
+        dataSource.titleForHeaderInSection = { _, _  in "Beers" }
         dataSource.canEditRowAtIndexPath = { _, _ in true }
         return dataSource
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let action = UITableViewRowAction(style: .destructive, title: "delete".localized) { (action, indexPath) in
-            DialogHelper.promptDialog(parent: self, message: "delete_prompt".localized, positiveText: "Yes", negativeText: "No", completion: {
-                self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath) //could have used Completable
-            })
-        }
+    var personalBeerDataSource: RxTableViewSectionedAnimatedDataSource<PersonalBeerSection> {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<PersonalBeerSection>(configureCell: {
+            (_, tv, ip, beer) -> UITableViewCell in
+            let cell = tv.dequeueReusableCell(cellType: PersonalBeerCell.self, for: ip)!
+            cell.configure(with: beer)
+            return cell
+        })
         
-        return [action]
+        dataSource.titleForHeaderInSection = { _, _  in "Personal Beers" }
+
+        return dataSource
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if tableView == tvBeers {
+            let action = UITableViewRowAction(style: .destructive, title: "delete".localized) { (action, indexPath) in
+                DialogHelper.promptDialog(parent: self, message: "delete_prompt".localized, positiveText: "Yes", negativeText: "No", completion: {
+                    self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath) //could have used Completable
+                })
+            }
+            
+            return [action]
+        } else {
+            return nil
+        }
     }
     
 }

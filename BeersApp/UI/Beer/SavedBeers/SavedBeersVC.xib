@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="lNoResults" destination="pQO-uz-qec" id="EeR-lM-7Oh"/>
                 <outlet property="tvBeers" destination="Zfz-Um-6fr" id="DJX-to-ZBS"/>
+                <outlet property="tvPersonalBeers" destination="zPY-Zc-Cnf" id="1k9-eX-cAl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,12 +23,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zfz-Um-6fr" userLabel="Table Beers">
-                    <rect key="frame" x="8" y="44" width="398" height="818"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQO-uz-qec" userLabel="No Results Label">
-                    <rect key="frame" x="16" y="438" width="382" height="20.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="T2y-4f-s21" userLabel="Tables Stack">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zfz-Um-6fr" userLabel="Table Beers">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="393"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zPY-Zc-Cnf" userLabel="Table Personal Beers">
+                            <rect key="frame" x="0.0" y="425" width="414" height="393"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQO-uz-qec" userLabel="No Results Label">
+                    <rect key="frame" x="16" y="437" width="382" height="20.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,15 +46,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zfz-Um-6fr" secondAttribute="trailing" constant="8" id="5gl-qV-Som"/>
-                <constraint firstItem="Zfz-Um-6fr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="C5S-hL-9eF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pQO-uz-qec" secondAttribute="trailing" constant="16" id="GfS-U2-hEJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Zfz-Um-6fr" secondAttribute="bottom" id="JxI-pR-6Fe"/>
-                <constraint firstItem="pQO-uz-qec" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="hYv-0D-atA"/>
-                <constraint firstItem="pQO-uz-qec" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tCD-aV-X2Z"/>
-                <constraint firstItem="Zfz-Um-6fr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yNh-eC-qap"/>
+                <constraint firstItem="T2y-4f-s21" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AJF-vM-5hS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="T2y-4f-s21" secondAttribute="bottom" id="DLu-dZ-Afs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T2y-4f-s21" secondAttribute="trailing" id="Xk7-lf-EZf"/>
+                <constraint firstItem="T2y-4f-s21" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xC8-Uz-skP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </view>
     </objects>
 </document>

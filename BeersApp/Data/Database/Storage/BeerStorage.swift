@@ -12,7 +12,11 @@ import RxSwift
 protocol BeerStorage {
     func save(_ beer: Beer) -> Observable<Void>
     
+    func savePersonal(_ beer: PersonalBeer) -> Observable<Void>
+    
     func loadAllBeers() -> Observable<[Beer]>
+    
+    func loadAllPersonalBeers() -> Observable<[PersonalBeer]>
     
     func deleteBeer(_ beer: Beer) -> Observable<Void>
     
@@ -20,6 +24,10 @@ protocol BeerStorage {
 }
 
 class BeerStorageImpl: BaseStorage, BeerStorage {
+    
+    func savePersonal(_ beer: PersonalBeer) -> Observable<Void> {
+        return databaseManager.saveObject(object: beer)
+    }
     
     func save(_ beer: Beer) -> Observable<Void> {
         return databaseManager.saveObject(object: beer)
@@ -29,11 +37,18 @@ class BeerStorageImpl: BaseStorage, BeerStorage {
         return databaseManager.allObjects(oftype: Beer.self)
     }
     
+    func loadAllPersonalBeers() -> Observable<[PersonalBeer]> {
+        return databaseManager.allObjects(oftype: PersonalBeer.self)
+    }
+    
     func deleteBeer(_ beer: Beer) -> Observable<Void> {
         return databaseManager.deleteObject(object: beer)
     }
     
     func deleteAllBeers() -> Observable<Void> {
-        return databaseManager.deleteAll(type: Beer.self)
+        return Observable.zip(
+                databaseManager.deleteAll(type: Beer.self),
+                databaseManager.deleteAll(type: PersonalBeer.self)
+            ).mapToVoid()
     }
 }

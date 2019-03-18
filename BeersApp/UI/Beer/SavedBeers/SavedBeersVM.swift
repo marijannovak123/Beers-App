@@ -21,6 +21,7 @@ class SavedBeersVM: ViewModelType {
     
     struct Output {
         let beersSection: Driver<[BeerSection]>
+        let personalBeersSection: Driver<[PersonalBeerSection]>
         let deleteResult: Driver<UIResult>
         let deleteAllResult: Driver<UIResult>
         let beerCount: Driver<Int>
@@ -41,7 +42,11 @@ class SavedBeersVM: ViewModelType {
                 }
                 return beerWrappers
             }
-            .map { [BeerSection(beers: $0, header: nil)] }
+            .map { [BeerSection(beers: $0, header: "Saved Beers")] }
+            .asDriver(onErrorJustReturn: [])
+        
+        let personalBeerDriver = repository.loadPersonalBeers()
+            .map { [PersonalBeerSection(beers: $0, header: "Personal Beers")] }
             .asDriver(onErrorJustReturn: [])
         
         let deleteDriver = input.itemDeleted
@@ -62,7 +67,7 @@ class SavedBeersVM: ViewModelType {
             $0.first?.beers.count ?? 0
         }
         
-        return Output(beersSection: beerDriver, deleteResult: deleteDriver, deleteAllResult: deleteAllDriver, beerCount: beerCount)
+        return Output(beersSection: beerDriver, personalBeersSection: personalBeerDriver, deleteResult: deleteDriver, deleteAllResult: deleteAllDriver, beerCount: beerCount)
     }
     
     func setExpandedCell(at index: Int) {
