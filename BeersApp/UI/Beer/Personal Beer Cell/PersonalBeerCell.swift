@@ -26,8 +26,12 @@ class PersonalBeerCell: UITableViewCell, ReusableCell {
         lName.text = data.name
         lDescription.text = data.description
         
-        if let imagePath = data.localImagePath {
-            ivImage.image = UIImage(contentsOfFile: imagePath)
+        
+        if let imageName = data.localImagePath {
+            let fileManager = FileManager.default
+            let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+            let imagePath = documentsPath?.appendingPathComponent(imageName).path
+            ivImage.image = UIImage(contentsOfFile: imagePath!)
         } 
     }
     

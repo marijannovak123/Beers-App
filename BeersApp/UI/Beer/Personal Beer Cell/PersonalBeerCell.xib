@@ -25,22 +25,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-P5-XpT" userLabel="Personal Beer Image">
-                        <rect key="frame" x="199" y="122" width="80" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-L8-BtT" userLabel="Description">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-L8-BtT" userLabel="Description">
                         <rect key="frame" x="24" y="200" width="272" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-P5-XpT" userLabel="Personal Beer Image">
+                        <rect key="frame" x="32" y="44.5" width="256" height="139.5"/>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wC9-P5-XpT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="EnL-vH-fMU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wC9-P5-XpT" secondAttribute="trailing" constant="16" id="Hdo-ek-bE7"/>
+                    <constraint firstItem="5JS-L8-BtT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="O5L-Ou-MVr"/>
                     <constraint firstAttribute="trailing" secondItem="U67-xJ-hzb" secondAttribute="trailing" constant="8" id="SJM-Xa-K82"/>
+                    <constraint firstItem="5JS-L8-BtT" firstAttribute="top" secondItem="wC9-P5-XpT" secondAttribute="bottom" constant="16" id="cOV-zX-kpH"/>
+                    <constraint firstItem="wC9-P5-XpT" firstAttribute="top" secondItem="U67-xJ-hzb" secondAttribute="bottom" constant="16" id="kwl-yc-ylz"/>
                     <constraint firstItem="U67-xJ-hzb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="pMk-2o-h0w"/>
                     <constraint firstItem="U67-xJ-hzb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="rg4-vh-MOG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5JS-L8-BtT" secondAttribute="trailing" constant="8" id="rhQ-bC-6UU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5JS-L8-BtT" secondAttribute="bottom" constant="8" id="xA0-nw-qQs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

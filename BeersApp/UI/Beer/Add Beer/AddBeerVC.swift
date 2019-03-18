@@ -53,6 +53,7 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
                 case .success(let message):
                     self.showMessage(message)
                     self.viewModel.imagePath = nil
+                    self.ivBeerImage.image = nil
                     self.clearFormAndSwitchToSavedBeers()
                 }
             })
@@ -172,13 +173,14 @@ class AddBeerVC: MenuChildViewController<AddBeerVM>, UIPickerViewDelegate, UIPic
             
             let fileManager = FileManager.default
             let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-            let imagePath = documentsPath?.appendingPathComponent("image\(Date().timeIntervalSince1970).jpg")
+            let imageName = "image\(Date().timeIntervalSince1970).jpg"
+            let imagePath = documentsPath?.appendingPathComponent(imageName)
 
             let imageData = pickedImage.jpegData(compressionQuality: 0.75)
             
             do {
                 try imageData?.write(to: imagePath!)
-                viewModel.imagePath = imagePath?.path
+                viewModel.imagePath = imageName
             } catch {
                 showMessage("Error saving image")
             }
