@@ -21,7 +21,7 @@ struct Location: DomainData {
     let brewery: Brewery?
     let countryIsoCode: String
     
-    var uid: Any {
+    var uid: String {
         return self.id
     }
     

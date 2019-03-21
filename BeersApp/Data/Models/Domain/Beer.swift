@@ -19,7 +19,7 @@ struct Beer: DomainData {
     let style: BeerStyle?
     let labels: BeerLabel?
     
-    var uid: Any {
+    var uid: String {
         return self.id
     }
     

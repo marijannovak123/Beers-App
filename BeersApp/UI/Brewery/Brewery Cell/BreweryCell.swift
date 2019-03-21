@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BreweryCell: UICollectionViewCell, ReusableCollectionCell {
   
@@ -16,9 +17,12 @@ class BreweryCell: UICollectionViewCell, ReusableCollectionCell {
     func configure(with data: Brewery) {
         lBreweryName.text = data.name
         ivBrewery.contentMode = .scaleAspectFit
-        ivBrewery.sd_setShowActivityIndicatorView(true)
-        ivBrewery.sd_setIndicatorStyle(.gray)
-        ivBrewery.sd_setImage(with: URL(string: data.images?.large ?? ""), placeholderImage: #imageLiteral(resourceName: "beer-tap"))
+        ivBrewery.kf.indicatorType = .activity
+        ivBrewery.kf.setImage(with: URL(string: data.images?.large ?? ""), placeholder: #imageLiteral(resourceName: "beer-tap"), options: [
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(1)),
+            .cacheOriginalImage
+            ])
     }
     
 }

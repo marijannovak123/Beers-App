@@ -19,7 +19,7 @@ struct BeerLabel: DomainData {
         self.large = large
     }
     
-    var uid: Any {
+    var uid: String {
         return self.id
     }
     

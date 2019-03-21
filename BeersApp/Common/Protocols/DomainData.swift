@@ -12,7 +12,7 @@ protocol DomainData: Codable, Equatable {
     
     associatedtype DatabaseType: Persistable
     
-    var uid: Any {get}
+    var uid: String {get}
     
     func asDatabaseType() -> DatabaseType
    

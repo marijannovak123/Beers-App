@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 import RxSwift
-
 
 class BeerCell: UITableViewCell, ReusableCell {
     
@@ -30,7 +29,7 @@ class BeerCell: UITableViewCell, ReusableCell {
     
     func configure(with data: Beer) {
         lName.text = data.name
-        ivBeerImage.sd_setImage(with: URL(string: data.labels?.icon ?? ""), placeholderImage: #imageLiteral(resourceName: "beer_placeholder"))
+        ivBeerImage.kf.setImage(with: URL(string: data.labels?.icon ?? ""), placeholder: #imageLiteral(resourceName: "beer_placeholder"))
         lDescription.text = data.description ?? "Some text"
     }
     

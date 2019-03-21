@@ -20,8 +20,8 @@ struct BeerStyle: DomainData {
     let abvMin: String?
     let abvMax: String?
     
-    var uid: Any {
-        return self.id
+    var uid: String {
+        return String(id)
     }
     
     func asDatabaseType() -> RMBeerStyle {

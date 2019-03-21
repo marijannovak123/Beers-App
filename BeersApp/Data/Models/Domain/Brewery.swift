@@ -19,7 +19,7 @@ struct Brewery: DomainData {
     let website: String?
     let images: BreweryImages?
     
-    var uid: Any {
+    var uid: String {
         return self.id
     }
     

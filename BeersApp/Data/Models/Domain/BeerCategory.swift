@@ -13,8 +13,8 @@ struct BeerCategory: DomainData {
     let id: Int
     let name: String
     
-    var uid: Any {
-        return self.id
+    var uid: String {
+        return String(id)
     }
     
     func asDatabaseType() -> RMBeerCategory {

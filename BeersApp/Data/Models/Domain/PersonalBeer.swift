@@ -18,7 +18,7 @@ struct PersonalBeer: DomainData {
     let ibu: String
     let localImagePath: String?
     
-    var uid: Any {
+    var uid: String {
         return self.id
     }
     

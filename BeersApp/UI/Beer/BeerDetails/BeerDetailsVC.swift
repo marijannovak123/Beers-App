@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
 class BeerDetailsVC: UIViewController {
 
@@ -33,6 +33,6 @@ class BeerDetailsVC: UIViewController {
 
     private func setBeerData() {
         lBeerName.text = beer.name
-        ivBeerImage.sd_setImage(with: URL(string: beer.labels?.large ?? ""))
+        ivBeerImage.kf.setImage(with: URL(string: beer.labels?.large ?? ""))
     }
 }
