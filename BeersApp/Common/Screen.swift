@@ -17,6 +17,7 @@ enum Screen {
     case beerDetails(beer: Beer)
     case locations
     case game
+    case beerWeb
     case menu
     
     func getController() -> UIViewController? {
@@ -40,6 +41,8 @@ enum Screen {
             controller = container?.resolve(NearbyLocationsVC.self)
         case .game:
             controller = container?.resolve(GameVC.self)
+        case .beerWeb:
+            controller = container?.resolve(BeerWebVC.self)
         }
         
         if self.isRootController() {

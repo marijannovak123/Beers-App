@@ -51,6 +51,10 @@ class ViewControllerContainer {
             GameVC()
         }
         
+        container.register(BeerWebVC.self) { _ in
+            BeerWebVC()
+        }
+        
         return container
     }
 }

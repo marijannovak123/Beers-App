@@ -108,6 +108,8 @@
 		9FFEC6ED2226B1020071062D /* RMBreweryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6EC2226B1020071062D /* RMBreweryImages.swift */; };
 		9FFEC6EF2226B16E0071062D /* BreweryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEC6EE2226B16E0071062D /* BreweryImages.swift */; };
 		B4CC28FB8943CC389F98FF11 /* Pods_BeersAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA8A3FF0D934B886EEEC8D2 /* Pods_BeersAppTests.framework */; };
+		CA59D1482243958B0021B1DF /* BeerWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59D1462243958B0021B1DF /* BeerWebVC.swift */; };
+		CA59D1492243958B0021B1DF /* BeerWebVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA59D1472243958B0021B1DF /* BeerWebVC.xib */; };
 		CAC063B3223D53E10041F302 /* BeerServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC063B2223D53E10041F302 /* BeerServiceMock.swift */; };
 		CAC063B5223D544B0041F302 /* BeerStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC063B4223D544B0041F302 /* BeerStorageMock.swift */; };
 		CAE1927F223F8FB200AB7394 /* RMPersonalBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1927E223F8FB200AB7394 /* RMPersonalBeer.swift */; };
@@ -247,6 +249,8 @@
 		9FFEC6EC2226B1020071062D /* RMBreweryImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBreweryImages.swift; sourceTree = "<group>"; };
 		9FFEC6EE2226B16E0071062D /* BreweryImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryImages.swift; sourceTree = "<group>"; };
 		C484D139BF5EFE45A355EF69 /* Pods_BeersApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeersApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA59D1462243958B0021B1DF /* BeerWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerWebVC.swift; sourceTree = "<group>"; };
+		CA59D1472243958B0021B1DF /* BeerWebVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerWebVC.xib; sourceTree = "<group>"; };
 		CAC063B2223D53E10041F302 /* BeerServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceMock.swift; sourceTree = "<group>"; };
 		CAC063B4223D544B0041F302 /* BeerStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStorageMock.swift; sourceTree = "<group>"; };
 		CAE1927E223F8FB200AB7394 /* RMPersonalBeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPersonalBeer.swift; sourceTree = "<group>"; };
@@ -612,6 +616,7 @@
 		9F89DE1B22220CAE0031989B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CA59D1452243955A0021B1DF /* Web */,
 				9FA4D3AF223157C600C5362E /* Game */,
 				9FBFBE9C222FF3870092E8DE /* Locations */,
 				9FFEC6DD222693CD0071062D /* Brewery */,
@@ -716,6 +721,15 @@
 				DB0F9B4DDE55EA739E2FFC53 /* Pods_BeersAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA59D1452243955A0021B1DF /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				CA59D1462243958B0021B1DF /* BeerWebVC.swift */,
+				CA59D1472243958B0021B1DF /* BeerWebVC.xib */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		CAE19280223F98B100AB7394 /* Personal Beer Cell */ = {
@@ -842,6 +856,7 @@
 				9FFEC6E9222698040071062D /* BreweriesSearchVC.xib in Resources */,
 				9F9FEFAB2223E36200E5EF49 /* MenuVC.xib in Resources */,
 				CAE19284223F98E000AB7394 /* PersonalBeerCell.xib in Resources */,
+				CA59D1492243958B0021B1DF /* BeerWebVC.xib in Resources */,
 				9FFEC6D6222673670071062D /* Localizable.strings in Resources */,
 				9F89DE1F22220CD50031989B /* BeerSearchVC.xib in Resources */,
 				9F8D83BE222968AB00DDAFAA /* BreweryCell.xib in Resources */,
@@ -1014,6 +1029,7 @@
 				9FBFBEA62230063A0092E8DE /* LocationRepository.swift in Sources */,
 				9F7088CB2221D6E400E5205F /* Colors.swift in Sources */,
 				9F9FEFAA2223E36200E5EF49 /* MenuVC.swift in Sources */,
+				CA59D1482243958B0021B1DF /* BeerWebVC.swift in Sources */,
 				9F73C771222D21AB00CB34AF /* CellExpandDelegate.swift in Sources */,
 				9F9FEFB42223F5DA00E5EF49 /* SavedBeersVM.swift in Sources */,
 				9F89DE162221F6320031989B /* RMBeerStyle.swift in Sources */,

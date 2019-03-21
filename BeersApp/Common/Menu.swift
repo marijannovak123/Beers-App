@@ -28,6 +28,7 @@ enum MenuItem {
     case addBeer
     case locations
     case game
+    case beerWeb
     
     var screen: Screen? {
         switch self {
@@ -43,6 +44,8 @@ enum MenuItem {
             return .locations
         case .game:
             return .game
+        case .beerWeb:
+            return .beerWeb
         }
     }
 
@@ -60,6 +63,8 @@ enum MenuItem {
             return "locations".localized
         case .game:
             return "game".localized
+        case .beerWeb:
+            return "beer_web".localized
         }
     }
     
@@ -77,11 +82,13 @@ enum MenuItem {
             return #imageLiteral(resourceName: "location")
         case .game:
             return #imageLiteral(resourceName: "game")
+        case .beerWeb:
+            return #imageLiteral(resourceName: "web")
         }
     }
     
     static var allValues: [MenuItem] {
-        return [.beerSearch, .savedBeers, .brewerySearch, .addBeer, .locations, .game]
+        return [.beerSearch, .savedBeers, .brewerySearch, .addBeer, .locations, .game, .beerWeb]
     }
 }
 

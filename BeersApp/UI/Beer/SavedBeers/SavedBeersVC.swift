@@ -113,7 +113,7 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
         if tableView == tvBeers {
             let action = UITableViewRowAction(style: .destructive, title: "delete".localized) { (action, indexPath) in
                 DialogHelper.promptDialog(parent: self, message: "delete_prompt".localized, positiveText: "Yes", negativeText: "No", completion: {
-                    self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath) //could have used Completable
+                    self.tvBeers.notifyEditAction(action: .delete, forRowAt: indexPath) 
                 })
             }
             
