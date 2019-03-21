@@ -50,18 +50,20 @@ class SavedBeersVC: MenuChildViewController<SavedBeersVM>, UITableViewDelegate {
                 self.handleUIResult(event)
             }).disposed(by: disposeBag)
         
-        output.beerCount
-            .drive(onNext: { [unowned self] count in
-                self.showEmptyResultSetMessage(count == 0)
+        output.anyBeers
+            .drive(onNext: { [unowned self] anyBeers in
+                self.showEmptyResultSetMessage(!anyBeers)
             }).disposed(by: disposeBag)
     }
     
     func showEmptyResultSetMessage(_ show: Bool) {
         if show {
             tvBeers.isHidden = true
+            tvPersonalBeers.isHidden = true
             lNoResults.isHidden = false
         } else {
             tvBeers.isHidden = false
+            tvPersonalBeers.isHidden = false
             lNoResults.isHidden = true
         }
     }

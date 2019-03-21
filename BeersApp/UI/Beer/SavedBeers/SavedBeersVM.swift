@@ -24,7 +24,7 @@ class SavedBeersVM: ViewModelType {
         let personalBeersSection: Driver<[PersonalBeerSection]>
         let deleteResult: Driver<UIResult>
         let deleteAllResult: Driver<UIResult>
-        let beerCount: Driver<Int>
+        let anyBeers: Driver<Bool>
     }
     
     private let repository: BeerRepository
@@ -67,7 +67,15 @@ class SavedBeersVM: ViewModelType {
             $0.first?.beers.count ?? 0
         }
         
-        return Output(beersSection: beerDriver, personalBeersSection: personalBeerDriver, deleteResult: deleteDriver, deleteAllResult: deleteAllDriver, beerCount: beerCount)
+        let personalBeerCount = personalBeerDriver.map {
+            $0.first?.beers.count ?? 0
+        }
+            
+        let anyBeers = Driver.combineLatest(beerCount, personalBeerCount) { beersNo, personalBeersNo in
+            beersNo > 0 || personalBeersNo > 0
+        }
+        
+        return Output(beersSection: beerDriver, personalBeersSection: personalBeerDriver, deleteResult: deleteDriver, deleteAllResult: deleteAllDriver, anyBeers: anyBeers)
     }
     
     func setExpandedCell(at index: Int) {

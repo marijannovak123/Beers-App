@@ -31,8 +31,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-P5-XpT" userLabel="Personal Beer Image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-P5-XpT" userLabel="Personal Beer Image">
                         <rect key="frame" x="32" y="44.5" width="256" height="139.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="AAg-1t-w2C"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
